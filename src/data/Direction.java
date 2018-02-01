@@ -2,7 +2,7 @@ package data;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Direction {
+public final class Direction {
     @SerializedName("directionName")
     private String pointingAtDirection;
 

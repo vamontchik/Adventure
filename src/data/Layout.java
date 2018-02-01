@@ -2,7 +2,7 @@ package data;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Layout {
+public final class Layout {
     @SerializedName("startingRoom")
     private String startingRoom;
 
