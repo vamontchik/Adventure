@@ -40,7 +40,11 @@ public class ReaderTest {
     public void parseJsonSuccess() {
         String filename = "siebel.json";
         Reader reader = new Reader();
-        List<Layout> layout = reader.parseJson(Collections.singletonList(filename));
-        assertEquals(1, layout.size());
+        List<Layout> listOfLayouts = reader.parseJson(Collections.singletonList(filename));
+
+        assertEquals(1, listOfLayouts.size());
+        assertEquals("MatthewsStreet", listOfLayouts.get(0).getStartingRoom());
+        assertEquals("Siebel1314", listOfLayouts.get(0).getEndingRoom());
+        assertEquals(8, listOfLayouts.get(0).getRooms().length);
     }
 }

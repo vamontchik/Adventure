@@ -11,4 +11,16 @@ public final class Layout {
 
     @SerializedName("rooms")
     private Room[] rooms;
+
+    public String getStartingRoom() {
+        return startingRoom;
+    }
+
+    public String getEndingRoom() {
+        return endingRoom;
+    }
+
+    public Room[] getRooms() {
+        return rooms;
+    }
 }
