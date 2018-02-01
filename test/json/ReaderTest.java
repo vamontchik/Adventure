@@ -39,7 +39,6 @@ public class ReaderTest {
     @Test
     public void parseJsonSuccess() {
         String filename = "siebel.json";
-        Reader reader = new Reader();
         List<Layout> listOfLayouts = reader.parseJson(Collections.singletonList(filename));
 
         assertEquals(1, listOfLayouts.size());
