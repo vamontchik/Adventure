@@ -4,8 +4,13 @@ import com.google.gson.annotations.SerializedName;
 
 public final class Direction {
     @SerializedName("directionName")
-    private String pointingAtDirection;
+    private String direction;
 
     @SerializedName("room")
-    private String pointingAtRoom;
+    private String room;
+
+    @Override
+    public String toString() {
+        return direction + ", pointing towards " + room;
+    }
 }

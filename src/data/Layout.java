@@ -12,15 +12,33 @@ public final class Layout {
     @SerializedName("rooms")
     private Room[] rooms;
 
-    public String getStartingRoom() {
+    public final String getStartingRoomName() {
         return startingRoom;
     }
 
-    public String getEndingRoom() {
+    public final Room getStartingRoom() {
+        for (Room room : rooms) {
+            if (startingRoom.equals(room.getName())) {
+                return room;
+            }
+        }
+        throw new IllegalStateException("No starting room found!");
+    }
+
+    public final String getEndingRoomName() {
         return endingRoom;
     }
 
-    public Room[] getRooms() {
+    public final Room getEndingRoom() {
+        for (Room room : rooms) {
+            if (endingRoom.equals(room.getName())) {
+                return room;
+            }
+        }
+        throw new IllegalStateException("No ending room found!");
+    }
+
+    public final Room[] getRooms() {
         return rooms;
     }
 }

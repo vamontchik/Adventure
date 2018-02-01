@@ -7,8 +7,6 @@ import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.List;
 
 public final class Reader {
     /**
@@ -18,7 +16,7 @@ public final class Reader {
      * @param objects The variable amount of objects that were passed in
      * @return true if there is at least one object that is {@code null}
      */
-    private boolean isNull(Object... objects) {
+    private static boolean isNull(Object... objects) {
         //if objects only has one object it treats it as non-vararg...
         if (objects == null) {
             return true;
@@ -34,28 +32,18 @@ public final class Reader {
     }
 
     /**
-     * Parses the files given by the {@code List} of {@code String} of file names
-     * into a {@code List} of {@code Layout} objects.
+     * Parses the passed-in JSON file into a Layout object.
      *
-     * @param filenames the list of file names passed in
-     * @return a {@code List} of {@code Layout} object, where each {@code Layout} is the parsed contents
-     * of a JSON object found in the file names provided
+     * @param filename the name of the file to parse
+     * @return the passed-in JSON file into a Layout object
      */
-    public final List<Layout> parseJson(List<String> filenames) {
-        if (isNull(filenames)) {
-            return new ArrayList<>();
+    public static Layout parseJson(String filename) {
+        if (isNull(filename)) {
+            return null;
         }
-
-        List<Layout> parsedLayouts = new ArrayList<>();
         Gson gson = new Gson();
-
-        for (String filename : filenames) {
-            String toParse = getFileContentsAsString(filename);
-            Layout parsedToLayout = gson.fromJson(toParse, Layout.class);
-            parsedLayouts.add(parsedToLayout);
-        }
-
-        return parsedLayouts;
+        String toParse = getFileContentsAsString(filename);
+        return gson.fromJson(toParse, Layout.class);
     }
 
     /**
@@ -65,7 +53,7 @@ public final class Reader {
      * @param filename contains the name of file
      * @return a String containing the file's contents
      */
-    private String getFileContentsAsString(String filename) {
+    private static String getFileContentsAsString(String filename) {
         final Path path = FileSystems.getDefault().getPath("data", filename);
 
         try {
