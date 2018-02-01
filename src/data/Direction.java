@@ -13,4 +13,12 @@ public final class Direction {
     public String toString() {
         return direction + ", pointing towards " + room;
     }
+
+    public String getDirection() {
+        return direction;
+    }
+
+    public String getRoomName() {
+        return room;
+    }
 }

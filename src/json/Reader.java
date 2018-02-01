@@ -3,10 +3,10 @@ package json;
 import com.google.gson.Gson;
 import data.Layout;
 
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.nio.file.FileSystems;
-import java.nio.file.Files;
-import java.nio.file.Path;
+import java.io.InputStreamReader;
+import java.net.URL;
 
 public final class Reader {
     /**
@@ -32,34 +32,39 @@ public final class Reader {
     }
 
     /**
-     * Parses the passed-in JSON file into a Layout object.
+     * Parses the passed-in URL into a Layout object.
      *
-     * @param filename the name of the file to parse
-     * @return the passed-in JSON file into a Layout object
+     * @param url the URL string to parse
+     * @return Parses the passed-in URL into a Layout object.
      */
-    public static Layout parseJson(String filename) {
-        if (isNull(filename)) {
-            return null;
+    public static Layout parseJson(String url) {
+        if (isNull(url)) {
+            throw new IllegalArgumentException("Passed in URL is null!");
         }
+
+        String toParse = getFileContentsFromURL(url);
+
         Gson gson = new Gson();
-        String toParse = getFileContentsAsString(filename);
         return gson.fromJson(toParse, Layout.class);
     }
 
     /**
-     * This function reads the contents of a file located in the project's 'data' directory into a String.
-     * Note: This method is piggy-backed from the CourseGrades MP with minor modifications.
+     * Reads the file contents from a specified URL into a String.
      *
-     * @param filename contains the name of file
-     * @return a String containing the file's contents
+     * @param url the URL string to read
+     * @return the file contents from a specified URL into a String.
      */
-    private static String getFileContentsAsString(String filename) {
-        final Path path = FileSystems.getDefault().getPath("data", filename);
-
+    private static String getFileContentsFromURL(String url) {
         try {
-            return new String(Files.readAllBytes(path));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(new URL(url).openStream()));
+            StringBuilder builder = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                builder.append(line);
+            }
+            return builder.toString();
         } catch (IOException e) {
-            throw new IllegalArgumentException("Could not find file: " + filename);
+            throw new IllegalArgumentException(e.getMessage());
         }
     }
 }

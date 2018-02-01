@@ -12,16 +12,22 @@ public final class Game {
     private final Room endingRoom;
 
     public Game() {
-        layout = Reader.parseJson("siebel.json");
+        layout = Reader.parseJson("https://courses.engr.illinois.edu/cs126/adventure/siebel.json");
         console = new Console(layout);
         currentRoom = layout.getStartingRoom();
         endingRoom = layout.getEndingRoom();
     }
 
     public final void start() {
-        console.printUponEnterRoom(currentRoom);
+        console.printUponEntrance(currentRoom);
         console.printRoomContents(currentRoom);
         console.printDirections(currentRoom);
+
+        while (true) {
+            console.println("Your move: ");
+            console.readInput();
+            console.processInput();
+        }
     }
 
     public static void main(String[] args) {

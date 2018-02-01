@@ -6,6 +6,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import java.io.IOException;
+
 import static org.junit.Assert.assertEquals;
 
 public final class ReaderTest {
@@ -15,26 +17,27 @@ public final class ReaderTest {
     @Rule
     public final ExpectedException thrown = ExpectedException.none();
 
+    private static String urlToJson;
+
     /**
      * Needs to be static because of annotation (ie. static "constructor")
      */
     @BeforeClass
     public static void setUp() {
-        //
+        urlToJson = "https://courses.engr.illinois.edu/cs126/adventure/siebel.json";
     }
 
     @Test
     public void parseJsonFail() {
-        String filename = "nadaherehaha.json";
+        String filename = "https://somesite.com/json/nadaherehaha.json";
         thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage("Could not find file: " + filename);
-        Reader.parseJson(filename);
+        thrown.expectMessage("Connection reset");
+        Layout layout = Reader.parseJson(filename);
     }
 
     @Test
     public void parseJsonSuccess() {
-        String filename = "siebel.json";
-        Layout layout = Reader.parseJson(filename);
+        Layout layout = Reader.parseJson(urlToJson);
 
         assertEquals("MatthewsStreet", layout.getStartingRoomName());
         assertEquals("Siebel1314", layout.getEndingRoomName());
