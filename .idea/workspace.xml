@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="430e989e-4e44-41b7-84d6-03a39df9f0a2" name="Default" comment="Slight modification to simple tests (again).">
+    <list default="true" id="430e989e-4e44-41b7-84d6-03a39df9f0a2" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/Adventure/data/Direction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Adventure/data/Layout.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Adventure/data/Room.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Adventure/json/Reader.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/test/Adventure/json/ReaderTest.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test/json/ReaderTest.java" afterPath="$PROJECT_DIR$/test/json/ReaderTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -60,23 +55,33 @@
       <file leaf-file-name="Reader.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/json/Reader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
+            <state relative-caret-position="-268">
               <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReaderTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ReaderTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/json/ReaderTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="327">
-              <caret line="20" column="33" lean-forward="true" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
+              <caret line="20" column="33" lean-forward="false" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#593#594#0" expanded="true" />
                 <element signature="e#630#631#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="4" lean-forward="false" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -126,6 +131,7 @@
         <option value="$PROJECT_DIR$/src/json/Reader.java" />
         <option value="$PROJECT_DIR$/src/data/Layout.java" />
         <option value="$PROJECT_DIR$/test/json/ReaderTest.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -428,7 +434,8 @@
     <MESSAGE value="Added java classes representing JSON content." />
     <MESSAGE value="Tests; Reader; Minor Fixes.&#10;&#10;- Created a Reader class that reads JSON files into a Layout objects.&#10;- Created a few tests for the reader.&#10;- Minor fixes throughout." />
     <MESSAGE value="Slight modification to simple tests." />
-    <option name="LAST_COMMIT_MESSAGE" value="Slight modification to simple tests." />
+    <MESSAGE value="Slight modification to simple tests (again).&#10;&#10;- And cleanup... no need for .class files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Slight modification to simple tests (again).&#10;&#10;- And cleanup... no need for .class files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -439,6 +446,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="10" lean-forward="false" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/siebel.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="103" column="4" lean-forward="false" selection-start-line="103" selection-start-column="4" selection-end-line="103" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -455,14 +470,6 @@
             <element signature="e#460#461#0" expanded="true" />
             <element signature="e#488#489#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/siebel.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="103" column="4" lean-forward="false" selection-start-line="103" selection-start-column="4" selection-end-line="103" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -484,7 +491,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/json/Reader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
+        <state relative-caret-position="-268">
           <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
@@ -493,12 +500,20 @@
     <entry file="file://$PROJECT_DIR$/test/json/ReaderTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="327">
-          <caret line="20" column="33" lean-forward="true" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
+          <caret line="20" column="33" lean-forward="false" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#593#594#0" expanded="true" />
             <element signature="e#630#631#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="4" lean-forward="false" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
