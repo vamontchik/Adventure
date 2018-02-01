@@ -1,12 +1,14 @@
 package json;
 
 import data.Layout;
+import data.Room;
+import error.InvalidInputException;
 import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import java.io.IOException;
+import java.lang.reflect.Field;
 
 import static org.junit.Assert.assertEquals;
 
@@ -36,11 +38,17 @@ public final class ReaderTest {
     }
 
     @Test
-    public void parseJsonSuccess() {
+    public void parseJsonSuccess() throws NoSuchFieldException, IllegalAccessException, InvalidInputException {
         Layout layout = Reader.parseJson(urlToJson);
+        layout.initAfterParse();
 
-        assertEquals("MatthewsStreet", layout.getStartingRoomName());
-        assertEquals("Siebel1314", layout.getEndingRoomName());
-        assertEquals(8, layout.getRooms().length);
+        assertEquals("MatthewsStreet", layout.getStartingRoom().getName());
+        assertEquals("Siebel1314", layout.getEndingRoom().getName());
+
+        Field roomField = Layout.class.getDeclaredField("rooms");
+        roomField.setAccessible(true);
+        Room[] rooms = (Room[])roomField.get(layout);
+
+        assertEquals(8, rooms.length);
     }
 }

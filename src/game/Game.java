@@ -2,26 +2,23 @@ package game;
 
 import console.Console;
 import data.Layout;
-import data.Room;
+import error.InvalidInputException;
 import json.Reader;
 
 public final class Game {
     private final Console console;
     private final Layout layout;
-    private Room currentRoom;
-    private final Room endingRoom;
 
-    public Game() {
+    public Game() throws InvalidInputException {
         layout = Reader.parseJson("https://courses.engr.illinois.edu/cs126/adventure/siebel.json");
+        layout.initAfterParse();
         console = new Console(layout);
-        currentRoom = layout.getStartingRoom();
-        endingRoom = layout.getEndingRoom();
     }
 
     public final void start() {
-        console.printUponEntrance(currentRoom);
-        console.printRoomContents(currentRoom);
-        console.printDirections(currentRoom);
+        console.printUponEntrance(layout.getCurrentRoom());
+        console.printRoomContents(layout.getCurrentRoom());
+        console.printDirections(layout.getCurrentRoom());
 
         while (true) {
             console.println("Your move: ");
@@ -30,7 +27,7 @@ public final class Game {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InvalidInputException {
         new Game().start();
     }
 }
