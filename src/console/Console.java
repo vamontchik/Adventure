@@ -10,7 +10,8 @@ public final class Console {
     private final Scanner scan;
     private final Layout layout;
 
-    private String input;
+    private String command;
+    private String[] args;
 
     public Console(Layout layout) {
         scan = new Scanner(System.in);
@@ -61,12 +62,20 @@ public final class Console {
     }
 
     public void readInput() {
-        input = scan.nextLine();
+        String input = scan.nextLine();
+        String[] split = input.trim().split("\\s+");
+        command = split[0];
+        args = new String[split.length - 1];
+        for (int i = 1; i < split.length; i++) {
+            args[i - 1] = split[i];
+        }
     }
 
     public void processInput() {
-        if (input.equalsIgnoreCase("quit") || input.equalsIgnoreCase("exit")) {
+        if (command.equalsIgnoreCase("quit") || command.equalsIgnoreCase("exit")) {
             System.exit(0);
         }
+
+        //... do more stuff
     }
 }
