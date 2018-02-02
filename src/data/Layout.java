@@ -42,17 +42,16 @@ public final class Layout {
         return endingRoomObj;
     }
 
-    public Room getCurrentRoom() {
+    public final Room getCurrentRoom() {
         return currentRoomObj;
     }
 
-    public Room findRoomByName(String roomName) throws NoRoomException {
+    public final Room findRoomByName(String roomName) throws NoRoomException {
         return roomNameToRoom(roomName);
     }
 
     private Room roomNameToRoom(String roomName) throws NoRoomException {
         for (Room room : rooms) {
-            System.out.println(room.getName());
             if (roomName.equals(room.getName())) {
                 return room;
             }

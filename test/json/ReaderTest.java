@@ -37,6 +37,11 @@ public final class ReaderTest {
         Layout layout = Reader.parseJson(filename);
     }
 
+    /*
+     * Accessing a private field with reflection:
+     *
+     * https://stackoverflow.com/questions/1555658/is-it-possible-in-java-to-access-private-fields-via-reflection
+     */
     @Test
     public void parseJsonSuccess() throws NoSuchFieldException, IllegalAccessException, InvalidInputException {
         Layout layout = Reader.parseJson(urlToJson);

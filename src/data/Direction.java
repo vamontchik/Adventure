@@ -10,15 +10,15 @@ public final class Direction {
     private String room;
 
     @Override
-    public String toString() {
+    public final String toString() {
         return direction + ", pointing towards " + room;
     }
 
-    public String getDirection() {
+    public final String getDirection() {
         return direction;
     }
 
-    public String getRoomName() {
+    public final String getRoomName() {
         return room;
     }
 }

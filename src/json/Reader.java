@@ -32,12 +32,12 @@ public final class Reader {
     }
 
     /**
-     * Parses the passed-in URL into a Layout object.
+     * Parses the passed-in url into a {@code Layout} object.
      *
-     * @param url the URL string to parse
-     * @return Parses the passed-in URL into a Layout object.
+     * @param url the url string to parse
+     * @return Parses the passed-in URL into a {@code Layout} object.
      */
-    public static Layout parseJson(String url) {
+    public final static Layout parseJson(String url) {
         if (isNull(url)) {
             throw new IllegalArgumentException("Passed in URL is null!");
         }

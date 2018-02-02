@@ -3,6 +3,7 @@ package console;
 import data.Direction;
 import data.Layout;
 import data.Room;
+import error.InvalidInputException;
 
 import java.util.Scanner;
 
@@ -61,21 +62,33 @@ public final class Console {
         println("");
     }
 
-    public void readInput() {
+    public final void readInput() throws InvalidInputException {
         String input = scan.nextLine();
         String[] split = input.trim().split("\\s+");
+
+        if (split.length == 0) {
+            throw new InvalidInputException("Entered in an empty string or only whitespace!");
+        }
+
         command = split[0];
         args = new String[split.length - 1];
-        for (int i = 1; i < split.length; i++) {
-            args[i - 1] = split[i];
-        }
+        System.arraycopy(split, 1, args, 0, split.length - 1);
     }
 
-    public void processInput() {
+    public final void processInput() throws InvalidInputException {
         if (command.equalsIgnoreCase("quit") || command.equalsIgnoreCase("exit")) {
             System.exit(0);
         }
 
-        //... do more stuff
+        if (command.equalsIgnoreCase("go")) {
+
+        }
+
+        throw new InvalidInputException("Cannot determine what to do!");
+    }
+
+    public final void clear() {
+        command = null;
+        args = null;
     }
 }

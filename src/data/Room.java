@@ -35,7 +35,7 @@ public final class Room {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public final boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Room room = (Room) o;
@@ -46,7 +46,7 @@ public final class Room {
     }
 
     @Override
-    public int hashCode() {
+    public final int hashCode() {
         int result = Objects.hash(name, description);
         result = 31 * result + Arrays.hashCode(directions);
         result = 31 * result + Arrays.hashCode(items);

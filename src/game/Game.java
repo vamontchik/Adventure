@@ -22,8 +22,14 @@ public final class Game {
 
         while (true) {
             console.println("Your move: ");
-            console.readInput();
-            console.processInput();
+
+            try {
+                console.readInput();
+                console.processInput();
+            } catch (InvalidInputException e) {
+                console.println(e.getMessage());
+                console.clear();
+            }
         }
     }
 
