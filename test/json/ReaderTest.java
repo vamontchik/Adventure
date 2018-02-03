@@ -12,12 +12,12 @@ import java.lang.reflect.Field;
 
 import static org.junit.Assert.assertEquals;
 
-public final class ReaderTest {
+public class ReaderTest {
     /**
      * Necessary to be public because of annotation.
      */
     @Rule
-    public final ExpectedException thrown = ExpectedException.none();
+    public ExpectedException thrown = ExpectedException.none();
 
     @Test
     public void layoutParsingFail() throws InvalidInputException, IncompleteBuilderException {

@@ -1,15 +1,17 @@
 package json;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import data.Layout;
 import error.InvalidInputException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Modifier;
 import java.net.URL;
 
-public final class Reader {
+public class Reader {
     /**
      * Helper method that helps safely determine if any of the variable amount of Objects
      * passed in are {@code null}
@@ -38,14 +40,19 @@ public final class Reader {
      * @param url the url string to parse
      * @return Parses the passed-in URL into a {@code Layout} object.
      */
-    public static final Layout parseJson(String url) throws InvalidInputException {
+    public static Layout parseJson(String url) throws InvalidInputException {
         if (isNull(url)) {
             throw new IllegalArgumentException("Passed in URL is null!");
         }
 
         String toParse = getFileContentsFromURL(url);
 
-        Gson gson = new Gson();
+        /*
+            How to allow GSON to parse into static variables:
+
+            https://stackoverflow.com/questions/15116537/how-to-convert-static-variables-in-class-to-json
+        */
+        Gson gson = new GsonBuilder().excludeFieldsWithModifiers(Modifier.TRANSIENT).create();
         return gson.fromJson(toParse, Layout.class);
     }
 

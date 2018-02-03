@@ -2,10 +2,11 @@ package data;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
-public final class Room {
+public class Room {
     @SerializedName("name")
     private String name;
 
@@ -18,24 +19,36 @@ public final class Room {
     @SerializedName("items")
     private String[] items;
 
-    public final String getName() {
+    public String getName() {
         return name;
     }
 
-    public final String getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public final Direction[] getDirections() {
+    public Direction[] getDirections() {
         return directions;
     }
 
-    public final String[] getItems() {
+    public String[] getItems() {
         return items;
     }
 
+    public void removeItem(String item) {
+        ArrayList<String> listRepresentation = new ArrayList<>(Arrays.asList(items));
+        listRepresentation.remove(item);
+        items = listRepresentation.toArray(items);
+    }
+
+    public void addItem(String item) {
+        ArrayList<String> listRepresentation = new ArrayList<>(Arrays.asList(items));
+        listRepresentation.add(item);
+        items = listRepresentation.toArray(items);
+    }
+
     @Override
-    public final boolean equals(Object o) {
+    public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Room room = (Room) o;
@@ -46,7 +59,7 @@ public final class Room {
     }
 
     @Override
-    public final int hashCode() {
+    public int hashCode() {
         int result = Objects.hash(name, description);
         result = 31 * result + Arrays.hashCode(directions);
         result = 31 * result + Arrays.hashCode(items);

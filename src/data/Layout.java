@@ -6,7 +6,7 @@ import error.InvalidInputException;
 import error.NoRoomException;
 import json.Reader;
 
-public final class Layout {
+public class Layout {
     public static class Builder {
         private String url;
 
@@ -38,10 +38,9 @@ public final class Layout {
 
     private Room startingRoomObj;
     private Room endingRoomObj;
-    private Room currentRoomObj;
 
     @SerializedName("rooms")
-    private Room[] rooms;
+    private static Room[] rooms;
 
     private void initAfterParse() throws InvalidInputException {
         try {
@@ -55,23 +54,17 @@ public final class Layout {
         } catch (NoRoomException e) {
             throw new InvalidInputException("There is no ending room!");
         }
-
-        currentRoomObj = startingRoomObj;
     }
 
-    public final Room getStartingRoom() {
+    public Room getStartingRoom() {
         return startingRoomObj;
     }
 
-    public final Room getEndingRoom() {
+    public Room getEndingRoom() {
         return endingRoomObj;
     }
 
-    public final Room getCurrentRoom() {
-        return currentRoomObj;
-    }
-
-    private Room findRoomByName(String roomName) throws NoRoomException {
+    public static Room findRoomByName(String roomName) throws NoRoomException {
         for (Room room : rooms) {
             if (roomName.equals(room.getName())) {
                 return room;

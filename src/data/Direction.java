@@ -2,23 +2,23 @@ package data;
 
 import com.google.gson.annotations.SerializedName;
 
-public final class Direction {
+public class Direction {
     @SerializedName("directionName")
     private String direction;
 
     @SerializedName("room")
     private String room;
 
-    @Override
-    public final String toString() {
-        return direction + ", pointing towards " + room;
-    }
-
-    public final String getDirection() {
+    public String getDirection() {
         return direction;
     }
 
-    public final String getRoomName() {
+    public String getRoomName() {
         return room;
+    }
+
+    @Override
+    public String toString() {
+        return direction;
     }
 }
