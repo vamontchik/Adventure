@@ -1,10 +1,35 @@
 package data;
 
 import com.google.gson.annotations.SerializedName;
+import error.IncompleteBuilderException;
 import error.InvalidInputException;
 import error.NoRoomException;
+import json.Reader;
 
 public final class Layout {
+    public static class Builder {
+        private String url;
+
+        public Builder() {}
+
+        public Builder url(String url) {
+            this.url = url;
+            return this;
+        }
+
+        public Layout buildLayout() throws InvalidInputException, IncompleteBuilderException {
+            if (url == null) {
+                throw new IncompleteBuilderException("URL has not been set! Use .url() method!");
+            }
+
+            Layout layout = Reader.parseJson(url);
+            layout.initAfterParse();
+            return layout;
+        }
+    }
+
+    private Layout() {}
+
     @SerializedName("startingRoom")
     private String startingRoomName;
 
@@ -18,7 +43,7 @@ public final class Layout {
     @SerializedName("rooms")
     private Room[] rooms;
 
-    public void initAfterParse() throws InvalidInputException {
+    private void initAfterParse() throws InvalidInputException {
         try {
             startingRoomObj = findRoomByName(startingRoomName);
         } catch (NoRoomException e) {
@@ -46,11 +71,7 @@ public final class Layout {
         return currentRoomObj;
     }
 
-    public final Room findRoomByName(String roomName) throws NoRoomException {
-        return roomNameToRoom(roomName);
-    }
-
-    private Room roomNameToRoom(String roomName) throws NoRoomException {
+    private Room findRoomByName(String roomName) throws NoRoomException {
         for (Room room : rooms) {
             if (roomName.equals(room.getName())) {
                 return room;

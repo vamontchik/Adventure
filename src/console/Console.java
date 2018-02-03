@@ -8,26 +8,23 @@ import error.InvalidInputException;
 import java.util.Scanner;
 
 public final class Console {
-    private final Scanner scan;
-    private final Layout layout;
+    private static final Scanner scan;
+    private static String command;
+    private static String[] args;
 
-    private String command;
-    private String[] args;
-
-    public Console(Layout layout) {
+    static {
         scan = new Scanner(System.in);
-        this.layout = layout;
     }
 
-    public final void println(String s) {
+    public static final void println(String s) {
         System.out.println(s);
     }
 
-    public final void print(String s) {
+    public static final void print(String s) {
         System.out.print(s);
     }
 
-    public final void printRoomContents(Room room) {
+    public static final void printRoomContents(Room room) {
         print("Items: [");
         for (String item : room.getItems()) {
             print(item);
@@ -36,7 +33,7 @@ public final class Console {
         println("");
     }
 
-    public final void printUponEntrance(Room room) {
+    public static final void printUponEntrance(Layout layout, Room room) {
         println(room.getDescription());
 
         if (layout.getStartingRoom().equals(room)) {
@@ -48,7 +45,7 @@ public final class Console {
         }
     }
 
-    public final void printDirections(Room room) {
+    public static final void printDirections(Room room) {
         Direction[] directions = room.getDirections();
 
         print("From here, you can go: ");
@@ -62,7 +59,7 @@ public final class Console {
         println("");
     }
 
-    public final void readInput() throws InvalidInputException {
+    public static final void readInput() throws InvalidInputException {
         String input = scan.nextLine();
         String[] split = input.trim().split("\\s+");
 
@@ -75,19 +72,15 @@ public final class Console {
         System.arraycopy(split, 1, args, 0, split.length - 1);
     }
 
-    public final void processInput() throws InvalidInputException {
+    public static final void processInput() throws InvalidInputException {
         if (command.equalsIgnoreCase("quit") || command.equalsIgnoreCase("exit")) {
             System.exit(0);
-        }
-
-        if (command.equalsIgnoreCase("go")) {
-
         }
 
         throw new InvalidInputException("Cannot determine what to do!");
     }
 
-    public final void clear() {
+    public static final void clear() {
         command = null;
         args = null;
     }

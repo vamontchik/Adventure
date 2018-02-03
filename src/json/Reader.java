@@ -2,6 +2,7 @@ package json;
 
 import com.google.gson.Gson;
 import data.Layout;
+import error.InvalidInputException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -37,7 +38,7 @@ public final class Reader {
      * @param url the url string to parse
      * @return Parses the passed-in URL into a {@code Layout} object.
      */
-    public final static Layout parseJson(String url) {
+    public static final Layout parseJson(String url) throws InvalidInputException {
         if (isNull(url)) {
             throw new IllegalArgumentException("Passed in URL is null!");
         }
@@ -54,7 +55,7 @@ public final class Reader {
      * @param url the URL string to read
      * @return the file contents from a specified URL into a String.
      */
-    private static String getFileContentsFromURL(String url) {
+    private static String getFileContentsFromURL(String url) throws InvalidInputException {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(new URL(url).openStream()));
             StringBuilder builder = new StringBuilder();
@@ -64,7 +65,7 @@ public final class Reader {
             }
             return builder.toString();
         } catch (IOException e) {
-            throw new IllegalArgumentException(e.getMessage());
+            throw new InvalidInputException(e.getMessage());
         }
     }
 }
