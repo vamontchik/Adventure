@@ -23,12 +23,8 @@ public class Game {
     }
 
     public void loop() {
-        Console.printUponEntrance(layout, player.getCurrentRoom());
-        Console.printPlayerContents(player);
-        Console.printRoomContents(player.getCurrentRoom());
-        Console.printDirections(player.getCurrentRoom());
-
         while (true) {
+            printStatus();
             Console.println("Your move: ");
 
             try {
@@ -42,6 +38,13 @@ public class Game {
         }
     }
 
+    private void printStatus() {
+        Console.printUponEntrance(layout, player.getCurrentRoom());
+        Console.printPlayerContents(player);
+        Console.printRoomContents(player.getCurrentRoom());
+        Console.printDirections(player.getCurrentRoom());
+    }
+
     private void doResult(ProcessConstant result) {
         switch (result) {
             case EXIT:
@@ -50,15 +53,14 @@ public class Game {
             case MOVE:
             case TAKE:
             case DROP:
-                Console.printUponEntrance(layout, player.getCurrentRoom());
-                Console.printPlayerContents(player);
-                Console.printRoomContents(player.getCurrentRoom());
-                Console.printDirections(player.getCurrentRoom());
+                // don't do anything...
                 break;
             case END:
                 Console.println("Congratulations you've won!");
                 System.exit(0);
                 break;
+            case LIST:
+                Console.printPlayerContents(player);
             default:
                 //... should never happen ...
         }

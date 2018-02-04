@@ -32,19 +32,31 @@ public class Room {
     }
 
     public String[] getItems() {
+        //some JSON objects don't have an items field...
+        if (items == null) {
+            items = new String[0];
+        }
+
         return items;
     }
 
     public void removeItem(String item) {
         ArrayList<String> listRepresentation = new ArrayList<>(Arrays.asList(items));
         listRepresentation.remove(item);
-        items = listRepresentation.toArray(items);
+
+        //.toArray(T[]) uses the size of T to copy over values...
+        //if the sizes mismatch, extra places are filled with null
+        //to avoid this, pass in an empty array one less insize
+        items = listRepresentation.toArray(new String[items.length - 1]);
     }
 
     public void addItem(String item) {
         ArrayList<String> listRepresentation = new ArrayList<>(Arrays.asList(items));
         listRepresentation.add(item);
-        items = listRepresentation.toArray(items);
+
+        //.toArray(T[]) uses the size of T to copy over values...
+        //if the sizes mismatch, extra places are filled with null
+        items = listRepresentation.toArray(new String[items.length + 1]);
     }
 
     @Override

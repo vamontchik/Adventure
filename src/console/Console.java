@@ -12,11 +12,14 @@ import java.util.Scanner;
 
 public class Console {
     private static final Scanner scan;
+    private static String fullInput;
     private static String command;
     private static String[] args;
+    private static boolean printedStart;
 
     static {
         scan = new Scanner(System.in);
+        printedStart = false;
     }
 
     public static final void println(String s) {
@@ -60,8 +63,9 @@ public class Console {
     public static final void printUponEntrance(Layout layout, Room room) {
         println(room.getDescription());
 
-        if (layout.getStartingRoom().equals(room)) {
+        if (layout.getStartingRoom().equals(room) && !printedStart) {
             println("Your journey begins here.");
+            printedStart = true;
         }
 
         if (layout.getEndingRoom().equals(room)) {
@@ -75,9 +79,14 @@ public class Console {
         println("");
     }
 
+    public static void clear() {
+        command = null;
+        args = null;
+    }
+
     public static final void readInput() throws InvalidInputException {
-        String input = scan.nextLine();
-        String[] split = input.trim().split("\\s+");
+        fullInput = scan.nextLine();
+        String[] split = fullInput.trim().split("\\s+");
 
         if (split.length == 0) {
             throw new InvalidInputException("Entered in an empty string or only whitespace!");
@@ -132,45 +141,44 @@ public class Console {
 
             for (String item : roomItems) {
                 if (userItem.equalsIgnoreCase(item)) {
-                    Console.println("Picked up " + item);
-
                     player.getCurrentRoom().removeItem(item);
                     player.addItem(item);
 
                     return ProcessConstant.TAKE;
                 }
             }
+
+            throw new InvalidInputException("I can't take " + userItem);
         }
 
         if (command.equalsIgnoreCase("drop")) {
             ensureArgsIsNonEmpty(args);
 
-            String[] roomItems = player.getCurrentRoom().getItems();
+            List<String> roomItems = player.getItems();
             String userItem = args[0];
 
             for (String item : roomItems) {
                 if (userItem.equalsIgnoreCase(item)) {
-                    println("Dropped " + item);
-
                     player.getCurrentRoom().addItem(item);
                     player.removeItem(item);
 
-                    return ProcessConstant.TAKE;
+                    return ProcessConstant.DROP;
                 }
             }
+
+            throw new InvalidInputException("I can't drop " + userItem);
         }
 
-        throw new InvalidInputException("Cannot determine what to do!");
+        if (command.equalsIgnoreCase("list")) {
+            return ProcessConstant.LIST;
+        }
+
+        throw new InvalidInputException("I don't understand \'" + fullInput + "\'");
     }
 
     private static void ensureArgsIsNonEmpty(String[] args) throws InvalidInputException {
         if (args.length == 0) {
             throw new InvalidInputException("Please specify your arguments!");
         }
-    }
-
-    public static void clear() {
-        command = null;
-        args = null;
     }
 }

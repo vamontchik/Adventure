@@ -52,7 +52,9 @@ public class Reader {
 
             https://stackoverflow.com/questions/15116537/how-to-convert-static-variables-in-class-to-json
         */
-        Gson gson = new GsonBuilder().excludeFieldsWithModifiers(Modifier.TRANSIENT).create();
+        Gson gson = new GsonBuilder()
+                .excludeFieldsWithModifiers(Modifier.TRANSIENT)
+                .create();
         return gson.fromJson(toParse, Layout.class);
     }
 
