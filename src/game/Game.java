@@ -6,6 +6,8 @@ import data.Layout;
 import data.Player;
 import error.IncompleteBuilderException;
 import error.InvalidInputException;
+import error.InvalidMapException;
+import validator.MapValidator;
 
 public class Game {
     private Layout layout;
@@ -13,9 +15,10 @@ public class Game {
 
     public Game(String url) {
         try {
-            layout = new Layout.Builder().url(url).buildLayout();
+            layout = new Layout.Builder().url(url).buildLayoutFromURL();
+            MapValidator.validate(layout);
             player = new Player(layout.getStartingRoom());
-        } catch (InvalidInputException | IncompleteBuilderException e) {
+        } catch (InvalidInputException | IncompleteBuilderException | InvalidMapException e) {
             Console.println("Error: " + e.getMessage());
             Console.println("Unable to initialize game!");
             System.exit(-1);

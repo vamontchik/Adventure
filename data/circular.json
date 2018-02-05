@@ -1,0 +1,67 @@
+{
+  "startingRoom": "Room1",
+  "endingRoom": "Room5",
+  "rooms": [
+    {
+      "name": "Room1",
+      "description": "The first room.",
+      "directions": [
+        {
+          "directionName": "East",
+          "room": "Room2"
+        }
+      ]
+    },
+    {
+      "name": "Room2",
+      "description": "The second room.",
+      "directions": [
+        {
+          "directionName": "West",
+          "room": "Room1"
+        },
+        {
+          "directionName": "North",
+          "room": "Room3"
+        },
+		{
+		  "directionName": "East",
+		  "room": "Room4"
+		}
+      ]
+    },
+    {
+      "name": "Room3",
+      "description": "Oh wow, the third room.",
+      "items": ["circle"],
+      "directions": [
+        {
+          "directionName": "South",
+          "room": "Room2"
+        }
+      ]
+    },
+    {
+      "name": "Room4",
+      "description": "Yet another generic room.",
+	  "items": ["stuff"],
+      "directions": [
+        {
+          "directionName": "East",
+          "room": "Room5"
+        }
+      ]
+    },
+    {
+      "name": "Room5",
+      "description": "The last generic room, finally.",
+      "items": ["more stuff", "grading rubric"],
+      "directions": [
+        {
+          "directionName": "West",
+          "room": "Room4"
+        }
+      ]
+    }
+  ]
+}

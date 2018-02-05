@@ -1,0 +1,46 @@
+{
+  "startingRoom": "Room1",
+  "endingRoom": "Room4",
+  "rooms": [
+    {
+      "name": "Room1",
+      "description" : "first room",
+      "directions": [
+        {
+          "directionName": "East",
+          "room": "Room2"
+        }
+      ]
+    },
+    {
+      "name": "Room2",
+      "description": "second room",
+      "directions": [
+        {
+          "directionName": "West",
+          "room": "Room1"
+        }
+      ]
+    },
+    {
+      "name": "Room3",
+      "description" : "third room",
+      "directions": [
+        {
+          "directionName": "East",
+          "room": "Room4"
+        }
+      ]
+    },
+    {
+      "name": "Room4",
+      "description" : "fourth room",
+      "directions": [
+        {
+          "directionName": "West",
+          "room": "Room3"
+        }
+      ]
+    }
+  ]
+}

@@ -6,9 +6,12 @@ import error.InvalidInputException;
 import error.NoRoomException;
 import json.Reader;
 
+import java.io.IOException;
+
 public class Layout {
     public static class Builder {
         private String url;
+        private String filePath;
 
         public Builder() {}
 
@@ -17,12 +20,27 @@ public class Layout {
             return this;
         }
 
-        public Layout buildLayout() throws InvalidInputException, IncompleteBuilderException {
+        public Builder path(String filePath) {
+            this.filePath = filePath;
+            return this;
+        }
+
+        public Layout buildLayoutFromURL() throws InvalidInputException, IncompleteBuilderException {
             if (url == null) {
                 throw new IncompleteBuilderException("URL has not been set! Use .url() method!");
             }
 
-            Layout layout = Reader.parseJson(url);
+            Layout layout = Reader.parseJsonFromURL(url);
+            layout.initAfterParse();
+            return layout;
+        }
+
+        public Layout buildLayoutFromFile() throws IncompleteBuilderException, InvalidInputException, IOException {
+            if (filePath == null) {
+                throw new IncompleteBuilderException("filePath has not been set! Use .path() method!");
+            }
+
+            Layout layout = Reader.parseJsonFromFile(filePath);
             layout.initAfterParse();
             return layout;
         }
