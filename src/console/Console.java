@@ -137,7 +137,7 @@ public class Console {
             ensureArgsIsNonEmpty(args);
 
             String[] roomItems = player.getCurrentRoom().getItems();
-            String userItem = args[0];
+            String userItem = concatArgsIntoString(args);
 
             for (String item : roomItems) {
                 if (userItem.equalsIgnoreCase(item)) {
@@ -155,7 +155,7 @@ public class Console {
             ensureArgsIsNonEmpty(args);
 
             List<String> roomItems = player.getItems();
-            String userItem = args[0];
+            String userItem = concatArgsIntoString(args);
 
             for (String item : roomItems) {
                 if (userItem.equalsIgnoreCase(item)) {
@@ -174,6 +174,24 @@ public class Console {
         }
 
         throw new InvalidInputException("I don't understand \'" + fullInput + "\'");
+    }
+
+    private static String concatArgsIntoString(String[] args) {
+        String userItem;
+
+        if (args.length == 1) {
+            userItem = args[0];
+        } else {
+            StringBuilder builder = new StringBuilder();
+            for (String arg : args) {
+                builder.append(arg);
+                builder.append(" ");
+            }
+            //trim() to remove the last empty space added....
+            userItem = builder.toString().trim();
+        }
+
+        return userItem;
     }
 
     private static void ensureArgsIsNonEmpty(String[] args) throws InvalidInputException {

@@ -46,7 +46,7 @@ public class Room {
 
         //.toArray(T[]) uses the size of T to copy over values...
         //if the sizes mismatch, extra places are filled with null
-        //to avoid this, pass in an empty array one less insize
+        //to avoid this, pass in an empty array one less in size
         items = listRepresentation.toArray(new String[items.length - 1]);
     }
 
