@@ -42,6 +42,7 @@ public class Reader {
      *
      * @param url the url string to parse
      * @return Parses the passed-in URL into a {@code Layout} object.
+     * @throws InvalidInputException if bad input is passed in
      */
     public static Layout parseJsonFromURL(String url) throws InvalidInputException {
         if (isNull(url)) {
@@ -66,6 +67,7 @@ public class Reader {
      *
      * @param url the URL string to read
      * @return the file contents from a specified URL into a String.
+     * @throws InvalidInputException if bad input is passed in
      */
     private static String getFileContentsFromURL(String url) throws InvalidInputException {
         try {
@@ -82,6 +84,14 @@ public class Reader {
     }
 
 
+    /**
+     * Parses JSON from a file, specified by a local file path.
+     *
+     * @param path local file path
+     * @return Layout object whose contents are parsed, using Gson, from the JSON file
+     * @throws InvalidInputException if there is bad input
+     * @throws IOException if there is an exception while reading the bytes
+     */
     public static Layout parseJsonFromFile(String path) throws InvalidInputException, IOException {
         if (isNull(path)) {
             throw new InvalidInputException("Passed in filename is null!");
