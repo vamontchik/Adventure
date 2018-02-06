@@ -16,9 +16,8 @@ import java.lang.reflect.Field;
 import static org.junit.Assert.assertEquals;
 
 public class ReaderTest {
-    /**
-     * Necessary to be public because of annotation.
-     */
+
+    // Necessary to be public because of annotation.
     @Rule
     public ExpectedException thrown = ExpectedException.none();
 
@@ -37,13 +36,6 @@ public class ReaderTest {
         new Layout.Builder().buildLayoutFromURL();
     }
 
-    /*
-     * Accessing a private field with reflection:
-     *
-     * https://stackoverflow.com/questions/1555658/is-it-possible-in-java-to-access-private-fields-via-reflection
-     *
-     * Note: These exceptions are never thrown because the inputs are all valid...
-     */
     @Test
     public void parseJsonSuccess() throws InvalidInputException, IncompleteBuilderException, NoSuchFieldException, IllegalAccessException {
         String goodFilename = "https://courses.engr.illinois.edu/cs126/adventure/siebel.json";
@@ -53,6 +45,13 @@ public class ReaderTest {
         assertEquals("MatthewsStreet", layout.getStartingRoom().getName());
         assertEquals("Siebel1314", layout.getEndingRoom().getName());
 
+        /*
+         * Accessing a private field with reflection:
+         *
+         * https://stackoverflow.com/questions/1555658/is-it-possible-in-java-to-access-private-fields-via-reflection
+         *
+         * Note: These exceptions are never thrown because the inputs are all valid...
+         */
         Field roomField = Layout.class.getDeclaredField("rooms");
         roomField.setAccessible(true);
 
