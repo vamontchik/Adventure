@@ -1,0 +1,68 @@
+{
+  "startingRoom": "Entrance",
+  "endingRoom": "Exit",
+  "rooms": [
+    {
+      "name": "Entrance",
+      "description": "The entrance to the game.",
+      "items": [
+        {
+          "name" : "Bloodthirster",
+          "damage": 25.00
+        },
+        {
+          "name": "Infinity Edge",
+          "damage": 50.00
+        },
+        {
+          "name": "Poacher's Dirk",
+          "damage": 10.00
+        }
+      ],
+      "directions": [
+        {
+          "directionName": "North",
+          "room": "Exit"
+        }
+      ],
+      "monstersInRoom": ["Skeleton", "Skeleton", "Skeleton"]
+    },
+    {
+      "name": "Exit",
+      "description": "The exit from the game.",
+      "items": [
+        {
+          "name": "B.F. Sword",
+          "damage": 40.00
+        },
+        {
+          "name": "Cull",
+          "damage": 7.00
+        }
+      ],
+      "directions": [
+        {
+          "directionName": "South",
+          "room": "Entrance"
+        }
+      ],
+      "monstersInRoom": ["Skeleton", "Skeleton"]
+    }
+  ],
+  "player": {
+    "name": "PlayerOne",
+    "items": [],
+    "attack": 1.00,
+    "defense": 1.00,
+    "health": 100.00,
+    "level": 1
+  },
+  "monsters": [
+    {
+      "name": "Skeleton",
+      "attack": 2.00,
+      "defense": 1.00,
+      "health": 15.00
+    }
+  ]
+}

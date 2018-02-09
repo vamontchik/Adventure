@@ -1,13 +1,9 @@
 package console;
 
-import data.Direction;
-import data.Layout;
-import data.Player;
-import data.Room;
+import data.*;
 import error.InvalidInputException;
 import error.NoRoomException;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class Console {
@@ -44,13 +40,9 @@ public class Console {
         }
     }
 
-    private static void printListWithCommas(List<?> items) {
-        printArrayWithCommas(items.toArray());
-    }
-
     public static void printPlayerContents(Player player) {
         print("Your Items: [");
-        printListWithCommas(player.getItems());
+        printArrayWithCommas(player.getItems());
         println("]");
     }
 
@@ -61,8 +53,6 @@ public class Console {
     }
 
     public static final void printUponEntrance(Layout layout, Room room) {
-        println(room.getDescription());
-
         if (layout.getStartingRoom().equals(room) && !printedStart) {
             println("Your journey begins here.");
             printedStart = true;
@@ -71,6 +61,8 @@ public class Console {
         if (layout.getEndingRoom().equals(room)) {
             println("You have reached your final destination!");
         }
+
+        println(room.getDescription());
     }
 
     public static final void printDirections(Room room) {
@@ -97,9 +89,9 @@ public class Console {
         System.arraycopy(split, 1, args, 0, split.length - 1);
     }
 
-    public static final ProcessConstant processInput(Player player, Layout layout) throws InvalidInputException {
+    public static final void processInput(Player player, Layout layout) throws InvalidInputException {
         if (command.equalsIgnoreCase("quit") || command.equalsIgnoreCase("exit")) {
-            return ProcessConstant.EXIT;
+            System.exit(0);
         }
 
         if (command.equalsIgnoreCase("go")) {
@@ -124,10 +116,9 @@ public class Console {
 
                     //end game check?
                     if (newRoom.equals(layout.getEndingRoom())) {
-                        return ProcessConstant.END;
+                        Console.println("Congratulations you've won!");
+                        System.exit(0);
                     }
-
-                    return ProcessConstant.MOVE;
                 }
             }
             throw new InvalidInputException("I can't go " + userDir);
@@ -136,41 +127,37 @@ public class Console {
         if (command.equalsIgnoreCase("take")) {
             ensureArgsIsNonEmpty(args);
 
-            String[] roomItems = player.getCurrentRoom().getItems();
-            String userItem = concatArgsIntoString(args);
+            Item[] roomItems = player.getCurrentRoom().getItems();
+            String userItemName = concatArgsIntoString(args);
 
-            for (String item : roomItems) {
-                if (userItem.equalsIgnoreCase(item)) {
+            for (Item item : roomItems) {
+                if (userItemName.equalsIgnoreCase(item.getName())) {
                     player.getCurrentRoom().removeItem(item);
                     player.addItem(item);
-
-                    return ProcessConstant.TAKE;
                 }
             }
 
-            throw new InvalidInputException("I can't take " + userItem);
+            throw new InvalidInputException("I can't take " + userItemName);
         }
 
         if (command.equalsIgnoreCase("drop")) {
             ensureArgsIsNonEmpty(args);
 
-            List<String> roomItems = player.getItems();
-            String userItem = concatArgsIntoString(args);
+            Item[] roomItems = player.getItems();
+            String userItemName = concatArgsIntoString(args);
 
-            for (String item : roomItems) {
-                if (userItem.equalsIgnoreCase(item)) {
+            for (Item item : roomItems) {
+                if (userItemName.equalsIgnoreCase(item.getName())) {
                     player.getCurrentRoom().addItem(item);
                     player.removeItem(item);
-
-                    return ProcessConstant.DROP;
                 }
             }
 
-            throw new InvalidInputException("I can't drop " + userItem);
+            throw new InvalidInputException("I can't drop " + userItemName);
         }
 
         if (command.equalsIgnoreCase("list")) {
-            return ProcessConstant.LIST;
+            Console.printPlayerContents(layout.getPlayer());
         }
 
         throw new InvalidInputException("I don't understand \'" + fullInput + "\'");

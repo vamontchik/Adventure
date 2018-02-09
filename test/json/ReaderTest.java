@@ -16,7 +16,6 @@ import java.lang.reflect.Field;
 import static org.junit.Assert.assertEquals;
 
 public class ReaderTest {
-
     // Necessary to be public because of annotation.
     @Rule
     public ExpectedException thrown = ExpectedException.none();
@@ -26,24 +25,24 @@ public class ReaderTest {
         String badFilename = "https://somesite.com/json/nadaherehaha.json";
         thrown.expect(InvalidInputException.class);
         thrown.expectMessage("Connection reset"); //attempted to read from a non-existent URL
-        new Layout.Builder().url(badFilename).buildLayoutFromURL();
+        new Layout.Builder().url(badFilename).buildFromURL();
     }
 
     @Test
     public void noUrlArgument() throws InvalidInputException, IncompleteBuilderException {
         thrown.expect(IncompleteBuilderException.class);
         thrown.expectMessage("URL has not been set! Use .url() method!");
-        new Layout.Builder().buildLayoutFromURL();
+        new Layout.Builder().buildFromURL();
     }
 
     @Test
-    public void parseJsonSuccess() throws InvalidInputException, IncompleteBuilderException, NoSuchFieldException, IllegalAccessException {
-        String goodFilename = "https://courses.engr.illinois.edu/cs126/adventure/siebel.json";
+    public void parseJsonSuccess() throws InvalidInputException, IncompleteBuilderException, NoSuchFieldException, IllegalAccessException, IOException {
+        String goodFilename = "data\\extended_json.json";
 
-        Layout layout = new Layout.Builder().url(goodFilename).buildLayoutFromURL();
+        Layout layout = new Layout.Builder().path(goodFilename).buildFromFile();
 
-        assertEquals("MatthewsStreet", layout.getStartingRoom().getName());
-        assertEquals("Siebel1314", layout.getEndingRoom().getName());
+        assertEquals("Entrance", layout.getStartingRoom().getName());
+        assertEquals("Exit", layout.getEndingRoom().getName());
 
         /*
          * Accessing a private field with reflection:
@@ -57,19 +56,19 @@ public class ReaderTest {
 
         Room[] rooms = (Room[])roomField.get(layout);
 
-        assertEquals(8, rooms.length);
+        assertEquals(2, rooms.length);
     }
 
     @Test
     public void mapValidatorPass() throws InvalidInputException, IncompleteBuilderException, InvalidMapException, IOException {
-        Layout goodMap = new Layout.Builder().path("data\\circular.json").buildLayoutFromFile();
+        Layout goodMap = new Layout.Builder().path("data\\extended_json.json").buildFromFile();
         MapValidator.validate(goodMap);
     }
 
     @Test
     public void mapValidatorFail() throws InvalidInputException, IncompleteBuilderException, InvalidMapException, IOException {
         String errorMessage = "The layout JSON is not valid. The endingRoom cannot be reached from the startingRoom.";
-        Layout badMap = new Layout.Builder().path("data\\badmap.json").buildLayoutFromFile();
+        Layout badMap = new Layout.Builder().path("data\\badmap.json").buildFromFile();
 
         thrown.expect(InvalidMapException.class);
         thrown.expectMessage(errorMessage);

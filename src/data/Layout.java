@@ -15,19 +15,30 @@ public class Layout {
 
         public Builder() {}
 
-        public Builder url(String url) {
+        public Builder url(String url) throws IncompleteBuilderException {
+            if (filePath != null) {
+                throw new IncompleteBuilderException("Only call url() if there's parsing from a URL!");
+            }
+
             this.url = url;
             return this;
         }
 
-        public Builder path(String filePath) {
+        public Builder path(String filePath) throws IncompleteBuilderException {
+            if (url != null) {
+                throw new IncompleteBuilderException("Only call path() if there's parsing from a file!");
+            }
+
             this.filePath = filePath;
             return this;
         }
 
-        public Layout buildLayoutFromURL() throws InvalidInputException, IncompleteBuilderException {
+        public Layout buildFromURL() throws InvalidInputException, IncompleteBuilderException {
             if (url == null) {
                 throw new IncompleteBuilderException("URL has not been set! Use .url() method!");
+            }
+            if (filePath != null) {
+                throw new IncompleteBuilderException("Only call buildFromURL() if building from a URL!");
             }
 
             Layout layout = Reader.parseJsonFromURL(url);
@@ -35,9 +46,12 @@ public class Layout {
             return layout;
         }
 
-        public Layout buildLayoutFromFile() throws IncompleteBuilderException, InvalidInputException, IOException {
+        public Layout buildFromFile() throws IncompleteBuilderException, InvalidInputException, IOException {
             if (filePath == null) {
                 throw new IncompleteBuilderException("filePath has not been set! Use .path() method!");
+            }
+            if (url != null) {
+                throw new IncompleteBuilderException("Only call buildFromFile() if building from a file!");
             }
 
             Layout layout = Reader.parseJsonFromFile(filePath);
@@ -45,20 +59,6 @@ public class Layout {
             return layout;
         }
     }
-
-    private Layout() {}
-
-    @SerializedName("startingRoom")
-    private String startingRoomName;
-
-    @SerializedName("endingRoom")
-    private String endingRoomName;
-
-    private Room startingRoomObj;
-    private Room endingRoomObj;
-
-    @SerializedName("rooms")
-    private static Room[] rooms;
 
     private void initAfterParse() throws InvalidInputException {
         try {
@@ -72,6 +72,47 @@ public class Layout {
         } catch (NoRoomException e) {
             throw new InvalidInputException("There is no ending room!");
         }
+    }
+
+    private Layout() {}
+
+    @SerializedName("startingRoom")
+    private String startingRoomName;
+
+    @SerializedName("endingRoom")
+    private String endingRoomName;
+
+    @SerializedName("rooms")
+    private static Room[] rooms;
+
+    @SerializedName("player")
+    private Player player;
+
+    @SerializedName("monsters")
+    private static Monster[] monsters;
+
+    private Room startingRoomObj;
+
+    private Room endingRoomObj;
+
+    public Room[] getRooms() {
+        return rooms;
+    }
+
+    public String getStartingRoomName() {
+        return startingRoomName;
+    }
+
+    public String getEndingRoomName() {
+        return endingRoomName;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public Monster[] getMonsters() {
+        return monsters;
     }
 
     public Room getStartingRoom() {

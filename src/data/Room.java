@@ -17,7 +17,7 @@ public class Room {
     private Direction[] directions;
 
     @SerializedName("items")
-    private String[] items;
+    private Item[] items;
 
     public String getName() {
         return name;
@@ -31,32 +31,32 @@ public class Room {
         return directions;
     }
 
-    public String[] getItems() {
+    public Item[] getItems() {
         //some JSON objects don't have an items field...
         if (items == null) {
-            items = new String[0];
+            items = new Item[0];
         }
 
         return items;
     }
 
-    public void removeItem(String item) {
-        ArrayList<String> listRepresentation = new ArrayList<>(Arrays.asList(items));
+    public void removeItem(Item item) {
+        ArrayList<Item> listRepresentation = new ArrayList<>(Arrays.asList(items));
         listRepresentation.remove(item);
 
         //.toArray(T[]) uses the size of T to copy over values...
         //if the sizes mismatch, extra places are filled with null
         //to avoid this, pass in an empty array one less in size
-        items = listRepresentation.toArray(new String[items.length - 1]);
+        items = listRepresentation.toArray(new Item[items.length - 1]);
     }
 
-    public void addItem(String item) {
-        ArrayList<String> listRepresentation = new ArrayList<>(Arrays.asList(items));
+    public void addItem(Item item) {
+        ArrayList<Item> listRepresentation = new ArrayList<>(Arrays.asList(items));
         listRepresentation.add(item);
 
         //.toArray(T[]) uses the size of T to copy over values...
         //if the sizes mismatch, extra places are filled with null
-        items = listRepresentation.toArray(new String[items.length + 1]);
+        items = listRepresentation.toArray(new Item[items.length + 1]);
     }
 
     @Override

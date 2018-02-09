@@ -5,22 +5,26 @@
     {
       "name": "Room1",
       "description" : "first room",
+      "items": [],
       "directions": [
         {
           "directionName": "East",
           "room": "Room2"
         }
-      ]
+      ],
+      "monstersInRoom": []
     },
     {
       "name": "Room2",
       "description": "second room",
+      "items": [],
       "directions": [
         {
           "directionName": "West",
           "room": "Room1"
         }
-      ]
+      ],
+      "monstersInRoom": []
     },
     {
       "name": "Room3",
@@ -30,17 +34,21 @@
           "directionName": "East",
           "room": "Room4"
         }
-      ]
+      ],
+      "items": [],
+      "monstersInRoom": []
     },
     {
       "name": "Room4",
       "description" : "fourth room",
+      "items": [],
       "directions": [
         {
           "directionName": "West",
           "room": "Room3"
         }
-      ]
+      ],
+      "monstersInRoom": []
     }
   ]
 }
