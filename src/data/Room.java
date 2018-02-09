@@ -66,7 +66,7 @@ public class Room {
         return monsterNames;
     }
 
-    public void removeMonster(Monster monster) {
+    public void removeMonster(String monster) {
         ArrayList<String> listRepresentation = new ArrayList<>(Arrays.asList(monsterNames));
         listRepresentation.remove(monster);
 

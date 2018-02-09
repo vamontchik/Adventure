@@ -18,12 +18,19 @@ public class Console {
         printedStart = false;
     }
 
-    public static final void println(String s) {
+    public static void println(String s) {
         System.out.println(s);
     }
 
-    public static final void print(String s) {
+    public static void print(String s) {
         System.out.print(s);
+    }
+
+    public static void printlnExtra(String s, int amount) {
+        System.out.println(s);
+        for (int i = 0; i < amount; i++) {
+            System.out.println();
+        }
     }
 
     private static void printArrayWithCommas(Object[] objects) {
@@ -72,9 +79,8 @@ public class Console {
         println("");
     }
 
-
     public static void printMonstersInRoom(Room room) {
-        print("Monster in room: ");
+        print("Monsters in room: ");
         printArrayWithCommas(room.getMonsterNames());
         println("");
     }
@@ -110,7 +116,7 @@ public class Console {
 
             for (Direction dir : validDirections) {
                 if (userDir.equalsIgnoreCase(dir.getDirection())) {
-                    Console.println("Moved to " + dir.getRoomName());
+                    Console.printlnExtra("Moved to " + dir.getRoomName(), 1);
 
                     Room newRoom = null;
                     try {
@@ -123,10 +129,13 @@ public class Console {
                     player.setCurrentRoom(newRoom);
 
                     //end game check?
+                    //noinspection ConstantConditions
                     if (newRoom.equals(layout.getEndingRoom())) {
-                        Console.println("Congratulations you've won!");
+                        Console.printlnExtra("Congratulations you've won!", 1);
                         System.exit(0);
                     }
+
+                    return;
                 }
             }
             throw new InvalidInputException("I can't go " + userDir);
@@ -142,6 +151,7 @@ public class Console {
                 if (userItemName.equalsIgnoreCase(item.getName())) {
                     player.getCurrentRoom().removeItem(item);
                     player.addItem(item);
+                    return;
                 }
             }
 
@@ -158,6 +168,7 @@ public class Console {
                 if (userItemName.equalsIgnoreCase(item.getName())) {
                     player.getCurrentRoom().addItem(item);
                     player.removeItem(item);
+                    return;
                 }
             }
 
@@ -166,6 +177,7 @@ public class Console {
 
         if (command.equalsIgnoreCase("list")) {
             Console.printPlayerContents(layout.getPlayer());
+            return;
         }
 
         throw new InvalidInputException("I don't understand \'" + fullInput + "\'");
