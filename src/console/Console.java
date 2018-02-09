@@ -53,6 +53,9 @@ public class Console {
     }
 
     public static final void printUponEntrance(Layout layout, Room room) {
+        println("Room name: "  + room.getName());
+        println("Room description: " + room.getDescription());
+
         if (layout.getStartingRoom().equals(room) && !printedStart) {
             println("Your journey begins here.");
             printedStart = true;
@@ -61,13 +64,18 @@ public class Console {
         if (layout.getEndingRoom().equals(room)) {
             println("You have reached your final destination!");
         }
-
-        println(room.getDescription());
     }
 
     public static final void printDirections(Room room) {
         print("From here, you can go: ");
         printArrayWithCommas(room.getDirections());
+        println("");
+    }
+
+
+    public static void printMonstersInRoom(Room room) {
+        print("Monster in room: ");
+        printArrayWithCommas(room.getMonsterNames());
         println("");
     }
 

@@ -38,6 +38,7 @@ public class Game {
             Console.printUponEntrance(layout, layout.getPlayer().getCurrentRoom());
             Console.printPlayerContents(layout.getPlayer());
             Console.printRoomContents(layout.getPlayer().getCurrentRoom());
+            Console.printMonstersInRoom(layout.getPlayer().getCurrentRoom());
             Console.printDirections(layout.getPlayer().getCurrentRoom());
             Console.println("Your move: ");
 
@@ -54,7 +55,7 @@ public class Game {
     public static void main(String[] args) {
         if (args.length != 1) {
             Console.println("Usage: java Game [pathToJson]");
-            Console.println("The argument should specify the path to the JSON fil by link or absolute path.");
+            Console.println("The argument should specify the path to the JSON by link or absolute path.");
             Console.println("Defaulting to local json file...");
             new Game("data\\extended_json.json").gameLoop();
         }

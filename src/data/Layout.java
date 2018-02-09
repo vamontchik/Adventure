@@ -3,6 +3,7 @@ package data;
 import com.google.gson.annotations.SerializedName;
 import error.IncompleteBuilderException;
 import error.InvalidInputException;
+import error.MonsterNotFoundException;
 import error.NoRoomException;
 import json.Reader;
 
@@ -131,5 +132,15 @@ public class Layout {
         }
 
         throw new NoRoomException("Room cannot be found for search string: " + roomName);
+    }
+
+    public static Monster findMonsterByName(String monsterName) throws MonsterNotFoundException {
+        for (Monster monster : monsters) {
+            if (monsterName.equals(monster.getName())) {
+                return monster;
+            }
+        }
+
+        throw new MonsterNotFoundException("Monster cannot be found for search string: " + monsterName);
     }
 }

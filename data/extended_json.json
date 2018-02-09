@@ -25,7 +25,7 @@
           "room": "Exit"
         }
       ],
-      "monstersInRoom": ["Skeleton", "Skeleton", "Skeleton"]
+      "monstersInRoom": ["SkeletonOne", "SkeletonTwo", "SkeletonThree"]
     },
     {
       "name": "Exit",
@@ -46,7 +46,7 @@
           "room": "Entrance"
         }
       ],
-      "monstersInRoom": ["Skeleton", "Skeleton"]
+      "monstersInRoom": ["SkeletonOne", "SkeletonTwo"]
     }
   ],
   "player": {
@@ -59,7 +59,19 @@
   },
   "monsters": [
     {
-      "name": "Skeleton",
+      "name": "SkeletonOne",
+      "attack": 2.00,
+      "defense": 1.00,
+      "health": 15.00
+    },
+    {
+      "name": "SkeletonOne",
+      "attack": 2.00,
+      "defense": 1.00,
+      "health": 15.00
+    },
+    {
+      "name": "SkeletonOne",
       "attack": 2.00,
       "defense": 1.00,
       "health": 15.00

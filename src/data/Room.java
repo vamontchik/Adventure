@@ -19,6 +19,9 @@ public class Room {
     @SerializedName("items")
     private Item[] items;
 
+    @SerializedName("monstersInRoom")
+    private String[] monsterNames;
+
     public String getName() {
         return name;
     }
@@ -57,6 +60,20 @@ public class Room {
         //.toArray(T[]) uses the size of T to copy over values...
         //if the sizes mismatch, extra places are filled with null
         items = listRepresentation.toArray(new Item[items.length + 1]);
+    }
+
+    public String[] getMonsterNames() {
+        return monsterNames;
+    }
+
+    public void removeMonster(Monster monster) {
+        ArrayList<String> listRepresentation = new ArrayList<>(Arrays.asList(monsterNames));
+        listRepresentation.remove(monster);
+
+        //.toArray(T[]) uses the size of T to copy over values...
+        //if the sizes mismatch, extra places are filled with null
+        //to avoid this, pass in an empty array one less in size
+        monsterNames = listRepresentation.toArray(new String[monsterNames.length - 1]);
     }
 
     @Override
