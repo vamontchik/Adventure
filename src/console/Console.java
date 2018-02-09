@@ -7,7 +7,7 @@ import error.NoRoomException;
 import java.util.Scanner;
 
 public class Console {
-    private static final Scanner scan;
+    private static Scanner scan;
     private static String fullInput;
     private static String command;
     private static String[] args;
@@ -59,7 +59,7 @@ public class Console {
         println("]");
     }
 
-    public static final void printUponEntrance(Layout layout, Room room) {
+    public static void printUponEntrance(Layout layout, Room room) {
         println("Room name: "  + room.getName());
         println("Room description: " + room.getDescription());
 
@@ -73,7 +73,7 @@ public class Console {
         }
     }
 
-    public static final void printDirections(Room room) {
+    public static void printDirections(Room room) {
         print("From here, you can go: ");
         printArrayWithCommas(room.getDirections());
         println("");
@@ -90,7 +90,7 @@ public class Console {
         args = null;
     }
 
-    public static final void readInput() throws InvalidInputException {
+    public static void readInput() throws InvalidInputException {
         fullInput = scan.nextLine();
         String[] split = fullInput.trim().split("\\s+");
 
@@ -103,7 +103,7 @@ public class Console {
         System.arraycopy(split, 1, args, 0, split.length - 1);
     }
 
-    public static final void processInput(Player player, Layout layout) throws InvalidInputException {
+    public static void processInput(Player player, Layout layout) throws InvalidInputException {
         if (command.equalsIgnoreCase("quit") || command.equalsIgnoreCase("exit")) {
             System.exit(0);
         }
