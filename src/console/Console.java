@@ -104,6 +104,7 @@ public class Console {
         System.arraycopy(split, 1, args, 0, split.length - 1);
     }
 
+    //TODO: Decouple functionality of game events this method... maybe make another class to do so??? Like 'Command' or something...
     public static void processInput(Player player, Layout layout) throws InvalidInputException {
         if (command.equalsIgnoreCase("quit") || command.equalsIgnoreCase("exit")) {
             System.exit(0);

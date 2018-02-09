@@ -21,10 +21,11 @@ public class Game {
 
     /**
      * Builds the Game object by:
-     *      (1) Attempts to parse the specified argument using GSON.
-     *      (2) Validates the layout of the game object (startRoom -> endRoom)
-     *      (3) Finishes any extra initialization processes for the game.
-     *
+     * <ul>
+     *      <li> Attempts to parse the specified argument using GSON. </li>
+     *      <li> Validates the layout of the game object (startRoom -> endRoom) </li>
+     *      <li> Finishes any extra initialization processes for the game. </li>
+     * </uL>
      * @param path the specified path to parse JSON from
      */
     public Game(String path) {
@@ -53,6 +54,9 @@ public class Game {
         }
     }
 
+    /**
+     * Runs the game loop.
+     */
     public void gameLoop() {
         while (true) {
             //prints the room name and description
@@ -90,6 +94,10 @@ public class Game {
         }
     }
 
+    /**
+     * Starting point.
+     * @param args if used, contains the specified path to the
+     */
     public static void main(String[] args) {
         // Makes sure the correct amount of arguments are passed in.
         // Defaults to the local JSON file if it is incorrect.

@@ -83,7 +83,6 @@ public class Reader {
         }
     }
 
-
     /**
      * Parses JSON from a file, specified by a local file path.
      *
@@ -97,7 +96,7 @@ public class Reader {
             throw new InvalidInputException("Passed in filename is null!");
         }
 
-        //get json from local file...
+        //Obtain String containing JSON from file
         Path pathTo = FileSystems.getDefault().getPath(path);
         String toParse = new String(Files.readAllBytes(pathTo));
 
