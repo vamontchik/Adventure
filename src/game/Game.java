@@ -5,6 +5,7 @@ import data.Layout;
 import error.IncompleteBuilderException;
 import error.InvalidInputException;
 import error.InvalidMapException;
+import error.NoRoomException;
 import validator.MapValidator;
 
 import java.io.IOException;
@@ -41,7 +42,7 @@ public class Game {
             //finish initialization of the Player
             layout.getPlayer().setCurrentRoom(layout.getStartingRoom());
 
-        } catch (InvalidInputException | IncompleteBuilderException | InvalidMapException | IOException e) {
+        } catch (InvalidInputException | IncompleteBuilderException | InvalidMapException | IOException | NoRoomException e) {
 
             //prints the error message with the cause
             Console.printlnExtra("Error: " + e.getMessage(), 1);
@@ -70,7 +71,7 @@ public class Game {
             Console.printDirections(layout.getPlayer().getCurrentRoom());
 
             //prompt the user, and prints an extra line at the end
-            Console.printlnExtra("Your move: ", 1);
+            Console.print("Your move: ");
 
             try {
                 //reads the next line of input from the user
@@ -81,7 +82,7 @@ public class Game {
 
             } catch (InvalidInputException e) {
                 //displays the cause of the issue
-                Console.printlnExtra("Error: " + e.getMessage(), 1);
+                Console.println("Error: " + e.getMessage());
 
                 //clears the internal "buffer" inside of the Console class
                 Console.clear();
@@ -95,7 +96,7 @@ public class Game {
         if (args.length != 1) {
             Console.println("Usage: java Game [pathToJson]");
             Console.println("The argument should specify the path to the JSON by link or absolute path.");
-            Console.printlnExtra("Defaulting to local json file...", 2);
+            Console.println("Defaulting to local json file...");
             new Game("data\\extended_json.json").gameLoop();
         }
 

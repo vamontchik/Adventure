@@ -60,6 +60,7 @@ public class Console {
     }
 
     public static void printUponEntrance(Layout layout, Room room) {
+        println("");
         println("Room name: "  + room.getName());
         println("Room description: " + room.getDescription());
 
@@ -80,9 +81,9 @@ public class Console {
     }
 
     public static void printMonstersInRoom(Room room) {
-        print("Monsters in room: ");
+        print("Monsters in room: [");
         printArrayWithCommas(room.getMonsterNames());
-        println("");
+        println("]");
     }
 
     public static void clear() {
@@ -116,7 +117,7 @@ public class Console {
 
             for (Direction dir : validDirections) {
                 if (userDir.equalsIgnoreCase(dir.getDirection())) {
-                    Console.printlnExtra("Moved to " + dir.getRoomName(), 1);
+                    Console.println("Moved to " + dir.getRoomName());
 
                     Room newRoom = null;
                     try {
@@ -131,7 +132,7 @@ public class Console {
                     //end game check?
                     //noinspection ConstantConditions
                     if (newRoom.equals(layout.getEndingRoom())) {
-                        Console.printlnExtra("Congratulations you've won!", 1);
+                        Console.println("Congratulations you've won!");
                         System.exit(0);
                     }
 
@@ -149,6 +150,8 @@ public class Console {
 
             for (Item item : roomItems) {
                 if (userItemName.equalsIgnoreCase(item.getName())) {
+                    Console.println("Took " + item.getName() + "!");
+
                     player.getCurrentRoom().removeItem(item);
                     player.addItem(item);
                     return;
@@ -166,6 +169,8 @@ public class Console {
 
             for (Item item : roomItems) {
                 if (userItemName.equalsIgnoreCase(item.getName())) {
+                    Console.println("Dropped " + item.getName() + "!");
+
                     player.getCurrentRoom().addItem(item);
                     player.removeItem(item);
                     return;
