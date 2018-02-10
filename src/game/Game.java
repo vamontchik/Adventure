@@ -1,5 +1,6 @@
 package game;
 
+import command.Command;
 import console.Console;
 import data.Layout;
 import error.IncompleteBuilderException;
@@ -82,9 +83,11 @@ public class Game {
                 //reads the next line of input from the user
                 Console.readInput();
 
-                //executes the corresponding function, or fails by throwing an exception
-                Console.processInput(layout.getPlayer(), layout);
+                //processes the input into a Command
+                Command command = Console.processInput(layout.getPlayer(), layout);
 
+                //executes the corresponding function, or fails by throwing an exception
+                command.execute();
             } catch (InvalidInputException e) {
                 //displays the cause of the issue
                 Console.println("Error: " + e.getMessage());

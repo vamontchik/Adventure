@@ -1,5 +1,6 @@
 package console;
 
+import command.*;
 import data.*;
 import error.InvalidInputException;
 import error.NoRoomException;
@@ -158,7 +159,7 @@ public class Console {
      * @param room Room whose directions will be printed
      */
     public static void printDirections(Room room) {
-        print("From here, you can go:");
+        print("From here, you can go: ");
         printArrayWithCommas(room.getDirections());
         println("");
     }
@@ -213,11 +214,10 @@ public class Console {
      * @param layout the Layout reference necessary for some internal checks
      * @throws InvalidInputException if the Player has passed in bad input
      */
-    //TODO: Decouple functionality of game events this method... maybe make another class to do so??? Like 'Command' or something...
-    public static void processInput(Player player, Layout layout) throws InvalidInputException {
+    public static Command processInput(Player player, Layout layout) throws InvalidInputException {
         //QUIT/EXIT COMMAND
         if (command.equalsIgnoreCase("quit") || command.equalsIgnoreCase("exit")) {
-            System.exit(0);
+            return new ExitCommand();
         }
 
         //GO COMMAND
@@ -225,38 +225,7 @@ public class Console {
             //Check to ensure that arguments are not empty, to prevent a NullPointerException
             ensureArgsIsNonEmpty();
 
-            //Obtain all the possible directions to move
-            Direction[] validDirections = player.getCurrentRoom().getDirections();
-
-            //Obtain the direction the user wishes to go, and check to see if it's a valid direction
-            //If so, move in that direction. by setting the Player to be in that room.
-            //Else, throw an InvalidInputException specifying that it cannot do so
-            String userDir = args[0];
-            for (Direction dir : validDirections) {
-                if (userDir.equalsIgnoreCase(dir.getDirection())) {
-                    Console.println("Moved to " + dir.getRoomName());
-
-                    Room newRoom = null;
-                    try {
-                        newRoom = Layout.findRoomByName(dir.getRoomName());
-                    } catch (NoRoomException e) {
-                        //never thrown because if the above if statement occurs, there's a guarantee
-                        //that there'll be a room that works
-                    }
-
-                    player.setCurrentRoom(newRoom);
-
-                    //end game check
-                    //noinspection ConstantConditions ---> see catch statement above
-                    if (newRoom.equals(layout.getEndingRoom())) {
-                        Console.println("Congratulations you've won!");
-                        System.exit(0);
-                    }
-
-                    return;
-                }
-            }
-            throw new InvalidInputException("I can't go " + userDir);
+            return new GoCommand(player, args, layout);
         }
 
         //TAKE COMMAND
@@ -264,25 +233,10 @@ public class Console {
             //Check to ensure that arguments are not empty, to prevent a NullPointerException
             ensureArgsIsNonEmpty();
 
-            //Obtain all the items in the room
-            Item[] roomItems = player.getCurrentRoom().getItems();
-
             //Concatenate all the arg values into one String, in case the name of the item is more than one word
             String userItemName = concatArgsIntoString();
 
-            //Check to see if this is a valid item to pick up. If so, add the item to the player's inventory and
-            //remove it from the room's inventory. Else, throw an InvalidInputException specifying that it cannot do so.
-            for (Item item : roomItems) {
-                if (userItemName.equalsIgnoreCase(item.getName())) {
-                    Console.println("Took " + item.getName() + "!");
-
-                    player.getCurrentRoom().removeItem(item);
-                    player.addItem(item);
-                    return;
-                }
-            }
-
-            throw new InvalidInputException("I can't take " + userItemName);
+            return new TakeCommand(player, userItemName);
         }
 
         //DROP COMMAND
@@ -290,31 +244,15 @@ public class Console {
             //Check to ensure that arguments are not empty, to prevent a NullPointerException
             ensureArgsIsNonEmpty();
 
-            //Obtain all the items in the room
-            Item[] roomItems = player.getItems();
-
             //Concatenate all the arg values into one String, in case the name of the item is more than one word
             String userItemName = concatArgsIntoString();
 
-            //Check to see if this is a valid item to pick up. If so, add the item to the room's inventory and
-            //remove it from the player's inventory. Else, throw an InvalidInputException specifying that it cannot do so.
-            for (Item item : roomItems) {
-                if (userItemName.equalsIgnoreCase(item.getName())) {
-                    Console.println("Dropped " + item.getName() + "!");
-
-                    player.getCurrentRoom().addItem(item);
-                    player.removeItem(item);
-                    return;
-                }
-            }
-
-            throw new InvalidInputException("I can't drop " + userItemName);
+            return new DropCommand(player, userItemName);
         }
 
         //LIST ITEMS COMMAND: Prints out all of the items in the Player's inventory
         if (command.equalsIgnoreCase("list")) {
-            Console.printPlayerContents(layout.getPlayer());
-            return;
+            return new ListCommand(layout);
         }
 
         //If this point is reached, the Player has input an invalid command.

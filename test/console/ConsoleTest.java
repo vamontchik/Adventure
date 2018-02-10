@@ -1,5 +1,6 @@
 package console;
 
+import command.Command;
 import data.Layout;
 import data.Monster;
 import data.Player;
@@ -170,7 +171,7 @@ public class ConsoleTest {
     public void testPrintDirection() {
         Console.printDirections(testRoom);
 
-        assertEquals("From here, you can go:" + System.lineSeparator(), outContent.toString());
+        assertEquals("From here, you can go: " + System.lineSeparator(), outContent.toString());
     }
 
     @Test
@@ -233,7 +234,8 @@ public class ConsoleTest {
         thrown.expectMessage("I can't drop memes");
 
         Console.readInput();
-        Console.processInput(testPlayer, testLayout);
+        Command command = Console.processInput(testPlayer, testLayout);
+        command.execute();
     }
 
     @Test
@@ -254,7 +256,8 @@ public class ConsoleTest {
         thrown.expectMessage("I can't take cherries");
 
         Console.readInput();
-        Console.processInput(testPlayer, testLayout);
+        Command command = Console.processInput(testPlayer, testLayout);
+        command.execute();
     }
 
     @Test
@@ -275,7 +278,8 @@ public class ConsoleTest {
         thrown.expectMessage("I can't go North");
 
         Console.readInput();
-        Console.processInput(testPlayer, testLayout);
+        Command command = Console.processInput(testPlayer, testLayout);
+        command.execute();
     }
 
     @Test
@@ -293,7 +297,8 @@ public class ConsoleTest {
         //
 
         Console.readInput();
-        Console.processInput(testPlayer, testLayout);
+        Command command = Console.processInput(testPlayer, testLayout);
+        command.execute();
 
         assertEquals("Your items: []" + System.lineSeparator(), outContent.toString());
     }
