@@ -2,7 +2,6 @@ package data;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
@@ -15,7 +14,7 @@ public class Player {
      * Name of the player.
      */
     @SerializedName("player")
-    private String name;
+    private final String name;
 
     /**
      * Internal array structure representing the items that the player has.
@@ -27,25 +26,25 @@ public class Player {
      * Attack power of the player.
      */
     @SerializedName("attack")
-    private double attack;
+    private final double attack;
 
     /**
      * Defense power of the player.
      */
     @SerializedName("defense")
-    private double defense;
+    private final double defense;
 
     /**
      * Total health of the player.
      */
     @SerializedName("health")
-    private double currentHealth;
+    private final double currentHealth;
 
     /**
      * Experience level of the player.
      */
     @SerializedName("level")
-    private int level;
+    private final int level;
 
     /**
      * Room object that the player is currently inhabiting.
@@ -65,6 +64,12 @@ public class Player {
         currentRoom = testRoom;
     }
 
+    /**
+     * Overridden equality method. Tests each field of the Room object for equality.
+     *
+     * @param o the passed-in Object to compare against
+     * @return true if it is equal, false if not
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -79,6 +84,11 @@ public class Player {
                 Objects.equals(currentRoom, player.currentRoom);
     }
 
+    /**
+     * Overridden hashCode generator method. Utilizes each field of the Player object.
+     *
+     * @return hashcode representation of this object.
+     */
     @Override
     public int hashCode() {
 

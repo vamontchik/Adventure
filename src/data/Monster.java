@@ -12,25 +12,25 @@ public class Monster {
      * Name of the monster.
      */
     @SerializedName("name")
-    private String name;
+    private final String name;
 
     /**
      * Attack power of the monster.
      */
     @SerializedName("attack")
-    private double attack;
+    private final double attack;
 
     /**
      * Defense power of the monster.
      */
     @SerializedName("defense")
-    private double defense;
+    private final double defense;
 
     /**
      * Current health of the monster.
      */
     @SerializedName("health")
-    private double currentHealth;
+    private final double currentHealth;
 
     /**
      * Used in testing only.
@@ -79,10 +79,10 @@ public class Monster {
     }
 
     /**
+     * Overridden equality method. Tests each field of the Monster object for equality.
      *
-     *
-     * @param o
-     * @return
+     * @param o the passed-in Object to compare against
+     * @return true if it is equal, false if not
      */
     @Override
     public boolean equals(Object o) {
@@ -96,8 +96,9 @@ public class Monster {
     }
 
     /**
+     * Overridden hashCode generator method. Utilizes each field of the Monster object.
      *
-     * @return
+     * @return hashcode representation of this object.
      */
     @Override
     public int hashCode() {

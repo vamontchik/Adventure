@@ -46,8 +46,8 @@ public class Game {
         } catch (InvalidInputException | IncompleteBuilderException | InvalidMapException | IOException | NoRoomException e) {
 
             //prints the error message with the cause
-            Console.printlnExtra("Error: " + e.getMessage(), 1);
-            Console.printlnExtra("Unable to initialize game!", 1);
+            Console.println("Error: " + e.getMessage());
+            Console.println("Unable to initialize game!");
 
             //terminates the game, since initialization was incomplete
             System.exit(-1);
@@ -58,6 +58,7 @@ public class Game {
      * Runs the game loop.
      */
     public void gameLoop() {
+        //noinspection InfiniteLoopStatement
         while (true) {
             //prints the room name and description
             Console.printUponEntrance(layout, layout.getPlayer().getCurrentRoom());
@@ -92,23 +93,5 @@ public class Game {
                 Console.clear();
             }
         }
-    }
-
-    /**
-     * Starting point.
-     * @param args if used, contains the specified path to the
-     */
-    public static void main(String[] args) {
-        // Makes sure the correct amount of arguments are passed in.
-        // Defaults to the local JSON file if it is incorrect.
-        if (args.length != 1) {
-            Console.println("Usage: java Game [pathToJson]");
-            Console.println("The argument should specify the path to the JSON by link or absolute path.");
-            Console.println("Defaulting to local json file...");
-            new Game("data\\extended_json.json").gameLoop();
-        }
-
-        // Initialize and start the game
-        new Game(args[0]).gameLoop();
     }
 }

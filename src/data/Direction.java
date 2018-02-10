@@ -12,13 +12,13 @@ public class Direction {
      * Name of the direction.
      */
     @SerializedName("directionName")
-    private String direction;
+    private final String direction;
 
     /**
      * Name of the room that the direction points to.
      */
     @SerializedName("room")
-    private String room;
+    private final String room;
 
     /**
      * Used in testing only.
@@ -28,6 +28,12 @@ public class Direction {
         room = "";
     }
 
+    /**
+     * Overridden equality method. Tests each field of the Room object for equality.
+     *
+     * @param o the passed-in Object to compare against
+     * @return true if it is equal, false if not
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -37,6 +43,11 @@ public class Direction {
                 Objects.equals(room, direction1.room);
     }
 
+    /**
+     * Overridden hashCode generator method. Utilizes each field of the Direction object.
+     *
+     * @return hashcode representation of this object.
+     */
     @Override
     public int hashCode() {
 

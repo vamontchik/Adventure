@@ -14,19 +14,19 @@ public class Room {
      * Name of the room. Used in Layout.findRoomByName(String roomName) to obtain the corresponding Room object.
      */
     @SerializedName("name")
-    private String name;
+    private final String name;
 
     /**
      * Brief description of the room displayed upon entrance.
      */
     @SerializedName("description")
-    private String description;
+    private final String description;
 
     /**
      * All possible directions that the Player may move. Used during the Player movement process.
      */
     @SerializedName("directions")
-    private Direction[] directions;
+    private final Direction[] directions;
 
     /**
      * Collection of all the items that are located in the room.
@@ -95,10 +95,10 @@ public class Room {
     }
 
     /**
-     * Obtain the list of monsters' names in the Room.
+     * Obtain the array of monsters' names in the Room.
      * Used by findMonsterByName(String monsterName) to find the corresponding Monster.
      *
-     * @return
+     * @return the internal representation of the monsters' names
      */
     public String[] getMonsterNames() {
         return monsterNames;

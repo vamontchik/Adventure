@@ -15,7 +15,7 @@ public class MapValidator {
     /**
      * The ArrayList responsible for storing the room values to test.
      */
-    private static ArrayList<Room> trip;
+    private static final ArrayList<Room> trip;
 
     static {
         trip = new ArrayList<>();

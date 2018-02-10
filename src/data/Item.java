@@ -12,13 +12,13 @@ public class Item {
      * String representation of the name of the Item.
      */
     @SerializedName("name")
-    private String name;
+    private final String name;
 
     /**
      * Double value that represents the power of the Item.
      */
     @SerializedName("damage")
-    private double damage;
+    private final double damage;
 
     /**
      * Used for testing, and not used during live deployment of the game.

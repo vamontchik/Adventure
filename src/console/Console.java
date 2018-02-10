@@ -16,7 +16,7 @@ public class Console {
     /**
      * Scanner object used to accept user input from the console.
      */
-    private static Scanner scan;
+    private static final Scanner scan;
 
     /**
      * String of the full input that the user puts in. Split before use, though if there is an error,

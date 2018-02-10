@@ -161,14 +161,22 @@ public class Layout {
     /**
      * Used only for testing.
      */
-    private Layout(Player testPlayer, Room testStartRoom, Room testEndingRoom) {
+    private Layout(Player testPlayer, Monster[] monsters, Room[] rooms, Room testStartRoom, Room testEndingRoom) {
         this.player = testPlayer;
         this.startingRoomObj = testStartRoom;
         this.endingRoomObj = testEndingRoom;
         this.startingRoomName = testStartRoom.getName();
         this.endingRoomName = testEndingRoom.getName();
+        Layout.rooms = rooms;
+        Layout.monsters = monsters;
     }
 
+    /**
+     * Overridden equality method. Tests each field of the Room object for equality.
+     *
+     * @param o the passed-in Object to compare against
+     * @return true if it is equal, false if not
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -181,6 +189,11 @@ public class Layout {
                 Objects.equals(endingRoomObj, layout.endingRoomObj);
     }
 
+    /**
+     * Overridden hashCode generator method. Utilizes each field of the Direction object.
+     *
+     * @return hashcode representation of this object.
+     */
     @Override
     public int hashCode() {
         return Objects.hash(startingRoomName, endingRoomName, player, startingRoomObj, endingRoomObj);
