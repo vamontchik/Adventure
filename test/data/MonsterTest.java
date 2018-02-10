@@ -14,10 +14,12 @@ public class MonsterTest {
 
     @BeforeClass
     public static void setUp() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        //creation of the test Monster object by means of Reflection
         Constructor<Monster> monsterConstructor = Monster.class.getDeclaredConstructor();
         monsterConstructor.setAccessible(true);
         testMonster = monsterConstructor.newInstance();
 
+        //delta value used to compare doubles
         TOLERANCE = 0.0001;
     }
 

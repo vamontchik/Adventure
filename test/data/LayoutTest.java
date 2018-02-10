@@ -23,18 +23,22 @@ public class LayoutTest {
 
     @BeforeClass
     public static void setUp() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        //creation of the test Room object by means of Reflection
         Constructor<Room> roomConstructor = Room.class.getDeclaredConstructor();
         roomConstructor.setAccessible(true);
         testRoom = roomConstructor.newInstance();
 
+        //creation of the test Player object by means of Reflection
         Constructor<Player> playerConstructor = Player.class.getDeclaredConstructor(Room.class);
         playerConstructor.setAccessible(true);
         testPlayer = playerConstructor.newInstance(testRoom);
 
+        //creation of the test Monster object by means of Reflection
         Constructor<Monster> monsterConstructor = Monster.class.getDeclaredConstructor();
         monsterConstructor.setAccessible(true);
         testMonster = monsterConstructor.newInstance();
 
+        //creation of the test Layout object by means of Reflection
         Constructor<Layout> layoutConstructor = Layout.class.getDeclaredConstructor(
                 Player.class,
                 Monster[].class,

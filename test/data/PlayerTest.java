@@ -17,18 +17,22 @@ public class PlayerTest {
 
     @BeforeClass
     public static void setUp() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        //creation of the test Room object by means of Reflection
         Constructor<Room> roomConstructor = Room.class.getDeclaredConstructor();
         roomConstructor.setAccessible(true);
         testRoom = roomConstructor.newInstance();
 
+        //creation of the test Player object by means of Reflection
         Constructor<Player> playerConstructor = Player.class.getDeclaredConstructor(Room.class);
         playerConstructor.setAccessible(true);
         testPlayer = playerConstructor.newInstance(testRoom);
 
+        //creation of the test Item object by means of Reflection
         Constructor<Item> itemConstructor = Item.class.getDeclaredConstructor();
         itemConstructor.setAccessible(true);
         testItem = itemConstructor.newInstance();
 
+        //delta value used to compare doubles
         TOLERANCE = 0.0001;
     }
 

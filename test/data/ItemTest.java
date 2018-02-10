@@ -14,10 +14,12 @@ public class ItemTest {
 
     @BeforeClass
     public static void setUp() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        //creation of the test Item object by means of Reflection
         Constructor<Item> itemConstructor = Item.class.getDeclaredConstructor();
         itemConstructor.setAccessible(true);
         testItem = itemConstructor.newInstance();
 
+        //delta value used to compare doubles
         TOLERANCE = 0.0001;
     }
 

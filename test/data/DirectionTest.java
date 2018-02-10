@@ -13,6 +13,7 @@ public class DirectionTest {
 
     @BeforeClass
     public static void setUp() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        //creation of the test Direction object by means of Reflection
         Constructor<Direction> directionConstructor = Direction.class.getDeclaredConstructor();
         directionConstructor.setAccessible(true);
         testDirection = directionConstructor.newInstance();

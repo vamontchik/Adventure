@@ -4,6 +4,7 @@ import data.*;
 import error.InvalidInputException;
 import error.NoRoomException;
 
+import java.io.InputStream;
 import java.util.Scanner;
 
 /**
@@ -16,7 +17,7 @@ public class Console {
     /**
      * Scanner object used to accept user input from the console.
      */
-    private static final Scanner scan;
+    private static Scanner scan;
 
     /**
      * String of the full input that the user puts in. Split before use, though if there is an error,
@@ -45,6 +46,15 @@ public class Console {
 
         //initial value for the welcome message is false, since it has not been printed yet
         printedStart = false;
+    }
+
+    /**
+     * Used by testing framework.
+     *
+     * @param in the InputStream to read from.
+     */
+    private static void setScanner(InputStream in) {
+        scan = new Scanner(in);
     }
 
     /**
@@ -105,7 +115,7 @@ public class Console {
      * @param player the player whose inventory will be printed out
      */
     public static void printPlayerContents(Player player) {
-        print("Your Items: [");
+        print("Your items: [");
         printArrayWithCommas(player.getItems());
         println("]");
     }
@@ -117,7 +127,7 @@ public class Console {
      * @param room the room whose contents will be printed out
      */
     public static void printRoomContents(Room room) {
-        print("Room Items: [");
+        print("Room items: [");
         printArrayWithCommas(room.getItems());
         println("]");
     }
@@ -148,7 +158,7 @@ public class Console {
      * @param room Room whose directions will be printed
      */
     public static void printDirections(Room room) {
-        print("From here, you can go: ");
+        print("From here, you can go:");
         printArrayWithCommas(room.getDirections());
         println("");
     }
