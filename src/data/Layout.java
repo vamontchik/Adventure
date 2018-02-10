@@ -8,6 +8,7 @@ import error.NoRoomException;
 import json.Reader;
 
 import java.io.IOException;
+import java.util.Objects;
 
 /**
  * Class representing the layout (ie. Game World) of the game.
@@ -156,6 +157,34 @@ public class Layout {
      * Private constructor that is never used. See {@link Layout.Builder} for more information.
      */
     private Layout() {}
+
+    /**
+     * Used only for testing.
+     */
+    private Layout(Player testPlayer, Room testStartRoom, Room testEndingRoom) {
+        this.player = testPlayer;
+        this.startingRoomObj = testStartRoom;
+        this.endingRoomObj = testEndingRoom;
+        this.startingRoomName = testStartRoom.getName();
+        this.endingRoomName = testEndingRoom.getName();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Layout layout = (Layout) o;
+        return Objects.equals(startingRoomName, layout.startingRoomName) &&
+                Objects.equals(endingRoomName, layout.endingRoomName) &&
+                Objects.equals(player, layout.player) &&
+                Objects.equals(startingRoomObj, layout.startingRoomObj) &&
+                Objects.equals(endingRoomObj, layout.endingRoomObj);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(startingRoomName, endingRoomName, player, startingRoomObj, endingRoomObj);
+    }
 
     /**
      * String representation of the name of starting room.

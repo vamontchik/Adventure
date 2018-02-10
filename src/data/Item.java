@@ -2,6 +2,8 @@ package data;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Objects;
+
 /**
  * Class representing the items within the game.
  */
@@ -17,6 +19,14 @@ public class Item {
      */
     @SerializedName("damage")
     private double damage;
+
+    /**
+     * Used for testing, and not used during live deployment of the game.
+     */
+    private Item() {
+        damage = 0.0;
+        name = "";
+    }
 
     /**
      * Obtains the name of the Item.
@@ -44,5 +54,30 @@ public class Item {
     @Override
     public String toString() {
         return name;
+    }
+
+    /**
+     * Overridden equality method. Tests each field of the Room object for equality.
+     *
+     * @param o the passed-in Object to compare against
+     * @return true if it is equal, false if not
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Item item = (Item) o;
+        return Double.compare(item.damage, damage) == 0 &&
+                Objects.equals(name, item.name);
+    }
+
+    /**
+     * Overridden hashCode generator method. Utilizes each field of the Room object.
+     *
+     * @return hashcode representation of this object.
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, damage);
     }
 }

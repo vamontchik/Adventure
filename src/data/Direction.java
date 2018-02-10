@@ -2,6 +2,8 @@ package data;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Objects;
+
 /**
  * Class representing the direction a Player may take to get to a Room.
  */
@@ -17,6 +19,29 @@ public class Direction {
      */
     @SerializedName("room")
     private String room;
+
+    /**
+     * Used in testing only.
+     */
+    private Direction() {
+        direction = "";
+        room = "";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Direction direction1 = (Direction) o;
+        return Objects.equals(direction, direction1.direction) &&
+                Objects.equals(room, direction1.room);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(direction, room);
+    }
 
     /**
      * Obtains the name of the direction.

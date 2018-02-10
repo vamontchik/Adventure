@@ -2,8 +2,10 @@ package data;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 
 /**
  * Class representing the player of the game.
@@ -49,6 +51,41 @@ public class Player {
      * Room object that the player is currently inhabiting.
      */
     private Room currentRoom;
+
+    /**
+     * Used only in testing.
+     */
+    private Player(Room testRoom) {
+        name = "";
+        items = new Item[0];
+        attack = 0.0;
+        defense = 0.0;
+        currentHealth = 0.0;
+        level = 0;
+        currentRoom = testRoom;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Player player = (Player) o;
+        return Double.compare(player.attack, attack) == 0 &&
+                Double.compare(player.defense, defense) == 0 &&
+                Double.compare(player.currentHealth, currentHealth) == 0 &&
+                level == player.level &&
+                Objects.equals(name, player.name) &&
+                Arrays.equals(items, player.items) &&
+                Objects.equals(currentRoom, player.currentRoom);
+    }
+
+    @Override
+    public int hashCode() {
+
+        int result = Objects.hash(name, attack, defense, currentHealth, level, currentRoom);
+        result = 31 * result + Arrays.hashCode(items);
+        return result;
+    }
 
     /**
      * Obtains the name of the Player.

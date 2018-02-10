@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="430e989e-4e44-41b7-84d6-03a39df9f0a2" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/AllTests.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/console/Console.java" afterPath="$PROJECT_DIR$/src/console/Console.java" />
+      <change beforePath="$PROJECT_DIR$/data/extended_json.json" afterPath="$PROJECT_DIR$/data/extended_json.json" />
+      <change beforePath="$PROJECT_DIR$/src/data/Direction.java" afterPath="$PROJECT_DIR$/src/data/Direction.java" />
+      <change beforePath="$PROJECT_DIR$/src/data/Item.java" afterPath="$PROJECT_DIR$/src/data/Item.java" />
       <change beforePath="$PROJECT_DIR$/src/data/Layout.java" afterPath="$PROJECT_DIR$/src/data/Layout.java" />
+      <change beforePath="$PROJECT_DIR$/src/data/Monster.java" afterPath="$PROJECT_DIR$/src/data/Monster.java" />
+      <change beforePath="$PROJECT_DIR$/src/data/Player.java" afterPath="$PROJECT_DIR$/src/data/Player.java" />
+      <change beforePath="$PROJECT_DIR$/src/data/Room.java" afterPath="$PROJECT_DIR$/src/data/Room.java" />
+      <change beforePath="$PROJECT_DIR$/test/json/ReaderTest.java" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,78 +21,11 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/adventure_vamontchik$AllTests.coverage" NAME="AllTests Coverage Results" MODIFIED="1518243676237" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Console.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/console/Console.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1160">
-              <caret line="206" column="95" lean-forward="false" selection-start-line="206" selection-start-column="95" selection-end-line="206" selection-end-column="95" />
-              <folding>
-                <element signature="docComment;class#Console#0" expanded="false" />
-                <element signature="docComment;field#scan#0;class#Console#0" expanded="false" />
-                <element signature="docComment;field#fullInput#0;class#Console#0" expanded="false" />
-                <element signature="docComment;field#command#0;class#Console#0" expanded="false" />
-                <element signature="docComment;field#args#0;class#Console#0" expanded="false" />
-                <element signature="docComment;field#printedStart#0;class#Console#0" expanded="false" />
-                <element signature="initializer##0;class#Console#0" expanded="false" />
-                <element signature="docComment;method#println#0;class#Console#0" expanded="false" />
-                <element signature="docComment;method#print#0;class#Console#0" expanded="false" />
-                <element signature="docComment;method#printlnExtra#0;class#Console#0" expanded="false" />
-                <element signature="method#printlnExtra#0;class#Console#0" expanded="false" />
-                <element signature="docComment;method#printArrayWithCommas#0;class#Console#0" expanded="false" />
-                <element signature="method#printArrayWithCommas#0;class#Console#0" expanded="false" />
-                <element signature="docComment;method#printPlayerContents#0;class#Console#0" expanded="false" />
-                <element signature="method#printPlayerContents#0;class#Console#0" expanded="false" />
-                <element signature="docComment;method#printRoomContents#0;class#Console#0" expanded="false" />
-                <element signature="method#printRoomContents#0;class#Console#0" expanded="false" />
-                <element signature="docComment;method#printUponEntrance#0;class#Console#0" expanded="false" />
-                <element signature="method#printUponEntrance#0;class#Console#0" expanded="false" />
-                <element signature="docComment;method#printDirections#0;class#Console#0" expanded="false" />
-                <element signature="method#printDirections#0;class#Console#0" expanded="false" />
-                <element signature="docComment;method#printMonstersInRoom#0;class#Console#0" expanded="false" />
-                <element signature="method#printMonstersInRoom#0;class#Console#0" expanded="false" />
-                <element signature="docComment;method#clear#0;class#Console#0" expanded="false" />
-                <element signature="method#clear#0;class#Console#0" expanded="false" />
-                <element signature="docComment;method#readInput#0;class#Console#0" expanded="false" />
-                <element signature="method#readInput#0;class#Console#0" expanded="false" />
-                <element signature="docComment;method#processInput#0;class#Console#0" expanded="false" />
-                <element signature="method#processInput#0;class#Console#0" expanded="false" />
-                <element signature="e#7348#7436#0" expanded="false" />
-                <element signature="e#8053#8129#0" expanded="false" />
-                <element signature="e#8287#8303#0" expanded="false" />
-                <element signature="e#9232#9332#0" expanded="false" />
-                <element signature="e#10372#10470#0" expanded="false" />
-                <element signature="docComment;method#concatArgsIntoString#0;class#Console#0" expanded="false" />
-                <element signature="method#concatArgsIntoString#0;class#Console#0" expanded="false" />
-                <element signature="docComment;method#ensureArgsIsNonEmpty#0;class#Console#0" expanded="false" />
-                <element signature="method#ensureArgsIsNonEmpty#0;class#Console#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="extended_json.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/extended_json.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="33" column="9" lean-forward="false" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Layout.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/data/Layout.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4268">
-              <caret line="33" column="60" lean-forward="false" selection-start-line="33" selection-start-column="60" selection-end-line="33" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -122,10 +62,12 @@
       <find>builder</find>
       <find>URL</find>
       <find>concat</find>
+      <find>equals</find>
+      <find>Room</find>
+      <find>room</find>
+      <find>static</find>
     </findStrings>
     <replaceStrings>
-      <replace>Layout</replace>
-      <replace>layout</replace>
       <replace>startingRoomObj</replace>
       <replace>Console</replace>
       <replace>parseJsonFromURL</replace>
@@ -136,6 +78,17 @@
       <replace />
       <replace>currentHealth</replace>
       <replace>Builder</replace>
+      <replace>Player</replace>
+      <replace>Monster</replace>
+      <replace>Layout</replace>
+      <replace>Item</replace>
+      <replace>Direction</replace>
+      <replace>player</replace>
+      <replace>monster</replace>
+      <replace>layout</replace>
+      <replace>item</replace>
+      <replace>direction</replace>
+      <replace>testRoom</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -159,8 +112,6 @@
         <option value="$PROJECT_DIR$/src/data/Util.java" />
         <option value="$PROJECT_DIR$/src/console/ProcessConstant.java" />
         <option value="$PROJECT_DIR$/data/badmap.json" />
-        <option value="$PROJECT_DIR$/data/extended_json.json" />
-        <option value="$PROJECT_DIR$/test/json/ReaderTest.java" />
         <option value="$PROJECT_DIR$/src/validator/MapValidator.java" />
         <option value="$PROJECT_DIR$/src/json/Reader.java" />
         <option value="$PROJECT_DIR$/src/error/NoRoomException.java" />
@@ -168,14 +119,18 @@
         <option value="$PROJECT_DIR$/src/error/InvalidMapException.java" />
         <option value="$PROJECT_DIR$/src/error/InvalidInputException.java" />
         <option value="$PROJECT_DIR$/src/error/IncompleteBuilderException.java" />
-        <option value="$PROJECT_DIR$/src/data/Room.java" />
         <option value="$PROJECT_DIR$/src/game/Game.java" />
-        <option value="$PROJECT_DIR$/src/data/Player.java" />
+        <option value="$PROJECT_DIR$/src/console/Console.java" />
+        <option value="$PROJECT_DIR$/src/data/Item.java" />
+        <option value="$PROJECT_DIR$/src/data/Room.java" />
+        <option value="$PROJECT_DIR$/test/json/ReaderTest.java" />
+        <option value="$PROJECT_DIR$/test/json/AllTests.java" />
         <option value="$PROJECT_DIR$/src/data/Monster.java" />
         <option value="$PROJECT_DIR$/src/data/Direction.java" />
-        <option value="$PROJECT_DIR$/src/data/Item.java" />
+        <option value="$PROJECT_DIR$/src/data/Player.java" />
         <option value="$PROJECT_DIR$/src/data/Layout.java" />
-        <option value="$PROJECT_DIR$/src/console/Console.java" />
+        <option value="$PROJECT_DIR$/data/extended_json.json" />
+        <option value="$PROJECT_DIR$/test/AllTests.java" />
       </list>
     </option>
   </component>
@@ -238,6 +193,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -259,25 +215,7 @@
               <item name="adventure-vamontchik" type="b2602c69:ProjectViewProjectNode" />
               <item name="adventure-vamontchik" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="console" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="adventure-vamontchik" type="b2602c69:ProjectViewProjectNode" />
-              <item name="adventure-vamontchik" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="adventure-vamontchik" type="b2602c69:ProjectViewProjectNode" />
-              <item name="adventure-vamontchik" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="error" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="adventure-vamontchik" type="b2602c69:ProjectViewProjectNode" />
-              <item name="adventure-vamontchik" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="game" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="adventure-vamontchik" type="b2602c69:ProjectViewProjectNode" />
@@ -296,18 +234,11 @@
               <item name="adventure-vamontchik" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="adventure-vamontchik" type="b2602c69:ProjectViewProjectNode" />
-              <item name="adventure-vamontchik" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="json" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -320,17 +251,20 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="full.screen.before.presentation.mode" value="true" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
       <recent name="json" />
     </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="error" />
-    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="error" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\126 Assignments\adventure-vamontchik\src\data" />
@@ -349,7 +283,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Game">
+  <component name="RunManager" selected="JUnit.AllTests">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -358,6 +292,7 @@
       <module />
     </configuration>
     <configuration name="Game" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="game.Game" />
       <option name="VM_PARAMETERS" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -371,6 +306,7 @@
       <envs />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
@@ -383,12 +319,13 @@
       <module name="" />
       <envs />
     </configuration>
-    <configuration name="ReaderTest" type="JUnit" factoryName="JUnit">
+    <configuration name="AllTests" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="Adventure" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="json" />
-      <option name="MAIN_CLASS_NAME" value="json.ReaderTest" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AllTests" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -403,6 +340,7 @@
       <patterns />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -429,6 +367,7 @@
       <option name="PORT" value="5005" />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -462,42 +401,42 @@
     </configuration>
     <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Application.Game" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.ReaderTest" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.AllTests" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
   <component name="TestHistory">
-    <history-entry file="ReaderTest - 2018.02.05 at 00h 09m 41s.xml">
-      <configuration name="ReaderTest" configurationId="JUnit" />
+    <history-entry file="AllTests - 2018.02.10 at 01h 04m 19s.xml">
+      <configuration name="AllTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ReaderTest - 2018.02.05 at 00h 11m 31s.xml">
-      <configuration name="ReaderTest" configurationId="JUnit" />
+    <history-entry file="AllTests - 2018.02.10 at 01h 10m 16s.xml">
+      <configuration name="AllTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ReaderTest - 2018.02.09 at 00h 06m 46s.xml">
-      <configuration name="ReaderTest" configurationId="JUnit" />
+    <history-entry file="AllTests - 2018.02.10 at 01h 10m 25s.xml">
+      <configuration name="AllTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ReaderTest - 2018.02.09 at 00h 13m 04s.xml">
-      <configuration name="ReaderTest" configurationId="JUnit" />
+    <history-entry file="AllTests - 2018.02.10 at 01h 10m 41s.xml">
+      <configuration name="AllTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ReaderTest - 2018.02.09 at 00h 13m 29s.xml">
-      <configuration name="ReaderTest" configurationId="JUnit" />
+    <history-entry file="AllTests - 2018.02.10 at 01h 10m 48s.xml">
+      <configuration name="AllTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ReaderTest - 2018.02.09 at 00h 14m 08s.xml">
-      <configuration name="ReaderTest" configurationId="JUnit" />
+    <history-entry file="AllTests - 2018.02.10 at 01h 10m 55s.xml">
+      <configuration name="AllTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ReaderTest - 2018.02.09 at 00h 14m 34s.xml">
-      <configuration name="ReaderTest" configurationId="JUnit" />
+    <history-entry file="AllTests - 2018.02.10 at 01h 11m 06s.xml">
+      <configuration name="AllTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ReaderTest - 2018.02.09 at 00h 14m 51s.xml">
-      <configuration name="ReaderTest" configurationId="JUnit" />
+    <history-entry file="AllTests - 2018.02.10 at 01h 11m 14s.xml">
+      <configuration name="AllTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ReaderTest - 2018.02.09 at 00h 15m 01s.xml">
-      <configuration name="ReaderTest" configurationId="JUnit" />
+    <history-entry file="AllTests - 2018.02.10 at 01h 11m 44s.xml">
+      <configuration name="AllTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ReaderTest - 2018.02.09 at 00h 30m 10s.xml">
-      <configuration name="ReaderTest" configurationId="JUnit" />
+    <history-entry file="AllTests - 2018.02.10 at 01h 14m 44s.xml">
+      <configuration name="AllTests" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -511,30 +450,30 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2707889" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843652" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32948583" sideWeight="0.50208336" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" x="92" y="92" width="1736" height="866" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32423925" sideWeight="0.49791667" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3464819" sideWeight="0.49791667" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21197917" sideWeight="0.5067568" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32948583" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.209375" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21197917" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37040922" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21197917" sideWeight="0.49324325" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36993605" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843652" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="92" y="92" width="1736" height="866" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32948583" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -564,29 +503,21 @@
     <MESSAGE value="Minor changes.&#10;&#10;- Fixed test cases.&#10;- Thoroughly commented the MapValidator class.&#10;- Fixed a few minor output methods." />
     <MESSAGE value="Commmenting quite a bit.&#10;&#10;- Added/expanded upon comments in multiple classes." />
     <MESSAGE value="Finished commenting EVERYTHING." />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished commenting EVERYTHING." />
+    <MESSAGE value="Updated comments.&#10;&#10;- Added comments inside of the Console.processInput() method&#10;- Updated explanation describing the Builder pattern." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated comments.&#10;&#10;- Added comments inside of the Console.processInput() method&#10;- Updated explanation describing the Builder pattern." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="18" />
+      <option name="time" value="23" />
     </breakpoint-manager>
-    <watches-manager />
+    <watches-manager>
+      <configuration name="JUnit">
+        <watch expression="testPlayer" language="JAVA" />
+        <watch expression="expecteds[0]" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/json/Reader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="40" column="19" lean-forward="true" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/console/Console.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/game/Game.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
@@ -700,13 +631,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/Adventure.java" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="4" lean-forward="false" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/input/Input.java" />
     <entry file="file://$PROJECT_DIR$/src/error/ErrorConstants.java" />
     <entry file="file://$PROJECT_DIR$/src/error/IllegalDirectionException.java" />
@@ -754,6 +678,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="3" column="46" lean-forward="false" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
+          <folding>
+            <element signature="e#220#221#0" expanded="false" />
+            <element signature="e#250#251#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -761,6 +689,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="4" selection-end-column="3" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -782,53 +711,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/validator/MapValidator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="940">
-          <caret line="47" column="7" lean-forward="false" selection-start-line="47" selection-start-column="7" selection-end-line="47" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/jshell/jshell_console_1.snippet">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/Room.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="99" column="6" lean-forward="true" selection-start-line="99" selection-start-column="6" selection-end-line="99" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1243#1244#0" expanded="true" />
-            <element signature="e#1270#1271#0" expanded="true" />
-            <element signature="e#1417#1418#0" expanded="true" />
-            <element signature="e#1451#1452#0" expanded="true" />
-            <element signature="e#1638#1639#0" expanded="true" />
-            <element signature="e#1671#1672#0" expanded="true" />
-            <element signature="e#2309#2310#0" expanded="true" />
-            <element signature="e#2344#2345#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/json/ReaderTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="42" column="64" lean-forward="false" selection-start-line="42" selection-start-column="64" selection-end-line="42" selection-end-column="64" />
         </state>
       </provider>
     </entry>
@@ -840,125 +726,187 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/Direction.java">
+    <entry file="file://$PROJECT_DIR$/src/error/IncompleteBuilderException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="847">
-          <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-          <folding>
-            <element signature="e#549#550#0" expanded="true" />
-            <element signature="e#581#582#0" expanded="true" />
-            <element signature="e#770#771#0" expanded="true" />
-            <element signature="e#797#798#0" expanded="true" />
-            <element signature="e#1043#1044#0" expanded="true" />
-            <element signature="e#1075#1076#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="60">
+          <caret line="3" column="70" lean-forward="false" selection-start-line="3" selection-start-column="70" selection-end-line="3" selection-end-column="70" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/Monster.java">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="37" column="27" lean-forward="false" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
+        <state relative-caret-position="20">
+          <caret line="1" column="4" lean-forward="false" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/console/Console.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-220">
+          <caret line="205" column="46" lean-forward="true" selection-start-line="205" selection-start-column="46" selection-end-line="205" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/json/Reader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        <state relative-caret-position="-180">
+          <caret line="36" column="21" lean-forward="true" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="68" column="34" lean-forward="false" selection-start-line="68" selection-start-column="34" selection-end-line="68" selection-end-column="34" />
           <folding>
-            <element signature="docComment;method#isNull#0;class#Reader#0" expanded="false" />
-            <element signature="method#isNull#0;class#Reader#0" expanded="false" />
-            <element signature="docComment;method#parseJsonFromURL#0;class#Reader#0" expanded="false" />
-            <element signature="method#parseJsonFromURL#0;class#Reader#0" expanded="false" />
-            <element signature="docComment;method#getFileContentsFromURL#0;class#Reader#0" expanded="false" />
-            <element signature="method#getFileContentsFromURL#0;class#Reader#0" expanded="false" />
-            <element signature="docComment;method#parseJsonFromFile#0;class#Reader#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#2282#2283#0" expanded="true" />
+            <element signature="e#2309#2310#0" expanded="true" />
+            <element signature="e#2463#2464#0" expanded="true" />
+            <element signature="e#2491#2492#0" expanded="true" />
+            <element signature="e#2640#2641#0" expanded="true" />
+            <element signature="e#2669#2670#0" expanded="true" />
+            <element signature="e#2821#2822#0" expanded="true" />
+            <element signature="e#2851#2852#0" expanded="true" />
+            <element signature="e#3004#3005#0" expanded="true" />
+            <element signature="e#3040#3041#0" expanded="true" />
+            <element signature="e#3210#3211#0" expanded="true" />
+            <element signature="e#3238#3239#0" expanded="true" />
+            <element signature="e#3412#3413#0" expanded="true" />
+            <element signature="e#3446#3447#0" expanded="true" />
+            <element signature="e#3618#3619#0" expanded="true" />
+            <element signature="e#3664#3665#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/Item.java">
+    <entry file="file://$PROJECT_DIR$/src/data/Room.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="18" column="26" lean-forward="true" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+        <state relative-caret-position="20">
+          <caret line="46" column="12" lean-forward="false" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/junit-4.12.jar!/org/junit/Assert.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="127" column="0" lean-forward="false" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data/Monster.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="35" column="28" lean-forward="false" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
           <folding>
-            <element signature="docComment;class#Item#0" expanded="false" />
-            <element signature="docComment;field#name#0;class#Item#0" expanded="false" />
-            <element signature="docComment;field#damage#0;class#Item#0" expanded="false" />
-            <element signature="docComment;method#getName#0;class#Item#0" expanded="false" />
-            <element signature="docComment;method#getDamage#0;class#Item#0" expanded="false" />
-            <element signature="docComment;method#toString#0;class#Item#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#922#923#0" expanded="true" />
+            <element signature="e#949#950#0" expanded="true" />
+            <element signature="e#1100#1101#0" expanded="true" />
+            <element signature="e#1129#1130#0" expanded="true" />
+            <element signature="e#1283#1284#0" expanded="true" />
+            <element signature="e#1313#1314#0" expanded="true" />
+            <element signature="e#1468#1469#0" expanded="true" />
+            <element signature="e#1504#1505#0" expanded="true" />
+            <element signature="e#2103#2104#0" expanded="true" />
+            <element signature="e#2176#2177#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/extended_json.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="33" column="9" lean-forward="false" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
+        <state relative-caret-position="427">
+          <caret line="73" column="28" lean-forward="false" selection-start-line="73" selection-start-column="28" selection-end-line="73" selection-end-column="28" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/error/IncompleteBuilderException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="70" lean-forward="false" selection-start-line="3" selection-start-column="70" selection-end-line="3" selection-end-column="70" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/data/Layout.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4268">
-          <caret line="33" column="60" lean-forward="false" selection-start-line="33" selection-start-column="60" selection-end-line="33" selection-end-column="60" />
+        <state relative-caret-position="342">
+          <caret line="307" column="5" lean-forward="true" selection-start-line="307" selection-start-column="5" selection-end-line="307" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#9732#9733#0" expanded="true" />
+            <element signature="e#9760#9761#0" expanded="true" />
+            <element signature="e#9917#9918#0" expanded="true" />
+            <element signature="e#9956#9957#0" expanded="true" />
+            <element signature="e#10107#10108#0" expanded="true" />
+            <element signature="e#10144#10145#0" expanded="true" />
+            <element signature="e#10267#10268#0" expanded="true" />
+            <element signature="e#10296#10297#0" expanded="true" />
+            <element signature="e#10526#10527#0" expanded="true" />
+            <element signature="e#10557#10558#0" expanded="true" />
+            <element signature="e#10800#10801#0" expanded="true" />
+            <element signature="e#10838#10839#0" expanded="true" />
+            <element signature="e#11075#11076#0" expanded="true" />
+            <element signature="e#11111#11112#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/validator/MapValidator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="47" column="7" lean-forward="false" selection-start-line="47" selection-start-column="7" selection-end-line="47" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/console/Console.java">
+    <entry file="file://$PROJECT_DIR$/src/data/Item.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1160">
-          <caret line="206" column="95" lean-forward="false" selection-start-line="206" selection-start-column="95" selection-end-line="206" selection-end-column="95" />
+        <state relative-caret-position="87">
+          <caret line="25" column="12" lean-forward="false" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
           <folding>
-            <element signature="docComment;class#Console#0" expanded="false" />
-            <element signature="docComment;field#scan#0;class#Console#0" expanded="false" />
-            <element signature="docComment;field#fullInput#0;class#Console#0" expanded="false" />
-            <element signature="docComment;field#command#0;class#Console#0" expanded="false" />
-            <element signature="docComment;field#args#0;class#Console#0" expanded="false" />
-            <element signature="docComment;field#printedStart#0;class#Console#0" expanded="false" />
-            <element signature="initializer##0;class#Console#0" expanded="false" />
-            <element signature="docComment;method#println#0;class#Console#0" expanded="false" />
-            <element signature="docComment;method#print#0;class#Console#0" expanded="false" />
-            <element signature="docComment;method#printlnExtra#0;class#Console#0" expanded="false" />
-            <element signature="method#printlnExtra#0;class#Console#0" expanded="false" />
-            <element signature="docComment;method#printArrayWithCommas#0;class#Console#0" expanded="false" />
-            <element signature="method#printArrayWithCommas#0;class#Console#0" expanded="false" />
-            <element signature="docComment;method#printPlayerContents#0;class#Console#0" expanded="false" />
-            <element signature="method#printPlayerContents#0;class#Console#0" expanded="false" />
-            <element signature="docComment;method#printRoomContents#0;class#Console#0" expanded="false" />
-            <element signature="method#printRoomContents#0;class#Console#0" expanded="false" />
-            <element signature="docComment;method#printUponEntrance#0;class#Console#0" expanded="false" />
-            <element signature="method#printUponEntrance#0;class#Console#0" expanded="false" />
-            <element signature="docComment;method#printDirections#0;class#Console#0" expanded="false" />
-            <element signature="method#printDirections#0;class#Console#0" expanded="false" />
-            <element signature="docComment;method#printMonstersInRoom#0;class#Console#0" expanded="false" />
-            <element signature="method#printMonstersInRoom#0;class#Console#0" expanded="false" />
-            <element signature="docComment;method#clear#0;class#Console#0" expanded="false" />
-            <element signature="method#clear#0;class#Console#0" expanded="false" />
-            <element signature="docComment;method#readInput#0;class#Console#0" expanded="false" />
-            <element signature="method#readInput#0;class#Console#0" expanded="false" />
-            <element signature="docComment;method#processInput#0;class#Console#0" expanded="false" />
-            <element signature="method#processInput#0;class#Console#0" expanded="false" />
-            <element signature="e#7348#7436#0" expanded="false" />
-            <element signature="e#8053#8129#0" expanded="false" />
-            <element signature="e#8287#8303#0" expanded="false" />
-            <element signature="e#9232#9332#0" expanded="false" />
-            <element signature="e#10372#10470#0" expanded="false" />
-            <element signature="docComment;method#concatArgsIntoString#0;class#Console#0" expanded="false" />
-            <element signature="method#concatArgsIntoString#0;class#Console#0" expanded="false" />
-            <element signature="docComment;method#ensureArgsIsNonEmpty#0;class#Console#0" expanded="false" />
-            <element signature="method#ensureArgsIsNonEmpty#0;class#Console#0" expanded="false" />
+            <element signature="docComment;class#Item#0" expanded="false" />
+            <element signature="docComment;field#name#0;class#Item#0" expanded="false" />
+            <element signature="docComment;field#damage#0;class#Item#0" expanded="false" />
+            <element signature="docComment;method#Item#0;class#Item#0" expanded="false" />
+            <element signature="method#Item#0;class#Item#0" expanded="false" />
+            <element signature="docComment;method#getName#0;class#Item#0" expanded="false" />
+            <element signature="docComment;method#getDamage#0;class#Item#0" expanded="false" />
+            <element signature="docComment;method#toString#0;class#Item#0" expanded="false" />
+            <element signature="docComment;method#equals#0;class#Item#0" expanded="false" />
+            <element signature="method#equals#0;class#Item#0" expanded="false" />
+            <element signature="docComment;method#hashCode#0;class#Item#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/AllTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-456">
+          <caret line="26" column="50" lean-forward="false" selection-start-line="26" selection-start-column="50" selection-end-line="26" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data/Direction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="20" column="19" lean-forward="false" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1122#1123#0" expanded="true" />
+            <element signature="e#1154#1155#0" expanded="true" />
+            <element signature="e#1343#1344#0" expanded="true" />
+            <element signature="e#1370#1371#0" expanded="true" />
+            <element signature="e#1616#1617#0" expanded="true" />
+            <element signature="e#1648#1649#0" expanded="true" />
           </folding>
         </state>
       </provider>

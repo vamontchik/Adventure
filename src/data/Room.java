@@ -42,6 +42,17 @@ public class Room {
     private String[] monsterNames;
 
     /**
+     * Used for testing, and not used during live deployment of the game.
+     */
+    private Room() {
+        items = new Item[0];
+        monsterNames = new String[0];
+        directions = new Direction[0];
+        name = "";
+        description = "";
+    }
+
+    /**
      * Obtain the name of the Room.
      *
      * @return the name of the room
@@ -142,6 +153,23 @@ public class Room {
         //if the sizes mismatch, extra places are filled with null
         //to avoid this, pass in an empty array one less in size
         monsterNames = listRepresentation.toArray(new String[monsterNames.length - 1]);
+    }
+
+    /**
+     * Adds in the specified Monster name to the internal items array.
+     * This is done by converting the internal array structure to an ArrayList, using the ArrayList's .add() method,
+     * and then storing the resulting contents back into the internal array structure.
+     *
+     * @param monsterName the monster name to add
+     */
+    public void addMonster(String monsterName) {
+        ArrayList<String> listRepresentation = new ArrayList<>(Arrays.asList(monsterNames));
+        listRepresentation.add(monsterName);
+
+        //.toArray(T[]) uses the size of T to copy over values...
+        //if the sizes mismatch, extra places are filled with null
+        //to avoid issues, the array is increased in size by one
+        monsterNames = listRepresentation.toArray(new String[monsterNames.length + 1]);
     }
 
     /**
