@@ -18,7 +18,7 @@ public class Layout {
      * <p></p>
      * This was made in order to handle the fact that some fields exist in the Layout object
      * that do not exist in the JSON, and having a separate method to initialize these values after
-     * the Reader parses the JSON to create this objects leaves the potential for the object to be in a
+     * the Reader parses the JSON to create this object leaves the potential for the object to be in a
      * partially constructed state. As a result, a design pattern known as the 'Builder' can be used to hide away
      * these detail in order to enforce complete and safe creation of these objects.
      * <p></p>
@@ -29,10 +29,15 @@ public class Layout {
      * a few checks and exceptions are in place in order to enforce the proper use of this Builder.
      * <p></p>
      * Note: A constructor is not used to initialize these fields because some of these fields rely on the state of
-     * the fields read in from the JSON file. Since GSON encapsulates that process away from the programmer, it is not
-     * possible to know when GSON will read from the JSON fields and when GSON will try to instantiate by means of the
-     * constructor. In order to avoid problems arising from this, this Builder pattern enforces the policy that
-     * the fields that rely on the field read from the JSON (by GSON) are <b>always</b> done after.
+     * the fields read in from the JSON file. Furthermore, even though the default constructor is called by GSON, this
+     * is done <b>before</b> GSON uses Reflection to copy over the values into their respective locations. As a result,
+     * there is no way to initialize fields that are not in the JSON into values that are anything other than their
+     * default values as defined by Java (For objects, that would be {@code null}). If such objects are then meant to be
+     * used later in the program, a {@code NullPointerException} will result. By using this builder pattern, it not only
+     * allows the program to initialize these values into values other than null, but it also mandates because it forces
+     * their initialization to occur <b>after</b> GSON has read in all the values. This also prevents any issues where
+     * the constructor would try to call upon fields that are not yet read in, thereby causing strange behavior in the
+     * objects that would be dependent on these fields.
      */
     public static class Builder {
         /**

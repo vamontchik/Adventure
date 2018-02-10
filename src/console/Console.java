@@ -205,16 +205,23 @@ public class Console {
      */
     //TODO: Decouple functionality of game events this method... maybe make another class to do so??? Like 'Command' or something...
     public static void processInput(Player player, Layout layout) throws InvalidInputException {
+        //QUIT/EXIT COMMAND
         if (command.equalsIgnoreCase("quit") || command.equalsIgnoreCase("exit")) {
             System.exit(0);
         }
 
+        //GO COMMAND
         if (command.equalsIgnoreCase("go")) {
+            //Check to ensure that arguments are not empty, to prevent a NullPointerException
             ensureArgsIsNonEmpty();
 
+            //Obtain all the possible directions to move
             Direction[] validDirections = player.getCurrentRoom().getDirections();
-            String userDir = args[0];
 
+            //Obtain the direction the user wishes to go, and check to see if it's a valid direction
+            //If so, move in that direction. by setting the Player to be in that room.
+            //Else, throw an InvalidInputException specifying that it cannot do so
+            String userDir = args[0];
             for (Direction dir : validDirections) {
                 if (userDir.equalsIgnoreCase(dir.getDirection())) {
                     Console.println("Moved to " + dir.getRoomName());
@@ -242,12 +249,19 @@ public class Console {
             throw new InvalidInputException("I can't go " + userDir);
         }
 
+        //TAKE COMMAND
         if (command.equalsIgnoreCase("take")) {
+            //Check to ensure that arguments are not empty, to prevent a NullPointerException
             ensureArgsIsNonEmpty();
 
+            //Obtain all the items in the room
             Item[] roomItems = player.getCurrentRoom().getItems();
+
+            //Concatenate all the arg values into one String, in case the name of the item is more than one word
             String userItemName = concatArgsIntoString();
 
+            //Check to see if this is a valid item to pick up. If so, add the item to the player's inventory and
+            //remove it from the room's inventory. Else, throw an InvalidInputException specifying that it cannot do so.
             for (Item item : roomItems) {
                 if (userItemName.equalsIgnoreCase(item.getName())) {
                     Console.println("Took " + item.getName() + "!");
@@ -261,12 +275,19 @@ public class Console {
             throw new InvalidInputException("I can't take " + userItemName);
         }
 
+        //DROP COMMAND
         if (command.equalsIgnoreCase("drop")) {
+            //Check to ensure that arguments are not empty, to prevent a NullPointerException
             ensureArgsIsNonEmpty();
 
+            //Obtain all the items in the room
             Item[] roomItems = player.getItems();
+
+            //Concatenate all the arg values into one String, in case the name of the item is more than one word
             String userItemName = concatArgsIntoString();
 
+            //Check to see if this is a valid item to pick up. If so, add the item to the room's inventory and
+            //remove it from the player's inventory. Else, throw an InvalidInputException specifying that it cannot do so.
             for (Item item : roomItems) {
                 if (userItemName.equalsIgnoreCase(item.getName())) {
                     Console.println("Dropped " + item.getName() + "!");
@@ -280,11 +301,13 @@ public class Console {
             throw new InvalidInputException("I can't drop " + userItemName);
         }
 
+        //LIST ITEMS COMMAND: Prints out all of the items in the Player's inventory
         if (command.equalsIgnoreCase("list")) {
             Console.printPlayerContents(layout.getPlayer());
             return;
         }
 
+        //If this point is reached, the Player has input an invalid command.
         throw new InvalidInputException("I don't understand \'" + fullInput + "\'");
     }
 

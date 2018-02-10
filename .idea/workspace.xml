@@ -4,11 +4,7 @@
     <list default="true" id="430e989e-4e44-41b7-84d6-03a39df9f0a2" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/console/Console.java" afterPath="$PROJECT_DIR$/src/console/Console.java" />
-      <change beforePath="$PROJECT_DIR$/src/data/Direction.java" afterPath="$PROJECT_DIR$/src/data/Direction.java" />
-      <change beforePath="$PROJECT_DIR$/src/data/Item.java" afterPath="$PROJECT_DIR$/src/data/Item.java" />
       <change beforePath="$PROJECT_DIR$/src/data/Layout.java" afterPath="$PROJECT_DIR$/src/data/Layout.java" />
-      <change beforePath="$PROJECT_DIR$/src/data/Monster.java" afterPath="$PROJECT_DIR$/src/data/Monster.java" />
-      <change beforePath="$PROJECT_DIR$/src/data/Player.java" afterPath="$PROJECT_DIR$/src/data/Player.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,26 +19,68 @@
       <file leaf-file-name="Console.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/console/Console.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="531">
-              <caret line="281" column="0" lean-forward="true" selection-start-line="281" selection-start-column="0" selection-end-line="281" selection-end-column="0" />
+            <state relative-caret-position="1160">
+              <caret line="206" column="95" lean-forward="false" selection-start-line="206" selection-start-column="95" selection-end-line="206" selection-end-column="95" />
+              <folding>
+                <element signature="docComment;class#Console#0" expanded="false" />
+                <element signature="docComment;field#scan#0;class#Console#0" expanded="false" />
+                <element signature="docComment;field#fullInput#0;class#Console#0" expanded="false" />
+                <element signature="docComment;field#command#0;class#Console#0" expanded="false" />
+                <element signature="docComment;field#args#0;class#Console#0" expanded="false" />
+                <element signature="docComment;field#printedStart#0;class#Console#0" expanded="false" />
+                <element signature="initializer##0;class#Console#0" expanded="false" />
+                <element signature="docComment;method#println#0;class#Console#0" expanded="false" />
+                <element signature="docComment;method#print#0;class#Console#0" expanded="false" />
+                <element signature="docComment;method#printlnExtra#0;class#Console#0" expanded="false" />
+                <element signature="method#printlnExtra#0;class#Console#0" expanded="false" />
+                <element signature="docComment;method#printArrayWithCommas#0;class#Console#0" expanded="false" />
+                <element signature="method#printArrayWithCommas#0;class#Console#0" expanded="false" />
+                <element signature="docComment;method#printPlayerContents#0;class#Console#0" expanded="false" />
+                <element signature="method#printPlayerContents#0;class#Console#0" expanded="false" />
+                <element signature="docComment;method#printRoomContents#0;class#Console#0" expanded="false" />
+                <element signature="method#printRoomContents#0;class#Console#0" expanded="false" />
+                <element signature="docComment;method#printUponEntrance#0;class#Console#0" expanded="false" />
+                <element signature="method#printUponEntrance#0;class#Console#0" expanded="false" />
+                <element signature="docComment;method#printDirections#0;class#Console#0" expanded="false" />
+                <element signature="method#printDirections#0;class#Console#0" expanded="false" />
+                <element signature="docComment;method#printMonstersInRoom#0;class#Console#0" expanded="false" />
+                <element signature="method#printMonstersInRoom#0;class#Console#0" expanded="false" />
+                <element signature="docComment;method#clear#0;class#Console#0" expanded="false" />
+                <element signature="method#clear#0;class#Console#0" expanded="false" />
+                <element signature="docComment;method#readInput#0;class#Console#0" expanded="false" />
+                <element signature="method#readInput#0;class#Console#0" expanded="false" />
+                <element signature="docComment;method#processInput#0;class#Console#0" expanded="false" />
+                <element signature="method#processInput#0;class#Console#0" expanded="false" />
+                <element signature="e#7348#7436#0" expanded="false" />
+                <element signature="e#8053#8129#0" expanded="false" />
+                <element signature="e#8287#8303#0" expanded="false" />
+                <element signature="e#9232#9332#0" expanded="false" />
+                <element signature="e#10372#10470#0" expanded="false" />
+                <element signature="docComment;method#concatArgsIntoString#0;class#Console#0" expanded="false" />
+                <element signature="method#concatArgsIntoString#0;class#Console#0" expanded="false" />
+                <element signature="docComment;method#ensureArgsIsNonEmpty#0;class#Console#0" expanded="false" />
+                <element signature="method#ensureArgsIsNonEmpty#0;class#Console#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="extended_json.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/extended_json.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="660">
+              <caret line="33" column="9" lean-forward="false" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Item.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/data/Item.java">
+      <file leaf-file-name="Layout.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/data/Layout.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#525#526#0" expanded="true" />
-                <element signature="e#552#553#0" expanded="true" />
-                <element signature="e#749#750#0" expanded="true" />
-                <element signature="e#778#779#0" expanded="true" />
-                <element signature="e#1014#1015#0" expanded="true" />
-                <element signature="e#1041#1042#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-4268">
+              <caret line="33" column="60" lean-forward="false" selection-start-line="33" selection-start-column="60" selection-end-line="33" selection-end-column="60" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -134,9 +172,9 @@
         <option value="$PROJECT_DIR$/src/game/Game.java" />
         <option value="$PROJECT_DIR$/src/data/Player.java" />
         <option value="$PROJECT_DIR$/src/data/Monster.java" />
-        <option value="$PROJECT_DIR$/src/data/Layout.java" />
         <option value="$PROJECT_DIR$/src/data/Direction.java" />
         <option value="$PROJECT_DIR$/src/data/Item.java" />
+        <option value="$PROJECT_DIR$/src/data/Layout.java" />
         <option value="$PROJECT_DIR$/src/console/Console.java" />
       </list>
     </option>
@@ -199,8 +237,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -269,7 +306,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -476,25 +514,26 @@
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2707889" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843652" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32948583" sideWeight="0.50208336" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" x="92" y="92" width="1736" height="866" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32423925" sideWeight="0.49791667" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32948583" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.209375" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32948583" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21197917" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37040922" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843652" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32948583" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -524,7 +563,8 @@
     <MESSAGE value="Remove loose final modifiers." />
     <MESSAGE value="Minor changes.&#10;&#10;- Fixed test cases.&#10;- Thoroughly commented the MapValidator class.&#10;- Fixed a few minor output methods." />
     <MESSAGE value="Commmenting quite a bit.&#10;&#10;- Added/expanded upon comments in multiple classes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Commmenting quite a bit.&#10;&#10;- Added/expanded upon comments in multiple classes." />
+    <MESSAGE value="Finished commenting EVERYTHING." />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished commenting EVERYTHING." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -714,10 +754,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="3" column="46" lean-forward="false" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
-          <folding>
-            <element signature="e#220#221#0" expanded="false" />
-            <element signature="e#250#251#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -725,7 +761,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="4" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -733,10 +768,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="3" column="77" lean-forward="false" selection-start-line="3" selection-start-column="77" selection-end-line="3" selection-end-column="77" />
-          <folding>
-            <element signature="e#228#229#0" expanded="false" />
-            <element signature="e#258#259#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -748,14 +779,6 @@
             <element signature="e#244#245#0" expanded="false" />
             <element signature="e#274#275#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/error/IncompleteBuilderException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="70" lean-forward="false" selection-start-line="3" selection-start-column="70" selection-end-line="3" selection-end-column="70" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -773,23 +796,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/json/Reader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/extended_json.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="51" column="12" lean-forward="true" selection-start-line="51" selection-start-column="12" selection-end-line="51" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -819,27 +825,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/Monster.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="37" column="29" lean-forward="true" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="29" />
-          <folding>
-            <element signature="e#753#754#0" expanded="true" />
-            <element signature="e#904#905#0" expanded="true" />
-            <element signature="e#933#934#0" expanded="true" />
-            <element signature="e#1087#1088#0" expanded="true" />
-            <element signature="e#1117#1118#0" expanded="true" />
-            <element signature="e#1272#1273#0" expanded="true" />
-            <element signature="e#1308#1309#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/json/ReaderTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="303">
           <caret line="42" column="64" lean-forward="false" selection-start-line="42" selection-start-column="64" selection-end-line="42" selection-end-column="64" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -848,30 +837,6 @@
         <state relative-caret-position="1627">
           <caret line="99" column="7" lean-forward="true" selection-start-line="99" selection-start-column="7" selection-end-line="99" selection-end-column="7" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/Layout.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5700">
-          <caret line="292" column="5" lean-forward="true" selection-start-line="292" selection-start-column="5" selection-end-line="292" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#8073#8074#0" expanded="true" />
-            <element signature="e#8101#8102#0" expanded="true" />
-            <element signature="e#8258#8259#0" expanded="true" />
-            <element signature="e#8297#8298#0" expanded="true" />
-            <element signature="e#8448#8449#0" expanded="true" />
-            <element signature="e#8485#8486#0" expanded="true" />
-            <element signature="e#8608#8609#0" expanded="true" />
-            <element signature="e#8637#8638#0" expanded="true" />
-            <element signature="e#8867#8868#0" expanded="true" />
-            <element signature="e#8898#8899#0" expanded="true" />
-            <element signature="e#9141#9142#0" expanded="true" />
-            <element signature="e#9179#9180#0" expanded="true" />
-            <element signature="e#9416#9417#0" expanded="true" />
-            <element signature="e#9452#9453#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -890,26 +855,111 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/data/Monster.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="37" column="27" lean-forward="false" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/json/Reader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding>
+            <element signature="docComment;method#isNull#0;class#Reader#0" expanded="false" />
+            <element signature="method#isNull#0;class#Reader#0" expanded="false" />
+            <element signature="docComment;method#parseJsonFromURL#0;class#Reader#0" expanded="false" />
+            <element signature="method#parseJsonFromURL#0;class#Reader#0" expanded="false" />
+            <element signature="docComment;method#getFileContentsFromURL#0;class#Reader#0" expanded="false" />
+            <element signature="method#getFileContentsFromURL#0;class#Reader#0" expanded="false" />
+            <element signature="docComment;method#parseJsonFromFile#0;class#Reader#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/data/Item.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="240">
+          <caret line="18" column="26" lean-forward="true" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
           <folding>
-            <element signature="e#525#526#0" expanded="true" />
-            <element signature="e#552#553#0" expanded="true" />
-            <element signature="e#749#750#0" expanded="true" />
-            <element signature="e#778#779#0" expanded="true" />
-            <element signature="e#1014#1015#0" expanded="true" />
-            <element signature="e#1041#1042#0" expanded="true" />
+            <element signature="docComment;class#Item#0" expanded="false" />
+            <element signature="docComment;field#name#0;class#Item#0" expanded="false" />
+            <element signature="docComment;field#damage#0;class#Item#0" expanded="false" />
+            <element signature="docComment;method#getName#0;class#Item#0" expanded="false" />
+            <element signature="docComment;method#getDamage#0;class#Item#0" expanded="false" />
+            <element signature="docComment;method#toString#0;class#Item#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/extended_json.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="33" column="9" lean-forward="false" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/error/IncompleteBuilderException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="70" lean-forward="false" selection-start-line="3" selection-start-column="70" selection-end-line="3" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data/Layout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4268">
+          <caret line="33" column="60" lean-forward="false" selection-start-line="33" selection-start-column="60" selection-end-line="33" selection-end-column="60" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/console/Console.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="531">
-          <caret line="281" column="0" lean-forward="true" selection-start-line="281" selection-start-column="0" selection-end-line="281" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="1160">
+          <caret line="206" column="95" lean-forward="false" selection-start-line="206" selection-start-column="95" selection-end-line="206" selection-end-column="95" />
+          <folding>
+            <element signature="docComment;class#Console#0" expanded="false" />
+            <element signature="docComment;field#scan#0;class#Console#0" expanded="false" />
+            <element signature="docComment;field#fullInput#0;class#Console#0" expanded="false" />
+            <element signature="docComment;field#command#0;class#Console#0" expanded="false" />
+            <element signature="docComment;field#args#0;class#Console#0" expanded="false" />
+            <element signature="docComment;field#printedStart#0;class#Console#0" expanded="false" />
+            <element signature="initializer##0;class#Console#0" expanded="false" />
+            <element signature="docComment;method#println#0;class#Console#0" expanded="false" />
+            <element signature="docComment;method#print#0;class#Console#0" expanded="false" />
+            <element signature="docComment;method#printlnExtra#0;class#Console#0" expanded="false" />
+            <element signature="method#printlnExtra#0;class#Console#0" expanded="false" />
+            <element signature="docComment;method#printArrayWithCommas#0;class#Console#0" expanded="false" />
+            <element signature="method#printArrayWithCommas#0;class#Console#0" expanded="false" />
+            <element signature="docComment;method#printPlayerContents#0;class#Console#0" expanded="false" />
+            <element signature="method#printPlayerContents#0;class#Console#0" expanded="false" />
+            <element signature="docComment;method#printRoomContents#0;class#Console#0" expanded="false" />
+            <element signature="method#printRoomContents#0;class#Console#0" expanded="false" />
+            <element signature="docComment;method#printUponEntrance#0;class#Console#0" expanded="false" />
+            <element signature="method#printUponEntrance#0;class#Console#0" expanded="false" />
+            <element signature="docComment;method#printDirections#0;class#Console#0" expanded="false" />
+            <element signature="method#printDirections#0;class#Console#0" expanded="false" />
+            <element signature="docComment;method#printMonstersInRoom#0;class#Console#0" expanded="false" />
+            <element signature="method#printMonstersInRoom#0;class#Console#0" expanded="false" />
+            <element signature="docComment;method#clear#0;class#Console#0" expanded="false" />
+            <element signature="method#clear#0;class#Console#0" expanded="false" />
+            <element signature="docComment;method#readInput#0;class#Console#0" expanded="false" />
+            <element signature="method#readInput#0;class#Console#0" expanded="false" />
+            <element signature="docComment;method#processInput#0;class#Console#0" expanded="false" />
+            <element signature="method#processInput#0;class#Console#0" expanded="false" />
+            <element signature="e#7348#7436#0" expanded="false" />
+            <element signature="e#8053#8129#0" expanded="false" />
+            <element signature="e#8287#8303#0" expanded="false" />
+            <element signature="e#9232#9332#0" expanded="false" />
+            <element signature="e#10372#10470#0" expanded="false" />
+            <element signature="docComment;method#concatArgsIntoString#0;class#Console#0" expanded="false" />
+            <element signature="method#concatArgsIntoString#0;class#Console#0" expanded="false" />
+            <element signature="docComment;method#ensureArgsIsNonEmpty#0;class#Console#0" expanded="false" />
+            <element signature="method#ensureArgsIsNonEmpty#0;class#Console#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
