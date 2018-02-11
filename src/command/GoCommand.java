@@ -15,11 +15,13 @@ public class GoCommand implements Command {
     private Player player;
     private String whereTo;
     private Layout layout;
+    private String fullInputForError;
 
-    public GoCommand(Player player, String whereTo, Layout layout) {
+    public GoCommand(Player player, String whereTo, Layout layout, String fullInputForError) {
         this.player = player;
         this.whereTo = whereTo;
         this.layout = layout;
+        this.fullInputForError = fullInputForError;
     }
 
     @Override
@@ -56,6 +58,6 @@ public class GoCommand implements Command {
             }
         }
 
-        throw new InvalidInputException("I can't go " + userDir);
+        throw new InvalidInputException("I can't go \'" + fullInputForError + "\'");
     }
 }

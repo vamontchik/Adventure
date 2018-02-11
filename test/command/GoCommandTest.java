@@ -69,7 +69,7 @@ public class GoCommandTest {
         thrown.expectMessage("I can't go ");
 
         //fails because none of the rooms are linked to each other, which is expected...
-        GoCommand move = new GoCommand(testPlayer, testRoom.getName(), testLayout);
+        GoCommand move = new GoCommand(testPlayer, testRoom.getName(), testLayout, testRoom.getName());
         move.execute();
     }
 }

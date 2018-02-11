@@ -56,6 +56,6 @@ public class ReaderTest {
         roomField.setAccessible(true);
         Room[] rooms = (Room[])roomField.get(layout);
 
-        assertEquals(2, rooms.length);
+        assertEquals(4, rooms.length);
     }
 }

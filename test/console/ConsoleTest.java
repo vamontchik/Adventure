@@ -275,7 +275,7 @@ public class ConsoleTest {
         //
 
         thrown.expect(InvalidInputException.class);
-        thrown.expectMessage("I can't go North");
+        thrown.expectMessage("I can't go \'North\'");
 
         Console.readInput();
         Command command = Console.processInput(testPlayer, testLayout);
