@@ -19,6 +19,11 @@ public class TakeCommand implements Command {
 
     @Override
     public void execute() throws InvalidInputException {
+        //check if there are monsters in the room
+        if (player.getCurrentRoom().containsMonsters()) {
+            throw new InvalidInputException("There are still monsters here! I can't take that.");
+        }
+
         //Obtain all the items in the room
         Item[] roomItems = player.getCurrentRoom().getItems();
 

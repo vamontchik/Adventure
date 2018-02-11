@@ -52,6 +52,16 @@ public class Player {
     private Room currentRoom;
 
     /**
+     * Dueling state of the player.
+     */
+    private boolean isDueling;
+
+    /**
+     * The opponent to duel
+     */
+    private Monster opponent;
+
+    /**
      * Used only in testing.
      */
     private Player(Room testRoom) {
@@ -62,6 +72,8 @@ public class Player {
         currentHealth = 0.0;
         level = 0;
         currentRoom = testRoom;
+        isDueling = false;
+        opponent = null;
     }
 
     /**
@@ -152,6 +164,24 @@ public class Player {
     }
 
     /**
+     * Returns whether or the the Player is dueling.
+     *
+     * @return Returns whether or the the Player is dueling.
+     */
+    public boolean isDueling() {
+        return isDueling;
+    }
+
+    /**
+     * Sets the dueling state of the Player.
+     *
+     * @param setDueling the dueling state of the Player.
+     */
+    public void setDueling(boolean setDueling) {
+        this.isDueling = setDueling;
+    }
+
+    /**
      * Obtains the current Room that the Player inhabits.
      *
      * @return the current Room that the Player inhabits
@@ -200,5 +230,23 @@ public class Player {
         //.toArray(T[]) uses the size of T to copy over values...
         //if the sizes mismatch, extra places are filled with null
         items = listRepresentation.toArray(new Item[items.length + 1]);
+    }
+
+    /**
+     * Sets the opponent to reference during duels.
+     *
+     * @param opponent the Monster to fight
+     */
+    public void setOpponent(Monster opponent) {
+        this.opponent = opponent;
+    }
+
+    /**
+     * Returns the opponent to fight. Will return null if not in a duel state.
+     *
+     * @return the opponent to fight
+     */
+    public Monster getOpponent() {
+        return opponent;
     }
 }

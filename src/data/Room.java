@@ -95,6 +95,15 @@ public class Room {
     }
 
     /**
+     * Checks to see if the Room contains any monsters.
+     *
+     * @return true if there are monsters left, false if not
+     */
+    public boolean containsMonsters() {
+        return monsterNames.length != 0;
+    }
+
+    /**
      * Obtain the array of monsters' names in the Room.
      * Used by findMonsterByName(String monsterName) to find the corresponding Monster.
      *

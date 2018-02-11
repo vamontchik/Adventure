@@ -6,6 +6,7 @@ import data.Monster;
 import data.Player;
 import data.Room;
 import error.InvalidInputException;
+import error.MonsterNotFoundException;
 import org.junit.*;
 import org.junit.rules.ExpectedException;
 
@@ -217,7 +218,7 @@ public class ConsoleTest {
     }
 
     @Test
-    public void testProcessInputWithSampleDrop() throws InvalidInputException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    public void testProcessInputWithSampleDrop() throws InvalidInputException, NoSuchMethodException, InvocationTargetException, IllegalAccessException, MonsterNotFoundException {
         //finish finalizing the I/O testing process
         inContent = new ByteArrayInputStream(sampleDrop.getBytes());
         System.setIn(inContent);
@@ -239,7 +240,7 @@ public class ConsoleTest {
     }
 
     @Test
-    public void testProcessInputWithSampleTake() throws InvalidInputException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    public void testProcessInputWithSampleTake() throws InvalidInputException, NoSuchMethodException, InvocationTargetException, IllegalAccessException, MonsterNotFoundException {
         //finish finalizing the I/O testing process
         inContent = new ByteArrayInputStream(sampleTake.getBytes());
         System.setIn(inContent);
@@ -261,7 +262,7 @@ public class ConsoleTest {
     }
 
     @Test
-    public void testProcessInputWithSampleGo() throws InvalidInputException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    public void testProcessInputWithSampleGo() throws InvalidInputException, NoSuchMethodException, InvocationTargetException, IllegalAccessException, MonsterNotFoundException {
         //finish finalizing the I/O testing process
         inContent = new ByteArrayInputStream(sampleGo.getBytes());
         System.setIn(inContent);
@@ -283,7 +284,7 @@ public class ConsoleTest {
     }
 
     @Test
-    public void testProcessInputWithSampleList() throws InvalidInputException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    public void testProcessInputWithSampleList() throws InvalidInputException, NoSuchMethodException, InvocationTargetException, IllegalAccessException, MonsterNotFoundException {
         //finish finalizing the I/O testing process
         inContent = new ByteArrayInputStream(sampleList.getBytes());
         System.setIn(inContent);

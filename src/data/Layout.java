@@ -312,7 +312,7 @@ public class Layout {
      */
     public static Room findRoomByName(String roomName) throws NoRoomException {
         for (Room room : rooms) {
-            if (roomName.equals(room.getName())) {
+            if (roomName.equalsIgnoreCase(room.getName())) {
                 return room;
             }
         }
@@ -331,7 +331,7 @@ public class Layout {
      */
     public static Monster findMonsterByName(String monsterName) throws MonsterNotFoundException {
         for (Monster monster : monsters) {
-            if (monsterName.equals(monster.getName())) {
+            if (monsterName.equalsIgnoreCase(monster.getName())) {
                 return monster;
             }
         }

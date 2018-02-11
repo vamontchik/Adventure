@@ -3,7 +3,7 @@ package console;
 import command.*;
 import data.*;
 import error.InvalidInputException;
-import error.NoRoomException;
+import error.MonsterNotFoundException;
 
 import java.io.InputStream;
 import java.util.Scanner;
@@ -214,45 +214,65 @@ public class Console {
      * @param layout the Layout reference necessary for some internal checks
      * @throws InvalidInputException if the Player has passed in bad input
      */
-    public static Command processInput(Player player, Layout layout) throws InvalidInputException {
+    public static Command processInput(Player player, Layout layout) throws InvalidInputException, MonsterNotFoundException {
         //QUIT/EXIT COMMAND
         if (command.equalsIgnoreCase("quit") || command.equalsIgnoreCase("exit")) {
             return new ExitCommand();
         }
 
-        //GO COMMAND
-        if (command.equalsIgnoreCase("go")) {
-            //Check to ensure that arguments are not empty, to prevent a NullPointerException
-            ensureArgsIsNonEmpty();
+        //DUELING COMMANDS
+        if (player.isDueling()) {
+            //DISENGAGE COMMAND: Leaves the duel with the monster.
+            if (command.equalsIgnoreCase("disengage")) {
+                return new DisengageCommand(player);
+            }
 
-            return new GoCommand(player, args[0], layout, concatArgsIntoString());
-        }
+        //NORMAL COMMANDS
+        } else {
+            //GO COMMAND
+            if (command.equalsIgnoreCase("go")) {
+                //Check to ensure that arguments are not empty, to prevent a NullPointerException
+                ensureArgsIsNonEmpty();
 
-        //TAKE COMMAND
-        if (command.equalsIgnoreCase("take")) {
-            //Check to ensure that arguments are not empty, to prevent a NullPointerException
-            ensureArgsIsNonEmpty();
+                return new GoCommand(player, args[0], layout, concatArgsIntoString());
+            }
 
-            //Concatenate all the arg values into one String, in case the name of the item is more than one word
-            String userItemName = concatArgsIntoString();
+            //TAKE COMMAND
+            if (command.equalsIgnoreCase("take")) {
+                //Check to ensure that arguments are not empty, to prevent a NullPointerException
+                ensureArgsIsNonEmpty();
 
-            return new TakeCommand(player, userItemName);
-        }
+                //Concatenate all the arg values into one String, in case the name of the item is more than one word
+                String userItemName = concatArgsIntoString();
 
-        //DROP COMMAND
-        if (command.equalsIgnoreCase("drop")) {
-            //Check to ensure that arguments are not empty, to prevent a NullPointerException
-            ensureArgsIsNonEmpty();
+                return new TakeCommand(player, userItemName);
+            }
 
-            //Concatenate all the arg values into one String, in case the name of the item is more than one word
-            String userItemName = concatArgsIntoString();
+            //DROP COMMAND
+            if (command.equalsIgnoreCase("drop")) {
+                //Check to ensure that arguments are not empty, to prevent a NullPointerException
+                ensureArgsIsNonEmpty();
 
-            return new DropCommand(player, userItemName);
-        }
+                //Concatenate all the arg values into one String, in case the name of the item is more than one word
+                String userItemName = concatArgsIntoString();
 
-        //LIST ITEMS COMMAND: Prints out all of the items in the Player's inventory
-        if (command.equalsIgnoreCase("list")) {
-            return new ListCommand(layout);
+                return new DropCommand(player, userItemName);
+            }
+
+            //LIST ITEMS COMMAND: Prints out all of the items in the Player's inventory
+            if (command.equalsIgnoreCase("list")) {
+                return new ListCommand(layout);
+            }
+
+            //DUEL COMMAND: Switches to the dueling state with the selected monster.
+            if (command.equalsIgnoreCase("duel")) {
+                ensureArgsIsNonEmpty();
+
+                String nameOfMonster = concatArgsIntoString();
+                Monster monsterToFight = Layout.findMonsterByName(nameOfMonster);
+
+                return new DuelCommand(player, monsterToFight);
+            }
         }
 
         //If this point is reached, the Player has input an invalid command.
@@ -268,7 +288,7 @@ public class Console {
         String userItem;
 
         if (args.length == 1) {
-            userItem = args[0];
+            userItem = args[0].trim();
         } else {
             StringBuilder builder = new StringBuilder();
             for (String arg : args) {

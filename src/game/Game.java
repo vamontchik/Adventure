@@ -3,10 +3,7 @@ package game;
 import command.Command;
 import console.Console;
 import data.Layout;
-import error.IncompleteBuilderException;
-import error.InvalidInputException;
-import error.InvalidMapException;
-import error.NoRoomException;
+import error.*;
 import validator.MapValidator;
 
 import java.io.IOException;
@@ -88,7 +85,7 @@ public class Game {
 
                 //executes the corresponding function, or fails by throwing an exception
                 command.execute();
-            } catch (InvalidInputException e) {
+            } catch (InvalidInputException | MonsterNotFoundException e) {
                 //displays the cause of the issue
                 Console.println("Error: " + e.getMessage());
 

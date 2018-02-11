@@ -26,6 +26,11 @@ public class GoCommand implements Command {
 
     @Override
     public void execute() throws InvalidInputException {
+        //Checks to see if there are monsters still in the Room
+        if (player.getCurrentRoom().containsMonsters()) {
+            throw new InvalidInputException("There are still monsters here! I can’t move.");
+        }
+
         //Obtain all the possible directions to move
         Direction[] validDirections = player.getCurrentRoom().getDirections();
 
