@@ -61,6 +61,9 @@ public class Game {
             //prints the room name and description
             Console.printUponEntrance(layout, layout.getPlayer().getCurrentRoom());
 
+            //if dueling, prints out dueling status of monster and player
+            Console.printDuelStatus(layout.getPlayer());
+
             //prints the items the player has
             Console.printPlayerContents(layout.getPlayer());
 
@@ -68,7 +71,7 @@ public class Game {
             Console.printRoomContents(layout.getPlayer().getCurrentRoom());
 
             //prints the monsters in the room
-            Console.printMonstersInRoom(layout.getPlayer().getCurrentRoom());
+            Console.printMonstersInRoom(layout.getPlayer().getCurrentRoom(), layout.getPlayer());
 
             //prints the directions the player can go
             Console.printDirections(layout.getPlayer().getCurrentRoom());

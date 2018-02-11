@@ -38,6 +38,7 @@ public class ConsoleTest {
     private static Player testPlayer;
     private static Room testRoom;
     private static Layout testLayout;
+    private static Monster testMonster;
 
     @Rule
     public ExpectedException thrown = ExpectedException.none();
@@ -57,7 +58,7 @@ public class ConsoleTest {
         //creation of the test Monster object by means of Reflection
         Constructor<Monster> monsterConstructor = Monster.class.getDeclaredConstructor();
         monsterConstructor.setAccessible(true);
-        Monster testMonster = monsterConstructor.newInstance();
+        testMonster = monsterConstructor.newInstance();
 
         //creation of the test Layout object by means of Reflection
         Constructor<Layout> layoutConstructor = Layout.class.getDeclaredConstructor(
@@ -177,10 +178,39 @@ public class ConsoleTest {
 
     @Test
     public void testPrintMonstersInRoom() {
-        Console.printMonstersInRoom(testRoom);
+        Console.printMonstersInRoom(testRoom, testPlayer);
 
         //will not print out monsters if there are none
         assertEquals("", outContent.toString());
+    }
+
+    @Test
+    public void testDuelStatus() {
+        //set up Player for this test
+        testPlayer.setDueling(true);
+        testPlayer.setOpponent(testMonster);
+
+        Console.printDuelStatus(testPlayer);
+
+        //testMonster's name is an empty string...
+        String duelStatus =
+                "---------Duel Status----------" + System.lineSeparator() +
+                        "'s status: " + System.lineSeparator() +
+                        "\tHealth: 0.0" + System.lineSeparator() +
+                        "\tAttack: 0.0" + System.lineSeparator() +
+                        "\tDefense: 0.0" + System.lineSeparator() +
+                        "Your status: " + System.lineSeparator() +
+                        "\tHealth: 0.0" + System.lineSeparator() +
+                        "\tAttack: 0.0" + System.lineSeparator() +
+                        "\tDefense: 0.0" + System.lineSeparator() +
+                        "Your items: []" + System.lineSeparator() +
+                "------------------------------" + System.lineSeparator();
+
+        assertEquals(duelStatus, outContent.toString());
+
+        //reset Player object
+        testPlayer.setDueling(false);
+        testPlayer.setOpponent(null);
     }
 
     @Test

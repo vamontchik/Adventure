@@ -4,6 +4,9 @@ import console.Console;
 import data.Monster;
 import data.Player;
 
+/**
+ * Command representing the player entering a duel with a Monster.
+ */
 public class DuelCommand implements Command {
     private Player player;
     private Monster opponent;

@@ -3,6 +3,9 @@ package command;
 import console.Console;
 import data.Player;
 
+/**
+ * Command representing the Player disengaging from battle.
+ */
 public class DisengageCommand implements Command {
     private Player player;
 

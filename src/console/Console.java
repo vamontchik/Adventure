@@ -110,15 +110,17 @@ public class Console {
     }
 
     /**
-     * Prints out the contents of the Player (ie. inventory) to the standard output.
+     * Prints out the contents of the Player (ie. inventory) to the standard output if not dueling.
      * If empty, will print out an empty array-like symbol.
      *
      * @param player the player whose inventory will be printed out
      */
     public static void printPlayerContents(Player player) {
-        print("Your items: [");
-        printArrayWithCommas(player.getItems());
-        println("]");
+        if (!player.isDueling()) {
+            print("Your items: [");
+            printArrayWithCommas(player.getItems());
+            println("]");
+        }
     }
 
     /**
@@ -181,15 +183,41 @@ public class Console {
     }
 
     /**
-     * Prints out all the monsters in the specified Room.
+     * Prints out all the monsters in the specified Room if the room contains monsters and the Player is not dueling.
      *
      * @param room the Room whose monsters will be printed
      */
-    public static void printMonstersInRoom(Room room) {
-        if (room.containsMonsters()) {
+    public static void printMonstersInRoom(Room room, Player player) {
+        if (room.containsMonsters() && !player.isDueling()) {
             print("Monsters in room: [");
             printArrayWithCommas(room.getMonsterNames());
             println("]");
+        }
+    }
+
+
+    public static void printDuelStatus(Player player) {
+        if (player.isDueling()) {
+            Console.println("---------Duel Status----------");
+
+            Monster opponent = player.getOpponent();
+
+            //Monster's status: health, attack, defense
+            Console.println(opponent.getName() + "\'s status: ");
+            Console.println("\tHealth: " + opponent.getHealth());
+            Console.println("\tAttack: " + opponent.getAttack());
+            Console.println("\tDefense: " + opponent.getDefense());
+
+            //Player's status: health, attack, defense, and items
+            Console.println("Your status: ");
+            Console.println("\tHealth: " + player.getHealth());
+            Console.println("\tAttack: " + player.getAttack());
+            Console.println("\tDefense: " + player.getDefense());
+            Console.print("Your items: [");
+            printArrayWithCommas(player.getItems());
+            Console.println("]");
+
+            Console.println("------------------------------");
         }
     }
 
@@ -238,14 +266,24 @@ public class Console {
             return new ExitCommand();
         }
 
-        //DUELING COMMANDS
+        //LIST ITEMS COMMAND: Prints out all of the items in the Player's inventory
+        if (command.equalsIgnoreCase("list")) {
+            return new ListCommand(layout);
+        }
+
+        //PLAYER INFO COMMAND: Prints out the status of the player
+        if (command.equalsIgnoreCase("playerinfo")) {
+            return new PlayerInfoCommand(player);
+        }
+
+        //DUELING SPECIFIC COMMANDS
         if (player.isDueling()) {
             //DISENGAGE COMMAND: Leaves the duel with the monster.
             if (command.equalsIgnoreCase("disengage")) {
                 return new DisengageCommand(player);
             }
 
-        //NORMAL COMMANDS
+        //NON-DUELING SPECIFIC COMMANDS
         } else {
             //GO COMMAND
             if (command.equalsIgnoreCase("go")) {
@@ -275,11 +313,6 @@ public class Console {
                 String userItemName = concatArgsIntoString();
 
                 return new DropCommand(player, userItemName);
-            }
-
-            //LIST ITEMS COMMAND: Prints out all of the items in the Player's inventory
-            if (command.equalsIgnoreCase("list")) {
-                return new ListCommand(layout);
             }
 
             //DUEL COMMAND: Switches to the dueling state with the selected monster.
