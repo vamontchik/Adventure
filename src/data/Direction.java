@@ -79,6 +79,6 @@ public class Direction {
      */
     @Override
     public String toString() {
-        return direction;
+        return direction + " (to " + room + ")";
     }
 }

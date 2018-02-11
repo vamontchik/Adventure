@@ -22,31 +22,54 @@
       "directions": [
         {
           "directionName": "North",
-          "room": "Exit"
+          "room": "The Easy Room"
+        }
+      ],
+      "monstersInRoom": []
+    },
+    {
+      "name": "The Easy Room",
+      "description": "The first room in the game.",
+      "items": [],
+      "directions": [
+        {
+          "directionName": "South",
+          "room": "Entrance"
+        },
+        {
+          "directionName": "North",
+          "room": "The Harder Room"
         }
       ],
       "monstersInRoom": ["SkeletonOne", "SkeletonTwo", "SkeletonThree"]
     },
     {
-      "name": "Exit",
-      "description": "The exit from the game.",
-      "items": [
-        {
-          "name": "B.F. Sword",
-          "damage": 40.00
-        },
-        {
-          "name": "Cull",
-          "damage": 7.00
-        }
-      ],
+      "name": "The Harder Room",
+      "description": "The second room in the game.",
+      "items": [],
       "directions": [
         {
           "directionName": "South",
-          "room": "Entrance"
+          "room": "The Easy Room"
+        },
+        {
+          "directionName": "North",
+          "room": "Exit"
         }
       ],
-      "monstersInRoom": ["SkeletonOne", "SkeletonTwo"]
+      "monstersInRoom": ["BossOne"]
+    },
+    {
+      "name": "Exit",
+      "description": "The exit from the game.",
+      "items": [],
+      "directions": [
+        {
+          "directionName": "South",
+          "room": "The Harder Room"
+        }
+      ],
+      "monstersInRoom": []
     }
   ],
   "player": {
@@ -75,6 +98,12 @@
       "attack": 2.00,
       "defense": 1.00,
       "health": 15.00
+    },
+    {
+      "name": "BossOne",
+      "attack": 20.00,
+      "defense": 30.00,
+      "health": 100.00
     }
   ]
 }
