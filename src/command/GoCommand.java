@@ -8,6 +8,9 @@ import data.Room;
 import error.InvalidInputException;
 import error.NoRoomException;
 
+/**
+ * Command representing the movement of a Player into another Room.
+ */
 public class GoCommand implements Command {
     private Player player;
     private String whereTo;

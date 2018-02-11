@@ -5,6 +5,9 @@ import data.Item;
 import data.Player;
 import error.InvalidInputException;
 
+/**
+ * Command representing the Player taking an item from the Room.
+ */
 public class TakeCommand implements Command {
     private Player player;
     private String userItemName;

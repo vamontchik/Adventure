@@ -5,6 +5,9 @@ import data.Item;
 import data.Player;
 import error.InvalidInputException;
 
+/**
+ * Command representing the player dropping an item.
+ */
 public class DropCommand implements Command {
     private Player player;
     private String userItemName;
