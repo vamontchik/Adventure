@@ -10,12 +10,12 @@ import error.NoRoomException;
 
 public class GoCommand implements Command {
     private Player player;
-    private String[] args;
+    private String whereTo;
     private Layout layout;
 
-    public GoCommand(Player player, String[] args, Layout layout) {
+    public GoCommand(Player player, String whereTo, Layout layout) {
         this.player = player;
-        this.args = args;
+        this.whereTo = whereTo;
         this.layout = layout;
     }
 
@@ -25,9 +25,9 @@ public class GoCommand implements Command {
         Direction[] validDirections = player.getCurrentRoom().getDirections();
 
         //Obtain the direction the user wishes to go, and check to see if it's a valid direction
-        //If so, move in that direction. by setting the Player to be in that room.
+        //If so, move in that direction by setting the Player to be in that room.
         //Else, throw an InvalidInputException specifying that it cannot do so
-        String userDir = args[0];
+        String userDir = whereTo;
         for (Direction dir : validDirections) {
             if (userDir.equalsIgnoreCase(dir.getDirection())) {
                 Console.println("Moved to " + dir.getRoomName());

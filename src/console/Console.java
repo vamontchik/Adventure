@@ -225,7 +225,7 @@ public class Console {
             //Check to ensure that arguments are not empty, to prevent a NullPointerException
             ensureArgsIsNonEmpty();
 
-            return new GoCommand(player, args, layout);
+            return new GoCommand(player, args[0], layout);
         }
 
         //TAKE COMMAND
