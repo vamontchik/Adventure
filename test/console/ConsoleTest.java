@@ -179,7 +179,8 @@ public class ConsoleTest {
     public void testPrintMonstersInRoom() {
         Console.printMonstersInRoom(testRoom);
 
-        assertEquals("Monsters in room: []" + System.lineSeparator(), outContent.toString());
+        //will not print out monsters if there are none
+        assertEquals("", outContent.toString());
     }
 
     @Test

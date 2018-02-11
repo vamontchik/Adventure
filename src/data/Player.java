@@ -62,6 +62,11 @@ public class Player {
     private Monster opponent;
 
     /**
+     * Boolean to check to see if the player has entered a new room or not.
+     */
+    private boolean hasEntered;
+
+    /**
      * Used only in testing.
      */
     private Player(Room testRoom) {
@@ -248,5 +253,23 @@ public class Player {
      */
     public Monster getOpponent() {
         return opponent;
+    }
+
+    /**
+     * Checks to see if the player has entered a room.
+     *
+     * @return if the player has entered a room.
+     */
+    public boolean hasEntered() {
+        return hasEntered;
+    }
+
+    /**
+     * Sets the state of entering the room.
+     *
+     * @param hasEntered the state to set hasEntered to
+     */
+    public void setEntered(boolean hasEntered) {
+        this.hasEntered = hasEntered;
     }
 }

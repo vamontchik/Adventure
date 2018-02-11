@@ -122,15 +122,18 @@ public class Console {
     }
 
     /**
-     * Prints out the contents of the Room (ie. Items in the Room) to the standard output.
+     * Prints out the contents of the Room (ie. Items in the Room) to the standard output if there are no monsters
+     * in the room.
      * If empty, will print out an empty array-like symbol.
      *
      * @param room the room whose contents will be printed out
      */
     public static void printRoomContents(Room room) {
-        print("Room items: [");
-        printArrayWithCommas(room.getItems());
-        println("]");
+        if (!(room.containsMonsters())) {
+            print("Room items: [");
+            printArrayWithCommas(room.getItems());
+            println("]");
+        }
     }
 
     /**
@@ -140,28 +143,41 @@ public class Console {
      * @param room room whose description will be printed
      */
     public static void printUponEntrance(Layout layout, Room room) {
+        //Check to only print out the name and description upon moving between rooms
+        if (layout.getPlayer().hasEntered()) {
+            return;
+        } else {
+            layout.getPlayer().setEntered(true);
+        }
+
+        //Prints the name and description
         println("Room name: "  + room.getName());
         println("Room description: " + room.getDescription());
 
+        //Start game special message
         if (layout.getStartingRoom().equals(room) && !printedStart) {
             println("Your journey begins here.");
             printedStart = true;
         }
 
+        //End game special message
         if (layout.getEndingRoom().equals(room)) {
             println("You have reached your final destination!");
         }
     }
 
     /**
-     * Prints out all the possible directions of that a Player may go within the specified Room.
+     * Prints out all the possible directions of that a Player may go within the specified Room if there are no
+     * monsters in the room.
      *
      * @param room Room whose directions will be printed
      */
     public static void printDirections(Room room) {
-        print("From here, you can go: ");
-        printArrayWithCommas(room.getDirections());
-        println("");
+        if (!(room.containsMonsters())) {
+            print("From here, you can go: ");
+            printArrayWithCommas(room.getDirections());
+            println("");
+        }
     }
 
     /**
@@ -170,9 +186,11 @@ public class Console {
      * @param room the Room whose monsters will be printed
      */
     public static void printMonstersInRoom(Room room) {
-        print("Monsters in room: [");
-        printArrayWithCommas(room.getMonsterNames());
-        println("]");
+        if (room.containsMonsters()) {
+            print("Monsters in room: [");
+            printArrayWithCommas(room.getMonsterNames());
+            println("]");
+        }
     }
 
     /**

@@ -50,7 +50,11 @@ public class GoCommand implements Command {
                     //that there'll be a room that works
                 }
 
+                //set the new room
                 player.setCurrentRoom(newRoom);
+
+                //set the boolean that check if a player has move rooms. Used when printing output.
+                player.setEntered(false);
 
                 //end game check
                 //noinspection ConstantConditions ---> see catch statement above
