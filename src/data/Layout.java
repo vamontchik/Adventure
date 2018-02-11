@@ -35,9 +35,9 @@ public class Layout {
      * there is no way to initialize fields that are not in the JSON into values that are anything other than their
      * default values as defined by Java (For objects, that would be {@code null}). If such objects are then meant to be
      * used later in the program, a {@code NullPointerException} will result. By using this builder pattern, it not only
-     * allows the program to initialize these values into values other than null, but it also mandates because it forces
+     * allows the program to initialize these values into values other than null, but it also mandates it because it forces
      * their initialization to occur <b>after</b> GSON has read in all the values. This also prevents any issues where
-     * the constructor would try to call upon fields that are not yet read in, thereby causing strange behavior in the
+     * the constructor would try to call upon fields that are not yet read in, thereby preventing strange behavior in the
      * objects that would be dependent on these fields.
      */
     public static class Builder {
