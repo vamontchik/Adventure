@@ -18,13 +18,13 @@ public class Monster {
      * Attack power of the monster.
      */
     @SerializedName("attack")
-    private final double attack;
+    private double attack;
 
     /**
      * Defense power of the monster.
      */
     @SerializedName("defense")
-    private final double defense;
+    private double defense;
 
     /**
      * Current health of the monster.
@@ -38,10 +38,7 @@ public class Monster {
      * Used in testing only.
      */
     private Monster() {
-        name = "";
-        attack = 0.0;
-        defense = 0.0;
-        currentHealth = 0.0;
+        name = "testMonster";
     }
 
     /**
@@ -129,7 +126,6 @@ public class Monster {
      * Sets the initialHealth value of this Monster. Instantiated upon initialization of this game.
      *
      * @param initialHealth the initial health of the Monster
-     * @return the initial health of this monster
      */
     public void setInitialHealth(double initialHealth) {
         this.initialHealth = initialHealth;

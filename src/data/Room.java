@@ -48,8 +48,8 @@ public class Room {
         items = new Item[0];
         monsterNames = new String[0];
         directions = new Direction[0];
-        name = "";
-        description = "";
+        name = "testRoom";
+        description = "testDescription";
     }
 
     /**

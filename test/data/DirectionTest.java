@@ -14,14 +14,14 @@ public class DirectionTest {
     @BeforeClass
     public static void setUp() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
         //creation of the test Direction object by means of Reflection
-        Constructor<Direction> directionConstructor = Direction.class.getDeclaredConstructor();
+        Constructor<Direction> directionConstructor = Direction.class.getDeclaredConstructor(String.class);
         directionConstructor.setAccessible(true);
-        testDirection = directionConstructor.newInstance();
+        testDirection = directionConstructor.newInstance("testRoom");
     }
 
     @Test
     public void testDirectionGetters() {
-        assertEquals("", testDirection.getRoomName());
-        assertEquals("", testDirection.getDirection());
+        assertEquals("testRoom", testDirection.getRoomName());
+        assertEquals("testDirection", testDirection.getDirection());
     }
 }

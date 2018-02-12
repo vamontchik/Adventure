@@ -34,6 +34,6 @@ public class DropCommand implements Command {
             }
         }
 
-        throw new InvalidInputException("I can't drop \'" + userItemName + "\"");
+        throw new InvalidInputException("I can't drop \'" + userItemName + "\'");
     }
 }

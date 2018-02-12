@@ -79,15 +79,9 @@ public class Player {
      * Used only in testing.
      */
     private Player(Room testRoom) {
-        name = "";
+        name = "testPlayer";
         items = new Item[0];
-        attack = 0.0;
-        defense = 0.0;
-        currentHealth = 0.0;
-        level = 0;
         currentRoom = testRoom;
-        isDueling = false;
-        opponent = null;
     }
 
     /**

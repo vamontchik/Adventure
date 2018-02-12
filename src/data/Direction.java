@@ -23,9 +23,9 @@ public class Direction {
     /**
      * Used in testing only.
      */
-    private Direction() {
-        direction = "";
-        room = "";
+    private Direction(String pointTo) {
+        direction = "testDirection";
+        this.room = pointTo;
     }
 
     /**

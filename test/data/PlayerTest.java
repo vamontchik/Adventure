@@ -44,7 +44,7 @@ public class PlayerTest {
         assertEquals(0.0, testPlayer.getDefense(), TOLERANCE);
         assertEquals(0.0, testPlayer.getHealth(), TOLERANCE);
         assertEquals(0, testPlayer.getLevel());
-        assertEquals("", testPlayer.getName());
+        assertEquals("testPlayer", testPlayer.getName());
     }
 
     @Test

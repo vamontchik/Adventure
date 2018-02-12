@@ -162,8 +162,8 @@ public class ConsoleTest {
 
         //both clauses fire off because all the Room objects are empty, and therefore, 'equal'
         String finalOutput =
-                "Room name: " + System.lineSeparator() +
-                "Room description: " + System.lineSeparator() +
+                "Room name: testRoom" + System.lineSeparator() +
+                "Room description: testDescription" + System.lineSeparator() +
                 "Your journey begins here." + System.lineSeparator() +
                 "You have reached your final destination!" + System.lineSeparator();
 
@@ -196,7 +196,7 @@ public class ConsoleTest {
         //testMonster's name is an empty string...
         String duelStatus =
                 "---------Duel Status----------" + System.lineSeparator() +
-                        "'s status: " + System.lineSeparator() +
+                        "testMonster's status: " + System.lineSeparator() +
                         "\tHealth: 0.0" + System.lineSeparator() +
                         "\tAttack: 0.0" + System.lineSeparator() +
                         "\tDefense: 0.0" + System.lineSeparator() +
@@ -264,7 +264,7 @@ public class ConsoleTest {
         //
 
         thrown.expect(InvalidInputException.class);
-        thrown.expectMessage("I can't drop memes");
+        thrown.expectMessage("I can't drop \'memes\'");
 
         Console.readInput();
         Command command = Console.processInput(testPlayer, testLayout);
@@ -286,7 +286,7 @@ public class ConsoleTest {
         //
 
         thrown.expect(InvalidInputException.class);
-        thrown.expectMessage("I can't take cherries");
+        thrown.expectMessage("I can't take \'cherries\'");
 
         Console.readInput();
         Command command = Console.processInput(testPlayer, testLayout);

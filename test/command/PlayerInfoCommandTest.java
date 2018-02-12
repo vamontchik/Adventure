@@ -61,7 +61,8 @@ public class PlayerInfoCommandTest {
                 "\tLevel: 0" + System.lineSeparator() +
                 "\tAttack: 0.0" + System.lineSeparator() +
                 "\tDefense: 0.0" + System.lineSeparator() +
-                "\tHealth: 0.0" + System.lineSeparator();
+                "\tHealth: 0.0" + System.lineSeparator() +
+                "\tExperience: 0.0" + System.lineSeparator();
 
         assertEquals(result, outContent.toString());
     }

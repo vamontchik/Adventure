@@ -25,7 +25,7 @@ public class MonsterTest {
 
     @Test
     public void testMonsterGetters() {
-        assertEquals("", testMonster.getName());
+        assertEquals("testMonster", testMonster.getName());
         assertEquals(0.0, testMonster.getAttack(), TOLERANCE);
         assertEquals(0.0, testMonster.getDefense(), TOLERANCE);
         assertEquals(0.0, testMonster.getHealth(), TOLERANCE);

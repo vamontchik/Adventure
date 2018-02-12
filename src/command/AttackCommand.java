@@ -85,6 +85,7 @@ public class AttackCommand implements Command {
                 new ExitCommand().execute();
             }
 
+            //update the player's health
             player.setHealth(newPlayerHealth);
         }
     }

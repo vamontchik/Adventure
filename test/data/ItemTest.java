@@ -25,7 +25,7 @@ public class ItemTest {
 
     @Test
     public void testItemGetters() {
-        assertEquals("", testItem.getName());
+        assertEquals("testItem", testItem.getName());
         assertEquals(0.0, testItem.getDamage(), TOLERANCE);
     }
 

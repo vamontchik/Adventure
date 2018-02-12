@@ -28,10 +28,10 @@ public class RoomTest {
 
     @Test
     public void testRoomGetters() {
-        assertEquals("", testRoom.getName());
+        assertEquals("testRoom", testRoom.getName());
         assertArrayEquals(new Direction[0], testRoom.getDirections());
         assertArrayEquals(new Item[0], testRoom.getItems());
-        assertEquals("", testRoom.getDescription());
+        assertEquals("testDescription", testRoom.getDescription());
         assertArrayEquals(new Monster[0], testRoom.getMonsterNames());
     }
 

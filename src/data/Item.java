@@ -18,14 +18,13 @@ public class Item {
      * Double value that represents the power of the Item.
      */
     @SerializedName("damage")
-    private final double damage;
+    private double damage;
 
     /**
      * Used for testing, and not used during live deployment of the game.
      */
     private Item() {
-        damage = 0.0;
-        name = "";
+        name = "testItem";
     }
 
     /**
