@@ -7,7 +7,7 @@ import data.Layout;
  * Command representing the listing of items that Player has.
  */
 public class ListCommand implements Command {
-    private Layout layout;
+    private final Layout layout;
 
     public ListCommand(Layout layout) {
         this.layout = layout;

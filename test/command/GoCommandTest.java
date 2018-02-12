@@ -21,7 +21,7 @@ public class GoCommandTest {
     private static Layout testLayout;
 
     @Rule
-    public ExpectedException thrown = ExpectedException.none();
+    public final ExpectedException thrown = ExpectedException.none();
 
 
     @BeforeClass

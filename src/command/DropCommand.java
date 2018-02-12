@@ -9,8 +9,8 @@ import error.InvalidInputException;
  * Command representing the player dropping an item.
  */
 public class DropCommand implements Command {
-    private Player player;
-    private String userItemName;
+    private final Player player;
+    private final String userItemName;
 
     public DropCommand(Player player, String userItemName) {
         this.player = player;

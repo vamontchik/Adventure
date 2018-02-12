@@ -7,7 +7,7 @@ import data.Player;
  * Command representing the Player disengaging from battle.
  */
 public class DisengageCommand implements Command {
-    private Player player;
+    private final Player player;
 
     public DisengageCommand(Player player) {
         this.player = player;

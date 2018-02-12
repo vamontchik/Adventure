@@ -6,8 +6,8 @@ import data.Monster;
 import data.Player;
 
 public class AttackCommand implements Command {
-    private Player player;
-    private Monster opponent;
+    private final Player player;
+    private final Monster opponent;
     private Item item;
     private final double TOLERANCE;
 

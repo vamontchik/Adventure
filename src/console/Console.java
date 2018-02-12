@@ -288,6 +288,7 @@ public class Console {
                 return new DisengageCommand(player);
             }
 
+            //ATTACK COMMAND: Attack the opponent with or without items, as specified by the user
             if (command.equalsIgnoreCase("attack")) {
                 //Check if an item is used. If so, find obtain the Item object.
                 if (args.length == 0) {
@@ -296,6 +297,11 @@ public class Console {
 
                 Item used = player.findItemByName(concatArgsIntoString(1));
                 return new AttackCommand(player, player.getOpponent(), used);
+            }
+
+            //STATUS COMMAND: Read the status of the player
+            if (command.equalsIgnoreCase("status")) {
+                return new StatusCommand(player, player.getOpponent());
             }
 
         //NON-DUELING SPECIFIC COMMANDS

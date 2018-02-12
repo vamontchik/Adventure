@@ -7,7 +7,7 @@ import data.Player;
  * Command representing the printing out of the Player's stats.
  */
 public class PlayerInfoCommand implements Command {
-    private Player player;
+    private final Player player;
 
     public PlayerInfoCommand(Player player) {
         this.player = player;

@@ -8,8 +8,8 @@ import data.Player;
  * Command representing the player entering a duel with a Monster.
  */
 public class DuelCommand implements Command {
-    private Player player;
-    private Monster opponent;
+    private final Player player;
+    private final Monster opponent;
 
     public DuelCommand(Player player, Monster opponent) {
         this.player = player;

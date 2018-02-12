@@ -9,8 +9,8 @@ import error.InvalidInputException;
  * Command representing the Player taking an item from the Room.
  */
 public class TakeCommand implements Command {
-    private Player player;
-    private String userItemName;
+    private final Player player;
+    private final String userItemName;
 
     public TakeCommand(Player player, String userItemName) {
         this.player = player;

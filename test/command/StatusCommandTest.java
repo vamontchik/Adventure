@@ -1,8 +1,8 @@
 package command;
 
+import data.Monster;
 import data.Player;
 import data.Room;
-import error.InvalidInputException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -16,8 +16,9 @@ import java.lang.reflect.InvocationTargetException;
 
 import static org.junit.Assert.*;
 
-public class PlayerInfoCommandTest {
+public class StatusCommandTest {
     private static Player testPlayer;
+    private static Monster testMonster;
     private static OutputStream outContent;
     private static OutputStream defaultOut;
 
@@ -33,9 +34,15 @@ public class PlayerInfoCommandTest {
         playerConstructor.setAccessible(true);
         testPlayer = playerConstructor.newInstance(testRoom);
 
+        //creation of the test Monster object by means of Reflection
+        Constructor<Monster> monsterConstructor = Monster.class.getDeclaredConstructor();
+        monsterConstructor.setAccessible(true);
+        testMonster = monsterConstructor.newInstance();
+
         //resets
         defaultOut = System.out;
     }
+
 
     @Before
     public void setUpStreamTests() {
@@ -46,22 +53,18 @@ public class PlayerInfoCommandTest {
 
     @After
     public void tearDown() {
-        //Reset in and out streams after test is finished
+        //Reset out stream after test is finished
         System.setOut(new PrintStream(defaultOut));
     }
 
     @Test
-    public void testStatsOutput() throws InvalidInputException {
-        Command command = new PlayerInfoCommand(testPlayer);
-        command.execute();
-        
-        String result = "Your stats: " + System.lineSeparator() +
-                "\tLevel: 0" + System.lineSeparator() +
-                "\tAttack: 0.0" + System.lineSeparator() +
-                "\tDefense: 0.0" + System.lineSeparator() +
-                "\tHealth: 0.0" + System.lineSeparator() +
-                "\tExperience: 0.0" + System.lineSeparator();
+    public void testStatusOutput() {
+        new StatusCommand(testPlayer, testMonster).execute();
 
-        assertEquals(result, outContent.toString());
+        String goodResult =
+                "Player:  ____________________" + System.lineSeparator() +
+                "Monster: ____________________" + System.lineSeparator();
+
+        assertEquals(goodResult, outContent.toString());
     }
 }
