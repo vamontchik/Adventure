@@ -30,7 +30,9 @@ public class Monster {
      * Current health of the monster.
      */
     @SerializedName("health")
-    private final double currentHealth;
+    private double currentHealth;
+
+    private double initialHealth;
 
     /**
      * Used in testing only.
@@ -103,5 +105,33 @@ public class Monster {
     @Override
     public int hashCode() {
         return Objects.hash(name, attack, defense, currentHealth);
+    }
+
+    /**
+     * Sets the health of the Monster object.
+     *
+     * @param newHealth the health to set it to
+     */
+    public void setHealth(double newHealth) {
+        this.currentHealth = newHealth;
+    }
+
+    /**
+     * Obtains the initial value of the health of this Monster.
+     *
+     * @return initial health value
+     */
+    public double getInitialHealth() {
+        return initialHealth;
+    }
+
+    /**
+     * Sets the initialHealth value of this Monster. Instantiated upon initialization of this game.
+     *
+     * @param initialHealth the initial health of the Monster
+     * @return the initial health of this monster
+     */
+    public void setInitialHealth(double initialHealth) {
+        this.initialHealth = initialHealth;
     }
 }

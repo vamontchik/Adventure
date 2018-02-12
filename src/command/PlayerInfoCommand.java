@@ -20,5 +20,6 @@ public class PlayerInfoCommand implements Command {
         Console.println("\tAttack: " + player.getAttack());
         Console.println("\tDefense: " + player.getDefense());
         Console.println("\tHealth: " + player.getHealth());
+        Console.println("\tExperience: " + player.getExperience());
     }
 }

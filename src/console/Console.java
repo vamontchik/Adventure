@@ -4,6 +4,7 @@ import command.*;
 import data.*;
 import error.InvalidInputException;
 import error.MonsterNotFoundException;
+import error.NoItemFoundException;
 
 import java.io.InputStream;
 import java.util.Scanner;
@@ -195,7 +196,11 @@ public class Console {
         }
     }
 
-
+    /**
+     * Prints the duel status if the Player is in a duel.
+     *
+     * @param player the Player object in the game
+     */
     public static void printDuelStatus(Player player) {
         if (player.isDueling()) {
             Console.println("---------Duel Status----------");
@@ -260,7 +265,7 @@ public class Console {
      * @param layout the Layout reference necessary for some internal checks
      * @throws InvalidInputException if the Player has passed in bad input
      */
-    public static Command processInput(Player player, Layout layout) throws InvalidInputException, MonsterNotFoundException {
+    public static Command processInput(Player player, Layout layout) throws InvalidInputException, MonsterNotFoundException, NoItemFoundException {
         //QUIT/EXIT COMMAND
         if (command.equalsIgnoreCase("quit") || command.equalsIgnoreCase("exit")) {
             return new ExitCommand();
@@ -283,6 +288,16 @@ public class Console {
                 return new DisengageCommand(player);
             }
 
+            if (command.equalsIgnoreCase("attack")) {
+                //Check if an item is used. If so, find obtain the Item object.
+                if (args.length == 0) {
+                    return new AttackCommand(player, player.getOpponent());
+                }
+
+                Item used = player.findItemByName(concatArgsIntoString(1));
+                return new AttackCommand(player, player.getOpponent(), used);
+            }
+
         //NON-DUELING SPECIFIC COMMANDS
         } else {
             //GO COMMAND
@@ -290,7 +305,7 @@ public class Console {
                 //Check to ensure that arguments are not empty, to prevent a NullPointerException
                 ensureArgsIsNonEmpty();
 
-                return new GoCommand(player, args[0], layout, concatArgsIntoString());
+                return new GoCommand(player, args[0], layout, concatArgsIntoString(0));
             }
 
             //TAKE COMMAND
@@ -299,7 +314,7 @@ public class Console {
                 ensureArgsIsNonEmpty();
 
                 //Concatenate all the arg values into one String, in case the name of the item is more than one word
-                String userItemName = concatArgsIntoString();
+                String userItemName = concatArgsIntoString(0);
 
                 return new TakeCommand(player, userItemName);
             }
@@ -310,7 +325,7 @@ public class Console {
                 ensureArgsIsNonEmpty();
 
                 //Concatenate all the arg values into one String, in case the name of the item is more than one word
-                String userItemName = concatArgsIntoString();
+                String userItemName = concatArgsIntoString(0);
 
                 return new DropCommand(player, userItemName);
             }
@@ -319,7 +334,7 @@ public class Console {
             if (command.equalsIgnoreCase("duel")) {
                 ensureArgsIsNonEmpty();
 
-                String nameOfMonster = concatArgsIntoString();
+                String nameOfMonster = concatArgsIntoString(0);
                 Monster monsterToFight = Layout.findMonsterByName(nameOfMonster);
 
                 return new DuelCommand(player, monsterToFight);
@@ -331,26 +346,24 @@ public class Console {
     }
 
     /**
-     * Private helper methods that concatenates all of the stored arguments into a single String.
+     * Private helper methods that concatenates all of the stored arguments into a single String, starting
+     * at the provided index.
      *
-     * @return the stored arguments as a single String
+     * @return the stored arguments, starting at the provided index, as a single String
      */
-    private static String concatArgsIntoString() {
-        String userItem;
-
-        if (args.length == 1) {
-            userItem = args[0].trim();
-        } else {
-            StringBuilder builder = new StringBuilder();
-            for (String arg : args) {
-                builder.append(arg);
-                builder.append(" ");
-            }
-            //trim() to remove the last empty space added....
-            userItem = builder.toString().trim();
+    private static String concatArgsIntoString(int startIndex) throws InvalidInputException {
+        if (startIndex >= args.length) {
+            throw new InvalidInputException("Cannot concatenate arguments when starting at index " + startIndex + "." +
+                                            "Please ensure that you entered a full set of arguments for the command.");
         }
 
-        return userItem;
+        StringBuilder builder = new StringBuilder();
+        for (int i = startIndex; i < args.length; i++) {
+            builder.append(args[i]);
+            builder.append(" ");
+        }
+
+        return builder.toString().trim();
     }
 
     /**

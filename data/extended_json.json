@@ -75,35 +75,35 @@
   "player": {
     "name": "PlayerOne",
     "items": [],
-    "attack": 1.00,
-    "defense": 1.00,
+    "attack": 2.00,
+    "defense": 2.00,
     "health": 100.00,
     "level": 1
   },
   "monsters": [
     {
       "name": "SkeletonOne",
-      "attack": 2.00,
+      "attack": 1.00,
       "defense": 1.00,
-      "health": 15.00
+      "health": 5.00
     },
     {
       "name": "SkeletonTwo",
-      "attack": 2.00,
+      "attack": 1.00,
       "defense": 1.00,
-      "health": 15.00
+      "health": 5.00
     },
     {
       "name": "SkeletonThree",
-      "attack": 2.00,
+      "attack": 1.00,
       "defense": 1.00,
-      "health": 15.00
+      "health": 5.00
     },
     {
       "name": "BossOne",
-      "attack": 20.00,
-      "defense": 30.00,
-      "health": 100.00
+      "attack": 25.00,
+      "defense": 10.00,
+      "health": 50.00
     }
   ]
 }

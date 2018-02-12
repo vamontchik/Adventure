@@ -1,6 +1,8 @@
 package data;
 
 import com.google.gson.annotations.SerializedName;
+import console.Console;
+import error.NoItemFoundException;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,7 +15,7 @@ public class Player {
     /**
      * Name of the player.
      */
-    @SerializedName("player")
+    @SerializedName("name")
     private final String name;
 
     /**
@@ -26,25 +28,27 @@ public class Player {
      * Attack power of the player.
      */
     @SerializedName("attack")
-    private final double attack;
+    private double attack;
 
     /**
      * Defense power of the player.
      */
     @SerializedName("defense")
-    private final double defense;
+    private double defense;
 
     /**
      * Total health of the player.
      */
     @SerializedName("health")
-    private final double currentHealth;
+    private double currentHealth;
+
+    private double totalHealth;
 
     /**
      * Experience level of the player.
      */
     @SerializedName("level")
-    private final int level;
+    private int level;
 
     /**
      * Room object that the player is currently inhabiting.
@@ -65,6 +69,11 @@ public class Player {
      * Boolean to check to see if the player has entered a new room or not.
      */
     private boolean hasEntered;
+
+    /**
+     * The Player's experience value.
+     */
+    private double experience;
 
     /**
      * Used only in testing.
@@ -178,6 +187,86 @@ public class Player {
     }
 
     /**
+     * Returns the experience value of the Player.
+     *
+     * @return the experience value of the Player.
+     */
+    public double getExperience() {
+        return experience;
+    }
+
+    /**
+     * Updates the Player's experience value.
+     *
+     * @param newExperience the new experience value to set to
+     */
+    public void setExperience(double newExperience) {
+        this.experience = newExperience;
+
+        levelUpIfNecessary();
+    }
+
+    /**
+     * Updates the level of the player if the correct amount of experience has been reached.
+     */
+    private void levelUpIfNecessary() {
+        //calculate how much XP is necessary to level up to the next level
+        double getExperienceToLevelUp = calculateExperience(level + 1);
+
+        //maintain a record of old level
+        int oldLevel = level;
+
+        //keep updating the level, one at a time, until the player has level correctly
+        final double TOLERANCE = 0.0001;
+        while (experience - getExperienceToLevelUp > TOLERANCE) {
+            //Console.println("You have leveled up to level " + level + "!");
+
+            level++;
+            levelUpPlayerStats();
+            experience -= getExperienceToLevelUp;
+        }
+
+        if (oldLevel != level) {
+            Console.println("You have leveled up to level " + level + " from level " + oldLevel + "!");
+        }
+    }
+
+    /**
+     *
+     */
+    private void levelUpPlayerStats() {
+       attack *= 1.5;
+       defense *= 1.5;
+
+       //leveling up will replenish the player's health
+       totalHealth *= 1.3;
+       currentHealth = totalHealth;
+    }
+
+    /**
+     * Private, recursive calculation method that returns how much total experience is needed to level up.
+     *
+     * @param level the level to calculate XP for
+     * @return the amount of total experience required to level up
+     */
+    private double calculateExperience(int level) {
+        if (level <= 2) {
+            return 25;
+        } else {
+            return (calculateExperience(level - 1) + calculateExperience(level - 2)) * 1.1;
+        }
+    }
+
+    /**
+     * Sets the health of the player.
+     *
+     * @param health the new health to set the Player's health to
+     */
+    public void setHealth(double health) {
+        this.currentHealth = health;
+    }
+
+    /**
      * Sets the dueling state of the Player.
      *
      * @param setDueling the dueling state of the Player.
@@ -271,5 +360,40 @@ public class Player {
      */
     public void setEntered(boolean hasEntered) {
         this.hasEntered = hasEntered;
+    }
+
+    /**
+     * Obtains the total possible health of the Player.
+     *
+     * @return the total health of the player.
+     */
+    public double getTotalHealth() {
+        return totalHealth;
+    }
+
+    /**
+     * Sets the total possible health of the Player.
+     *
+     * @param totalHealth the new total possible health
+     */
+    public void setTotalHealth(double totalHealth) {
+        this.totalHealth = totalHealth;
+    }
+
+    /**
+     * Finds the item within the Player's inventory by name.
+     *
+     * @param itemName the String name of the item to look for
+     * @return the Item whose name matches the itemName parameter
+     * @throws NoItemFoundException if no item exists with the given search parameter
+     */
+    public Item findItemByName(String itemName) throws NoItemFoundException {
+        for (Item i : items) {
+            if (i.getName().equalsIgnoreCase(itemName)) {
+                return i;
+            }
+        }
+
+        throw new NoItemFoundException("Item cannot be found for search string: " + itemName);
     }
 }

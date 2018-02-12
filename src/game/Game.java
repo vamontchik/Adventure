@@ -3,6 +3,7 @@ package game;
 import command.Command;
 import console.Console;
 import data.Layout;
+import data.Monster;
 import error.*;
 import validator.MapValidator;
 
@@ -21,6 +22,7 @@ public class Game {
      * Builds the Game object by:
      * <ul>
      *      <li> Attempts to parse the specified argument using GSON. </li>
+     *      <li> Finishes the initialization process for some objects within the Game. </li>
      *      <li> Validates the layout of the game object (startRoom -> endRoom) </li>
      *      <li> Finishes any extra initialization processes for the game. </li>
      * </uL>
@@ -38,8 +40,13 @@ public class Game {
             //validate that this game world is a valid one
             MapValidator.validate(layout);
 
-            //finish initialization of the Player
-            layout.getPlayer().setCurrentRoom(layout.getStartingRoom());
+            //finish initialization of certain fields. While this is dangerous, if done correctly, there are no issues... hopefully
+            layout.getPlayer().setCurrentRoom(layout.getStartingRoom()); //currentRoom field is no longer null
+            layout.getPlayer().setTotalHealth(layout.getPlayer().getHealth()); //totalHealth field initialized correctly
+
+            for (Monster incompleteMonster : layout.getMonsters()) {
+                incompleteMonster.setInitialHealth(incompleteMonster.getHealth()); //sets the totalHealth fields of each Monster
+            }
 
         } catch (InvalidInputException | IncompleteBuilderException | InvalidMapException | IOException | NoRoomException e) {
 
@@ -88,7 +95,7 @@ public class Game {
 
                 //executes the corresponding function, or fails by throwing an exception
                 command.execute();
-            } catch (InvalidInputException | MonsterNotFoundException e) {
+            } catch (InvalidInputException | MonsterNotFoundException | NoItemFoundException e) {
                 //displays the cause of the issue
                 Console.println("Error: " + e.getMessage());
 

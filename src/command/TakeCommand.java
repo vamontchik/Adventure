@@ -39,6 +39,6 @@ public class TakeCommand implements Command {
             }
         }
 
-        throw new InvalidInputException("I can't take " + userItemName);
+        throw new InvalidInputException("I can't take \'" + userItemName +"\'");
     }
 }

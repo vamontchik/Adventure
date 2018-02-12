@@ -26,7 +26,7 @@ public class ReaderTest {
     public void layoutParsingFail() throws InvalidInputException, IncompleteBuilderException {
         String badFilename = "https://somesite.com/json/nadaherehaha.json";
         thrown.expect(InvalidInputException.class);
-        thrown.expectMessage("Connection reset"); //attempted to read from a non-existent URL
+        //expectMessage() is not set because the message may be different depending on circumstance with the Internet...
         new Layout.Builder().url(badFilename).buildFromURL();
     }
 
