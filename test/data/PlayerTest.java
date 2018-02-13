@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
@@ -43,25 +44,104 @@ public class PlayerTest {
         assertEquals(0.0, testPlayer.getAttack(), TOLERANCE);
         assertEquals(0.0, testPlayer.getDefense(), TOLERANCE);
         assertEquals(0.0, testPlayer.getHealth(), TOLERANCE);
-        assertEquals(0, testPlayer.getLevel());
+        assertEquals(1, testPlayer.getLevel());
         assertEquals("testPlayer", testPlayer.getName());
     }
 
     @Test
     public void testPlayerGetAndSetCurrentRoom() {
         assertEquals(testRoom, testPlayer.getCurrentRoom());
+
         testPlayer.setCurrentRoom(null);
+
         assertEquals(null, testPlayer.getCurrentRoom());
+
         testPlayer.setCurrentRoom(testRoom);
+
         assertEquals(testRoom, testPlayer.getCurrentRoom());
     }
 
     @Test
     public void testPlayerAddAndRemoveItem() {
         assertArrayEquals(new Item[0], testPlayer.getItems());
+
         testPlayer.addItem(testItem);
+
         assertEquals(testItem, testPlayer.getItems()[0]);
+
         testPlayer.removeItem(testItem);
+
         assertArrayEquals(new Item[0], testPlayer.getItems());
+    }
+
+    @Test
+    public void testLevelingBasicOneTwo() {
+        testPlayer.setExperience(0);
+        testPlayer.setLevel(1);
+
+        assertEquals(testPlayer.getLevel(), 1);
+        assertEquals(testPlayer.getExperience(), 0, TOLERANCE);
+
+        testPlayer.setExperience(25);
+
+        assertEquals(testPlayer.getLevel(), 2);
+        assertEquals(testPlayer.getExperience(), 0, TOLERANCE);
+    }
+
+    @Test
+    public void testLevelingBasicOneThree() {
+        testPlayer.setExperience(0);
+        testPlayer.setLevel(1);
+
+        assertEquals(testPlayer.getLevel(), 1);
+        assertEquals(testPlayer.getExperience(), 0, TOLERANCE);
+
+        testPlayer.setExperience(80);
+
+        assertEquals(testPlayer.getLevel(), 3);
+        assertEquals(testPlayer.getExperience(), 0, TOLERANCE);
+    }
+
+    @Test
+    public void testLevelingBasicOneFour() {
+        testPlayer.setExperience(0);
+        testPlayer.setLevel(1);
+
+        assertEquals(testPlayer.getLevel(), 1);
+        assertEquals(testPlayer.getExperience(), 0, TOLERANCE);
+
+        testPlayer.setExperience(168);
+
+        assertEquals(testPlayer.getLevel(), 4);
+        assertEquals(testPlayer.getExperience(), 0, TOLERANCE);
+    }
+
+    @Test
+    public void testLevelingBasicOneFive() {
+        testPlayer.setExperience(0);
+        testPlayer.setLevel(1);
+
+        assertEquals(testPlayer.getLevel(), 1);
+        assertEquals(testPlayer.getExperience(), 0, TOLERANCE);
+
+        testPlayer.setExperience(325.3);
+
+        assertEquals(testPlayer.getLevel(), 5);
+        assertEquals(testPlayer.getExperience(), 0, TOLERANCE);
+    }
+
+    @Test
+    public void testLevelingHardAF() {
+        testPlayer.setExperience(0);
+        testPlayer.setLevel(1);
+
+        assertEquals(testPlayer.getLevel(), 1);
+        assertEquals(testPlayer.getExperience(), 0, TOLERANCE);
+
+        //calculated using another program
+        testPlayer.setExperience(52264.071013429326);
+
+        assertEquals(testPlayer.getLevel(), 14);
+        assertEquals(testPlayer.getExperience(), 0, TOLERANCE);
     }
 }

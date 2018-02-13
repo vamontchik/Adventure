@@ -82,6 +82,7 @@ public class Player {
         name = "testPlayer";
         items = new Item[0];
         currentRoom = testRoom;
+        level = 1;
     }
 
     /**
@@ -172,6 +173,15 @@ public class Player {
     }
 
     /**
+     * Sets the level of the player to the specified argument.
+     *
+     * @param level the level to set to
+     */
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    /**
      * Returns whether or the the Player is dueling.
      *
      * @return Returns whether or the the Player is dueling.
@@ -210,11 +220,25 @@ public class Player {
         //maintain a record of old level
         int oldLevel = level;
 
-        //keep updating the level, one at a time, until the player has level correctly
+        //tolerance values to compare doubles
         final double TOLERANCE = 0.0001;
-        while (experience - getExperienceToLevelUp > TOLERANCE) {
-            //Console.println("You have leveled up to level " + level + "!");
 
+        //keep updating the level, one at a time, until the player has level correctly in a two step process:
+        // (1) the check is two way (less or greater than tolerance) because of rounding off errors in doubles...
+        while (Math.abs(experience - getExperienceToLevelUp) > TOLERANCE && (experience > getExperienceToLevelUp)) {
+            //add level and recalc stats
+            level++;
+            levelUpPlayerStats();
+
+            //update experience value
+            experience -= getExperienceToLevelUp;
+
+            //calculate the new amount of XP needed for the next level
+            getExperienceToLevelUp = calculateExperience(level + 1);
+        }
+
+        // (2) finally, add one if the values are "equal," level up once
+        if (Math.abs(experience - getExperienceToLevelUp) < TOLERANCE) {
             level++;
             levelUpPlayerStats();
             experience -= getExperienceToLevelUp;
@@ -226,7 +250,7 @@ public class Player {
     }
 
     /**
-     *
+     * Levels up the Player's stats.
      */
     private void levelUpPlayerStats() {
        attack *= 1.5;
@@ -243,7 +267,7 @@ public class Player {
      * @param level the level to calculate XP for
      * @return the amount of total experience required to level up
      */
-    private double calculateExperience(int level) {
+    private static double calculateExperience(int level) {
         if (level <= 2) {
             return 25;
         } else {
