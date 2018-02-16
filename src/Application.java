@@ -13,7 +13,7 @@ class Application {
         // Makes sure the correct amount of arguments are passed in.
         // Defaults to the local JSON file if it is incorrect.
         if (args.length != 1) {
-            Console.println("Usage: java Game [pathToJson]");
+            Console.println("Usage: java Application [pathToJson]");
             Console.println("The argument should specify the path to the JSON by link or absolute path.");
             Console.println("Defaulting to local json file...");
             new Game("data\\extended_json.json").gameLoop();
