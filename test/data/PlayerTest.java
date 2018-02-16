@@ -39,6 +39,9 @@ public class PlayerTest {
 
     @Test
     public void testPlayerGetters() {
+        testPlayer.setExperience(0);
+        testPlayer.setLevel(1);
+
         assertEquals(testRoom, testPlayer.getCurrentRoom());
         assertArrayEquals(new Item[0], testPlayer.getItems());
         assertEquals(0.0, testPlayer.getAttack(), TOLERANCE);

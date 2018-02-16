@@ -56,7 +56,7 @@ public class PlayerInfoCommandTest {
         command.execute();
         
         String result = "Your stats: " + System.lineSeparator() +
-                "\tLevel: 0" + System.lineSeparator() +
+                "\tLevel: 1" + System.lineSeparator() +
                 "\tAttack: 0.0" + System.lineSeparator() +
                 "\tDefense: 0.0" + System.lineSeparator() +
                 "\tHealth: 0.0" + System.lineSeparator() +
